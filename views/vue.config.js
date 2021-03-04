@@ -1,6 +1,5 @@
 module.exports = {
   outputDir: __dirname + '/../public',
-  // 配置别名
   configureWebpack: {
     resolve: {
       alias: {
@@ -8,6 +7,7 @@ module.exports = {
         common: '@/common',
         components: '@/components',
         network: '@/network',
+        plugins: '@/plugins',
         views: '@/views'
       }
     }
