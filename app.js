@@ -4,10 +4,13 @@ var path = require('path')
 var cookieParser = require('cookie-parser')
 var logger = require('morgan')
 
-// var indexRouter = require('./routes/index')
-var usersRouter = require('./routes/users')
+var homeRouter = require('./routes/home.js')
+var usersRouter = require('./routes/users.js')
 
 var app = express()
+
+// 端口
+const port = 80
 
 app.use(logger('dev'))
 app.use(express.json())
@@ -15,7 +18,7 @@ app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
 app.use(express.static(path.join(__dirname, 'public')))
 
-// app.use('/', indexRouter)
+app.use('/home', homeRouter)
 app.use('/users', usersRouter)
 
 // 捕获 404 错误并前往 错误处理
@@ -33,6 +36,11 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500)
   res.write('code: ' + err.status)
   res.end()
+})
+
+// 监听端口
+app.listen(port, () => {
+  console.log('服务已启动:\nhttp://localhost:%s', port)
 })
 
 module.exports = app
