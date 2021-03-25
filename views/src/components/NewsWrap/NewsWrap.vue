@@ -171,17 +171,6 @@
               display: inline-block;
               width: 100%;
               height: 100%;
-              &:link,
-              &:visited {
-                color: inherit;
-              }
-              &:hover,
-              &:active {
-                color: #27ae60;
-              }
-              &:focus {
-                outline: none;
-              }
               div {
                 height: 100%;
                 padding: 0 10px;

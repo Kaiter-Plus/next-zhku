@@ -1,12 +1,12 @@
 <template>
   <div class="home">
     <!-- <vue-header :images="images"></vue-header> -->
-    <vue-header></vue-header>
+    <main-container />
   </div>
 </template>
 
 <script>
-  import VueHeader from 'components/Home/VueHeader.vue'
+  import MainContainer from 'components/MainContainer/MainContainer.vue'
 
   export default {
     name: 'Home',
@@ -14,7 +14,7 @@
     //   images: Array
     // },
     components: {
-      VueHeader
+      MainContainer
     }
   }
 </script>

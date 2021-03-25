@@ -28,15 +28,23 @@
       <!-- 主要内容开始 -->
       <news-wrap v-for="(title, index) in titles" :title="title" :key="index"></news-wrap>
       <!-- 主要内容结束 -->
+      <!-- 专题开始 -->
+      <special />
+      <!-- 专题结束 -->
+      <!-- 友情链接开始 -->
+      <friend-link v-for="(linkTitle, index) in links" :linkTitle="linkTitle" :key="index"></friend-link>
+      <!-- 友情链接结束 -->
     </div>
   </header>
 </template>
 
 <script>
   import NewsWrap from 'components/NewsWrap/NewsWrap.vue'
+  import FriendLink from 'components/FriendLink/FriendLink.vue'
+  import Special from '../Special/Special.vue'
 
   export default {
-    name: 'VueHeader',
+    name: 'MainContainer',
     data() {
       return {
         titles: [
@@ -45,6 +53,14 @@
           '讲座预告',
           '媒体仲恺',
           '通知'
+        ],
+        links: [
+          '校内链接',
+          '管理机构',
+          '教学机构',
+          '教辅及研究机构',
+          '学生园地',
+          '友情链接'
         ]
       }
     },
@@ -52,7 +68,9 @@
     //   images: Array
     // },
     components: {
-      NewsWrap
+      NewsWrap,
+      FriendLink,
+      Special
     }
   }
 </script>

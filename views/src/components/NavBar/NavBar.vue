@@ -1,7 +1,7 @@
 <template>
   <div class="navbar">
     <a class="logo" href="/">
-      <img src="~assets/logo.png">
+      <img src="~assets/img/logo.png">
     </a>
     <ul class="menu">
       <!-- <li v-for="(item, index) in navItems" :class="{active: isActive(index)}" :key="item.id">
@@ -76,11 +76,13 @@
     color: #222226;
     background: #fff;
     box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
-    position: relative;
+    position: sticky;
+    top: 0;
     height: 3rem;
     display: flex;
     justify-content: space-around;
     overflow: hidden;
+    z-index: 100;
     .logo {
       img {
         height: 100%;

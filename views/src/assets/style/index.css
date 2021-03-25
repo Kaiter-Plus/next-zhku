@@ -1,0 +1,19 @@
+@import './normalize.css';
+@import './reset.css';
+a {
+  text-decoration: none;
+}
+a,
+a:focus,
+button,
+button:focus {
+  outline: none;
+}
+a:link,
+a:visited {
+  color: #555666 !important;
+}
+a:hover,
+a:active {
+  color: #27ae60 !important;
+}
