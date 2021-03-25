@@ -4,8 +4,44 @@
       <img src="~assets/logo.png">
     </a>
     <ul class="menu">
-      <li v-for="(item, index) in navItems" :class="{active: currentIndex === index}" :key="item.id">
+      <!-- <li v-for="(item, index) in navItems" :class="{active: isActive(index)}" :key="item.id">
         <a href="javascript:void(0)" @click="currentIndex = index">{{item.text}}</a>
+      </li> -->
+      <li class="active">
+        <a href="javascript:void(0)">首页</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">学校概况</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">机构设置</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">人才招聘</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">教育教学</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">科学研究</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">招生就业</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">图书馆</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">纪念馆</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">雅思托福</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">校友与基金</a>
+      </li>
+      <li>
+        <a href="javascript:void(0)">公共服务</a>
       </li>
     </ul>
   </div>
@@ -14,15 +50,20 @@
 <script>
   export default {
     name: 'NavBar',
-    props: {
-      navItems: {
-        type: Array,
-        default: []
-      }
-    },
+    // props: {
+    //   navItems: {
+    //     type: Array,
+    //     default: []
+    //   }
+    // },
     data() {
       return {
         currentIndex: 0
+      }
+    },
+    methods: {
+      isActive(index) {
+        return this.currentIndex === index
       }
     }
   }
@@ -39,6 +80,7 @@
     height: 3rem;
     display: flex;
     justify-content: space-around;
+    overflow: hidden;
     .logo {
       img {
         height: 100%;

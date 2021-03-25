@@ -1,18 +1,36 @@
 <template>
   <div id="app">
-    <!-- <router-link to="/home">Home</router-link>
-    <router-link to="/about">About</router-link> -->
+    <!-- <nav-bar :navItems="navItems"></nav-bar> -->
+    <nav-bar></nav-bar>
     <router-view></router-view>
   </div>
 </template>
 
 <script>
-  import Home from 'views/Home.vue'
+  // 请求
+  import require from 'network/index.js'
+  // 组件
+  import NavBar from 'components/NavBar/NavBar.vue'
 
   export default {
     name: 'app',
+    // data() {
+    //   return {
+    //     navItems: null,
+    //     images: null
+    //   }
+    // },
+    // created() {
+    //   require('/home').then(res => {
+    //     this.navItems = res.navItems
+    //     this.images = res.images
+    //   }).catch(err => {
+    //     // 错误处理待写
+    //     console.error(err)
+    //   })
+    // },
     components: {
-      Home
+      NavBar
     }
   }
 </script>
