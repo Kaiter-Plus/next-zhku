@@ -113,24 +113,27 @@
         display: flex;
         justify-content: flex-start;
         line-height: 2rem;
-        .icon {
-          width: 32px;
-          height: 32px;
-          display: inline-block;
-          background-repeat: no-repeat;
-          background-size: 100% 100%;
-          text-align: center;
-        }
-        .title {
-          color: #20232c;
-          font-size: 18px;
-          margin-left: 5px;
-          font-weight: bolder;
-          vertical-align: middle;
-          font-style: normal;
+        .title-wrap {
+          margin-left: 16px;
+          .icon {
+            width: 32px;
+            height: 32px;
+            display: inline-block;
+            background-repeat: no-repeat;
+            background-size: 100% 100%;
+            text-align: center;
+          }
+          .title {
+            color: #20232c;
+            font-size: 18px;
+            margin-left: 5px;
+            font-weight: bolder;
+            vertical-align: middle;
+            font-style: normal;
+          }
         }
         .news-more {
-          margin: 0 0.375rem 0 auto;
+          margin: 0 2.0625rem 0 auto;
           .more {
             padding: 4px;
             text-align: center;

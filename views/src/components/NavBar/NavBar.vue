@@ -79,11 +79,17 @@
     position: sticky;
     top: 0;
     height: 3rem;
+    padding: 0 2rem;
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     overflow: hidden;
     z-index: 100;
     .logo {
+      overflow: hidden;
+      width: 12.5625rem;
+      @media screen and (max-width: 1200px) {
+        width: 3rem;
+      }
       img {
         height: 100%;
       }

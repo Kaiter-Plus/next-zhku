@@ -10,7 +10,7 @@
         <a href="javascript:void 0">友情链接</a>
         <a href="javascript:void 0">友情链接</a>
         <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
+        <a href="javascript:void 0">友情链接友情链接</a>
         <a href="javascript:void 0">友情链接</a>
         <a href="javascript:void 0">友情链接</a>
         <a href="javascript:void 0">友情链接</a>
@@ -66,7 +66,11 @@
         }
       }
       .link-content {
+        display: flex;
+        justify-content: start;
+        flex-wrap: wrap;
         a {
+          align-items: center;
           text-decoration: none;
           color: #555666;
           display: inline-block;
