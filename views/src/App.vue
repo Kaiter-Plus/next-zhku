@@ -8,7 +8,7 @@
 
 <script>
   // 请求
-  import require from 'network/index.js'
+  // import require from 'network/index.js'
   // 组件
   import NavBar from 'components/NavBar/NavBar.vue'
 
@@ -37,6 +37,7 @@
 
 <style lang="less">
   #app {
+    background-color: #f6f6f6;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
