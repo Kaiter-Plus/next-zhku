@@ -6,23 +6,53 @@
         <em class="title">{{linkTitle}}</em>
       </div>
       <div class="link-content">
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
-        <a href="javascript:void 0">友情链接</a>
+        <el-row>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接</span>
+            </a>
+          </el-col>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接友情链接</span>
+            </a>
+          </el-col>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接</span>
+            </a>
+          </el-col>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接</span>
+            </a>
+          </el-col>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接</span>
+            </a>
+          </el-col>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接</span>
+            </a>
+          </el-col>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接</span>
+            </a>
+          </el-col>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接</span>
+            </a>
+          </el-col>
+          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+            <a href="javascript:void(0)">
+              <span>友情链接</span>
+            </a>
+          </el-col>
+        </el-row>
       </div>
     </div>
   </div>
@@ -48,6 +78,7 @@
         display: flex;
         justify-content: flex-start;
         line-height: 2rem;
+        padding: 0.3rem 0 0 1rem;
         .icon {
           width: 32px;
           height: 32px;
@@ -67,7 +98,7 @@
       }
       .link-content {
         display: flex;
-        justify-content: start;
+        justify-content: center;
         flex-wrap: wrap;
         a {
           align-items: center;
@@ -75,12 +106,19 @@
           color: #555666;
           display: inline-block;
           border: 1px solid #e8e8ed;
-          padding: 0 2rem;
-          line-height: 2.5rem;
+          padding: 0 2.5rem;
           border-radius: 0.25rem;
-          margin-right: 1rem;
           font-size: 0.9375rem;
           margin-bottom: 0.3125rem;
+          @media screen and (max-width: 1430px) {
+            padding: 0 2rem;
+          }
+          @media screen and (max-width: 1300px) {
+            padding: 0 1.5rem;
+          }
+          @media screen and (max-width: 490px) {
+            padding: 0 0.5rem;
+          }
           &:link,
           &:visited {
             color: #555666;
@@ -88,6 +126,14 @@
           &:hover,
           &:active {
             border: 1px solid rgba(39, 174, 96, 0.11);
+          }
+          span {
+            display: inline-block;
+            width: 3.75rem;
+            line-height: 2rem;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
           }
         }
       }

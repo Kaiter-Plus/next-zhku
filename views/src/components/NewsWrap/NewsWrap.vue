@@ -10,80 +10,82 @@
           <a href="javascript:void 0" class="more">查看更多>></a>
         </div>
       </div>
-      <div class="news-item-wrap">
-        <ul class="item-list">
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-          <li class="item">
-            <a href="javascritp: void 0">
-              <div>
-                <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-              </div>
-            </a>
-          </li>
-        </ul>
-      </div>
+      <el-row>
+        <el-col class="news-item-wrap" :span="24">
+          <el-row class="item-list">
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+            <el-col class="item" :span="11" :xs="{span: 22}">
+              <a href="javascritp:void(0)">
+                <div>
+                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                </div>
+              </a>
+            </el-col>
+          </el-row>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -108,6 +110,9 @@
       overflow: hidden;
       width: 98%;
       height: 20rem;
+      @media screen and (max-width: 768px) {
+        height: 18.5rem;
+      }
       .news-title {
         margin-bottom: 0.375rem;
         display: flex;
@@ -154,21 +159,16 @@
         .item-list {
           display: flex;
           flex-flow: row wrap;
-          justify-content: flex-start;
+          justify-content: center;
           align-content: flex-start;
           width: 100%;
-          padding: 0 0.75rem;
           .item {
             display: flex;
             height: 2.5rem;
-            margin-right: 0.75rem;
-            margin-bottom: 0.5rem;
+            margin: 0.25rem 0.625rem 0.5rem;
             background: #fff;
             box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
-            margin-top: 0.25rem;
             border-radius: 0.25rem;
-            width: 48%;
-            margin-left: 4px;
             a {
               text-decoration: none;
               display: inline-block;

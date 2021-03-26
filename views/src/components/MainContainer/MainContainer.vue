@@ -1,40 +1,44 @@
 <template>
   <header class="main">
-    <div class="content-wrap">
-      <!-- 轮播图开始 -->
-      <div class="carousel-container">
-        <el-carousel height="21.875rem">
-          <!-- <el-carousel-item v-for="image in images" :key="image.id">
+    <el-row>
+      <el-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}">
+        <!-- 轮播图开始 -->
+        <div class="carousel-container">
+          <el-carousel :interval="2500">
+            <!-- <el-carousel-item v-for="image in images" :key="image.id">
           <img class="carousel-img" :src="image.src" alt="images.alt">
         </el-carousel-item> -->
-          <el-carousel-item>
-            <div class="carousel-img one"></div>
-          </el-carousel-item>
-          <el-carousel-item>
-            <div class="carousel-img two"></div>
-          </el-carousel-item>
-          <el-carousel-item>
-            <div class="carousel-img three"></div>
-          </el-carousel-item>
-          <el-carousel-item>
-            <div class="carousel-img four"></div>
-          </el-carousel-item>
-          <el-carousel-item>
-            <div class="carousel-img five"></div>
-          </el-carousel-item>
-        </el-carousel>
-      </div>
-      <!-- 轮播图结束 -->
-      <!-- 主要内容开始 -->
-      <news-wrap v-for="(title, index) in titles" :title="title" :key="index"></news-wrap>
-      <!-- 主要内容结束 -->
-      <!-- 专题开始 -->
-      <special />
-      <!-- 专题结束 -->
-      <!-- 友情链接开始 -->
-      <friend-link v-for="(linkTitle, index) in links" :linkTitle="linkTitle" :key="index"></friend-link>
-      <!-- 友情链接结束 -->
-    </div>
+            <el-carousel-item>
+              <img class="carousel-img one" src="" alt="1">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img class="carousel-img two" src="" alt="2">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img class="carousel-img three" src="" alt="3">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img class="carousel-img four" src="" alt="4">
+            </el-carousel-item>
+            <el-carousel-item>
+              <img class="carousel-img five" src="" alt="5">
+            </el-carousel-item>
+          </el-carousel>
+        </div>
+        <!-- 轮播图结束 -->
+        <!-- 主要内容开始 -->
+        <!-- 新闻通知开始 -->
+        <news-wrap v-for="(title, index) in titles" :title="title" :key="index"></news-wrap>
+        <!-- 新闻通知结束 -->
+        <!-- 专题开始 -->
+        <special />
+        <!-- 专题结束 -->
+        <!-- 主要内容结束 -->
+        <!-- 友情链接开始 -->
+        <friend-link v-for="(linkTitle, index) in links" :linkTitle="linkTitle" :key="index"></friend-link>
+        <!-- 友情链接结束 -->
+      </el-col>
+    </el-row>
   </header>
 </template>
 
@@ -78,28 +82,22 @@
 <style lang="less" scoped>
   .main {
     .content-wrap {
-      margin: 0.75rem auto;
+      margin-top: 0.75rem;
       background: #fff;
       overflow: hidden;
       border-radius: 0.2rem;
-      @media screen and (max-width: 1280px) {
-        width: 1004px;
-      }
-      @media screen and (min-width: 1281px) and (max-width: 1439px) {
-        width: 1004px;
-      }
-      @media screen and (min-width: 1440px) and (max-width: 1919px) {
-        width: 1232px;
-      }
-      @media screen and (min-width: 1920px) {
-        width: 1692px;
-      }
       .carousel-container {
         width: 98%;
-        margin: 0.75rem auto;
+        margin: 0.75rem;
+        @media screen and (max-width: 1200px) {
+          width: 100%;
+          margin: 0;
+        }
         .carousel-img {
           width: 100%;
-          height: 21.875rem;
+          height: 100%;
+          // 临时设置
+          display: block;
         }
         .one {
           background-color: red;
@@ -116,12 +114,36 @@
         .five {
           background-color: gray;
         }
+        /deep/ .el-carousel__container {
+          @media screen and (max-width: 768px) {
+            height: 9.9375rem;
+          }
+          @media screen and (min-width: 769px) and (max-width: 992px) {
+            height: 12.9375rem;
+          }
+          @media screen and (min-width: 993px) and (max-width: 1200px) {
+            height: 14.9375rem;
+          }
+          @media screen and (min-width: 1201px) and (max-width: 1920px) {
+            height: 17.9375rem;
+          }
+          @media screen and (min-width: 1921px) {
+            height: 18.9375rem;
+          }
+        }
         /deep/ .el-carousel__arrow {
           color: #27ae60;
           background-color: rgba(39, 174, 96, 0.11);
+          @media screen and (max-width: 1200px) {
+            width: 1.25rem;
+            height: 1.25rem;
+          }
         }
         /deep/ .el-carousel__button {
           background-color: #27ae60;
+          @media screen and (max-width: 1200px) {
+            display: none;
+          }
         }
       }
     }

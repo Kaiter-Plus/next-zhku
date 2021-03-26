@@ -5,8 +5,8 @@
         <span class="icon">🐸</span>
         <em class="title">专题</em>
       </div>
-      <div class="special-content">
-        <div class="special-item-wrap">
+      <el-row class="special-content">
+        <el-col class="special-item-wrap" :span="11" :xs="{span: 22}">
           <ul>
             <li>
               <a href="javascript:void(0)">
@@ -47,8 +47,8 @@
               <a href="javascript:void(0)">进入专题</a>
             </div>
           </div>
-        </div>
-        <div class="special-item-wrap">
+        </el-col>
+        <el-col class="special-item-wrap" :span="11" :xs="{span: 22}">
           <ul>
             <li>
               <a href="javascript:void(0)">
@@ -89,8 +89,8 @@
               <a href="javascript:void(0)">进入专题</a>
             </div>
           </div>
-        </div>
-        <div class="special-item-wrap">
+        </el-col>
+        <el-col class="special-item-wrap" :span="11" :xs="{span: 22}">
           <ul>
             <li>
               <a href="javascript:void(0)">
@@ -131,8 +131,8 @@
               <a href="javascript:void(0)">进入专题</a>
             </div>
           </div>
-        </div>
-        <div class="special-item-wrap">
+        </el-col>
+        <el-col class="special-item-wrap" :span="11" :xs="{span: 22}">
           <ul>
             <li>
               <a href="javascript:void(0)">
@@ -173,8 +173,8 @@
               <a href="javascript:void(0)">进入专题</a>
             </div>
           </div>
-        </div>
-      </div>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
@@ -199,6 +199,7 @@
         display: flex;
         justify-content: flex-start;
         line-height: 2rem;
+        padding-left: 1rem;
         .icon {
           width: 32px;
           height: 32px;
@@ -217,11 +218,10 @@
         }
       }
       .special-content {
-        flex: 1;
         overflow: hidden;
         display: flex;
         flex-flow: row wrap;
-        justify-content: flex-start;
+        justify-content: center;
         align-content: flex-start;
         padding: 0 0.75rem;
         .special-item-wrap {
@@ -230,7 +230,6 @@
           box-shadow: 0 0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.1);
           border-radius: 0.25rem;
           margin: 6px;
-          width: 48%;
           ul {
             height: 8.9375rem;
             border-bottom: 1px solid #e8e8ed;
@@ -257,7 +256,8 @@
               span {
                 margin-left: 8px;
                 overflow: hidden;
-                white-space: normal;
+                white-space: nowrap;
+                text-overflow: ellipsis;
                 word-break: break-word;
                 display: flex;
                 -webkit-box-orient: vertical;
@@ -270,27 +270,28 @@
             align-items: center;
             height: 3rem;
             justify-content: space-between;
-            padding: 0 16px;
-            a {
-              display: flex;
-              align-items: center;
-              span {
-                font-size: 0.875rem;
-                font-weight: 600;
-                margin-left: 4px;
-                font-size: 17px;
-                overflow: hidden;
-                white-space: normal;
-                word-break: break-word;
+            padding: 0 1rem;
+            .special-item-title-left {
+              width: 70%;
+              a {
                 display: flex;
+                align-items: center;
+                span {
+                  font-weight: 600;
+                  margin-left: 4px;
+                  font-size: 1.0625rem;
+                  overflow: hidden;
+                  white-space: nowrap;
+                  text-overflow: ellipsis;
+                }
               }
             }
             .special-item-title-right {
-              width: 72px;
-              height: 24px;
-              border-radius: 12px;
+              width: 4.5rem;
+              height: 1.5rem;
+              border-radius: 0.75rem;
               border: 1px solid #555666;
-              cursor: pointer;
+              white-space: nowrap;
               &:hover {
                 border: 1px solid #27ae60;
               }

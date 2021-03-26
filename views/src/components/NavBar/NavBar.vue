@@ -7,6 +7,7 @@
       <!-- <li v-for="(item, index) in navItems" :class="{active: isActive(index)}" :key="item.id">
         <a href="javascript:void(0)" @click="currentIndex = index">{{item.text}}</a>
       </li> -->
+      <div class="menu-button"></div>
       <li class="active">
         <a href="javascript:void(0)">首页</a>
       </li>
@@ -82,7 +83,6 @@
     padding: 0 2rem;
     display: flex;
     justify-content: space-between;
-    overflow: hidden;
     z-index: 100;
     .logo {
       overflow: hidden;
@@ -99,6 +99,65 @@
       height: 100%;
       float: left;
       box-sizing: content-box;
+      .menu-button {
+        height: 100%;
+        position: relative;
+        display: none;
+        &::before,
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          border-bottom: 2px solid;
+          width: 2rem;
+          left: 50%;
+          transition: transform 0.3s;
+        }
+        &::before {
+          top: 40%;
+        }
+        &::after {
+          bottom: 40%;
+        }
+        &:hover {
+          &::before,
+          &::after {
+            border-color: #27ae60;
+          }
+          &::before {
+            top: 48%;
+            transform: rotate(45deg);
+          }
+          &::after {
+            bottom: 48%;
+            transform: rotate(-45deg);
+          }
+        }
+      }
+      @media screen and (max-width: 1200px) {
+        width: 4rem;
+        .menu-button {
+          display: block;
+        }
+        li {
+          background-color: #fff;
+          transform: translateX(100%);
+          transition: all 0.3s;
+        }
+        .menu-button:hover ~ li {
+          transform: translateX(0);
+          &.active::after {
+            display: block;
+            content: '';
+            width: 0.125rem;
+            height: 100%;
+            background: #27ae60;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
+        }
+      }
       li {
         position: relative;
         display: inline-block;
@@ -106,6 +165,11 @@
         font-size: 0.875rem;
         height: 100%;
         line-height: 3rem;
+        @media screen and (max-width: 1200px) {
+          display: inline-block;
+          width: 6rem;
+          text-align: center;
+        }
         a {
           text-decoration: none;
           display: block;
