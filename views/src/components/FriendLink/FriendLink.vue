@@ -3,57 +3,61 @@
     <div class="friend-link-wrap">
       <div class="link-title">
         <span class="icon">🌹</span>
-        <em class="title">{{linkTitle}}</em>
+        <em class="title">其它链接</em>
       </div>
-      <div class="link-content">
-        <el-row>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接</span>
-            </a>
-          </el-col>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接友情链接</span>
-            </a>
-          </el-col>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接</span>
-            </a>
-          </el-col>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接</span>
-            </a>
-          </el-col>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接</span>
-            </a>
-          </el-col>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接</span>
-            </a>
-          </el-col>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接</span>
-            </a>
-          </el-col>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接</span>
-            </a>
-          </el-col>
-          <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-            <a href="javascript:void(0)">
-              <span>友情链接</span>
-            </a>
-          </el-col>
-        </el-row>
-      </div>
+      <el-tabs type="border-card" class="link-tabs">
+        <el-tab-pane v-for="(link, index) in links" :label="link" :key="index">
+          <div class="link-content">
+            <el-row>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接</span>
+                </a>
+              </el-col>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接友情链接</span>
+                </a>
+              </el-col>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接</span>
+                </a>
+              </el-col>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接</span>
+                </a>
+              </el-col>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接</span>
+                </a>
+              </el-col>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接</span>
+                </a>
+              </el-col>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接</span>
+                </a>
+              </el-col>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接</span>
+                </a>
+              </el-col>
+              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
+                <a href="javascript:void(0)">
+                  <span>友情链接</span>
+                </a>
+              </el-col>
+            </el-row>
+          </div>
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
@@ -62,7 +66,7 @@
   export default {
     name: 'FriendLink',
     props: {
-      linkTitle: Array
+      links: Array
     }
   }
 </script>
@@ -99,6 +103,9 @@
           font-style: normal;
         }
       }
+      .link-tabs {
+        margin: 1.5rem;
+      }
       .link-content {
         display: flex;
         justify-content: center;
@@ -116,18 +123,19 @@
           color: #555666;
           display: inline-block;
           border: 1px solid #e8e8ed;
-          padding: 0 2.5rem;
+          padding: 0 2.2rem;
           border-radius: 0.25rem;
           font-size: 0.9375rem;
           margin-bottom: 0.3125rem;
           @media screen and (max-width: 1430px) {
-            padding: 0 2rem;
+            padding: 0 1.7rem;
           }
           @media screen and (max-width: 1300px) {
             padding: 0 1.5rem;
           }
           @media screen and (max-width: 490px) {
-            padding: 0 0.5rem;
+            padding: 0px 0.2rem;
+            font-size: 14px;
           }
           &:link,
           &:visited {
@@ -147,6 +155,13 @@
           }
         }
       }
+    }
+    /deep/ .el-tabs--border-card > .el-tabs__header .el-tabs__item:hover,
+    /deep/ .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {
+      color: #27ae60;
+    }
+    /deep/ .el-tabs--border-card > .el-tabs__header {
+      background-color: rgba(31, 145, 78, 0.11);
     }
   }
 </style>

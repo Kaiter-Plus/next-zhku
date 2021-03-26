@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <nav-bar></nav-bar>
-    <router-view></router-view>
     <!-- <nav-bar :navItems="navItems"></nav-bar> -->
+    <router-view></router-view>
+    <copyright-footer />
   </div>
 </template>
 
@@ -11,6 +12,7 @@
   // import require from 'network/index.js'
   // 组件
   import NavBar from 'components/NavBar/NavBar.vue'
+  import CopyrightFooter from 'components/CopyrightFooter/CopyrightFooter.vue'
 
   export default {
     name: 'app',
@@ -30,7 +32,8 @@
     //   })
     // },
     components: {
-      NavBar
+      NavBar,
+      CopyrightFooter
     }
   }
 </script>

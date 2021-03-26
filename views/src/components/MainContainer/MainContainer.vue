@@ -35,7 +35,7 @@
         <!-- 专题结束 -->
         <!-- 主要内容结束 -->
         <!-- 友情链接开始 -->
-        <friend-link v-for="(linkTitle, index) in links" :linkTitle="linkTitle" :key="index"></friend-link>
+        <friend-link :links="links"></friend-link>
         <!-- 友情链接结束 -->
       </el-col>
     </el-row>
