@@ -87,8 +87,9 @@
     .logo {
       overflow: hidden;
       width: 12.5625rem;
+      padding: 0.1875rem;
       @media screen and (max-width: 1200px) {
-        width: 3rem;
+        width: 2.5rem;
       }
       img {
         height: 100%;

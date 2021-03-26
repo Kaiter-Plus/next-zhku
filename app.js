@@ -16,7 +16,7 @@ app.use(logger('dev'))
 app.use(express.json())
 app.use(express.urlencoded({ extended: false }))
 app.use(cookieParser())
-app.use(express.static(path.join(__dirname, 'public')), { maxAge: 3600 * 1000 })
+app.use(express.static(path.join(__dirname, 'public'), { maxAge: 3600 * 1000 }))
 
 app.use('/home', homeRouter)
 app.use('/users', usersRouter)

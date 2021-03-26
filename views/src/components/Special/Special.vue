@@ -11,28 +11,28 @@
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
@@ -53,28 +53,28 @@
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
@@ -95,28 +95,28 @@
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
@@ -137,28 +137,28 @@
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
             <li>
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png" style="display: none">
+                <img src="~assets/img/tipHover.png">
                 <span>专题专题专题专题专题专题专题专题专题</span>
               </a>
             </li>
@@ -245,12 +245,15 @@
                 width: 0.5rem;
                 height: 0.5rem;
               }
+              img:nth-child(2) {
+                display: none;
+              }
               &:hover {
                 img:nth-child(1) {
                   display: none;
                 }
                 img:nth-child(2) {
-                  display: inline-block !important;
+                  display: inline-block;
                 }
               }
               span {

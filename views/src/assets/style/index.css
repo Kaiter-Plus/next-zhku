@@ -1,5 +1,24 @@
 @import './normalize.css';
 @import './reset.css';
+/* 设置 webkit 内核滚动朓样式 */
+/* 设置整体滚动条的样式 */
+::-webkit-scrollbar {
+  width: 9px;
+}
+/* 滚动槽 */
+::-webkit-scrollbar-track {
+  border-radius: 9px;
+  background-color: rgba(31, 145, 78, 0.11);
+}
+/* 滚动条滑块 */
+::-webkit-scrollbar-thumb {
+  border-radius: 10px;
+  background-color: #5cc989;
+}
+/* 切换窗口时滚动条的样式 */
+::-webkit-scrollbar-thumb:window-inactive {
+  background: rgba(0, 0, 0, 0.11);
+}
 a {
   text-decoration: none;
 }
@@ -11,7 +30,7 @@ button:focus {
 }
 a:link,
 a:visited {
-  color: #555666 !important;
+  color: #555666;
 }
 a:hover,
 a:active {
