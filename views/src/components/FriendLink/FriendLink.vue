@@ -79,6 +79,9 @@
         justify-content: flex-start;
         line-height: 2rem;
         padding: 0.3rem 0 0 1rem;
+        @media screen and (max-width: 1200px) {
+          padding-left: 0;
+        }
         .icon {
           width: 32px;
           height: 32px;
@@ -100,6 +103,13 @@
         display: flex;
         justify-content: center;
         flex-wrap: wrap;
+        @media screen and (min-width: 1500px) {
+          justify-content: flex-start;
+          a {
+            margin-left: 1rem;
+            margin-right: 1.5rem;
+          }
+        }
         a {
           align-items: center;
           text-decoration: none;

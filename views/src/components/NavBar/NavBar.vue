@@ -134,30 +134,6 @@
           }
         }
       }
-      @media screen and (max-width: 1200px) {
-        width: 4rem;
-        .menu-button {
-          display: block;
-        }
-        li {
-          background-color: #fff;
-          transform: translateX(100%);
-          transition: all 0.3s;
-        }
-        .menu-button:hover ~ li {
-          transform: translateX(0);
-          &.active::after {
-            display: block;
-            content: '';
-            width: 0.125rem;
-            height: 100%;
-            background: #27ae60;
-            position: absolute;
-            top: 0;
-            left: 0;
-          }
-        }
-      }
       li {
         position: relative;
         display: inline-block;
@@ -190,6 +166,33 @@
           position: absolute;
           bottom: 0;
           left: 0;
+        }
+      }
+      @media screen and (max-width: 1200px) {
+        width: 4rem;
+        visibility: hidden;
+        .menu-button {
+          display: block;
+          visibility: visible;
+        }
+        li {
+          background-color: #fff;
+          transform: translateX(100%) scale(0);
+          transition: all 0.3s;
+        }
+        &:hover li {
+          transform: translateX(0) scale(1);
+          visibility: visible;
+          &.active::after {
+            display: block;
+            content: '';
+            width: 0.125rem;
+            height: 100%;
+            background: #27ae60;
+            position: absolute;
+            top: 0;
+            left: 0;
+          }
         }
       }
     }
