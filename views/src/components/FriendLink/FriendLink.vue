@@ -11,47 +11,47 @@
             <el-row>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
               <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
                 <a href="javascript:void(0)">
-                  <span>友情链接</span>
+                  <span>友链{{index}}</span>
                 </a>
               </el-col>
             </el-row>
@@ -133,6 +133,9 @@
           @media screen and (max-width: 1300px) {
             padding: 0 1.5rem;
           }
+          @media screen and (max-width: 540px) {
+            padding: 0px 1.2rem;
+          }
           @media screen and (max-width: 490px) {
             padding: 0px 0.2rem;
             font-size: 14px;
@@ -162,6 +165,11 @@
     }
     /deep/ .el-tabs--border-card > .el-tabs__header {
       background-color: rgba(31, 145, 78, 0.11);
+    }
+    /deep/ .el-tabs__nav-next,
+    /deep/ .el-tabs__nav-prev {
+      line-height: 40px;
+      font-size: 20px;
     }
   }
 </style>
