@@ -2,6 +2,12 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from 'views/Home.vue'
 
+// 解决重复点击一个路由时报错
+const originalPush = VueRouter.prototype.push
+VueRouter.prototype.push = function push(location) {
+  return originalPush.call(this, location).catch(err => err)
+}
+
 Vue.use(VueRouter)
 
 const routes = [
@@ -15,9 +21,9 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'About',
-    component: () => import(/* webpackChunkName: "about" */ 'views/About.vue')
+    path: '/school-profile',
+    name: 'SchoolProfile',
+    component: () => import(/* webpackChunkName: "SchoolProfile" */ 'views/SchoolProfile.vue')
   }
 ]
 
