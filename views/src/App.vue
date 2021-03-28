@@ -94,8 +94,6 @@
 
 <style lang="less">
   #app {
-    height: 100vh;
-    // overflow: hidden;
     background-color: #f6f6f6;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
