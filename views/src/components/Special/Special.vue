@@ -8,32 +8,11 @@
       <el-row class="special-content">
         <el-col class="special-item-wrap" :span="11" :xs="{span: 22}">
           <ul>
-            <li>
+            <li v-for="i in 4" :key="i">
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
                 <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
+                <span>{{`专题标题${i}`}}</span>
               </a>
             </li>
           </ul>
@@ -50,32 +29,11 @@
         </el-col>
         <el-col class="special-item-wrap" :span="11" :xs="{span: 22}">
           <ul>
-            <li>
+            <li v-for="i in 4" :key="i">
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
                 <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
+                <span>{{`专题标题${i}`}}</span>
               </a>
             </li>
           </ul>
@@ -92,32 +50,11 @@
         </el-col>
         <el-col class="special-item-wrap" :span="11" :xs="{span: 22}">
           <ul>
-            <li>
+            <li v-for="i in 4" :key="i">
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
                 <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
+                <span>{{`专题标题${i}`}}</span>
               </a>
             </li>
           </ul>
@@ -134,32 +71,11 @@
         </el-col>
         <el-col class="special-item-wrap" :span="11" :xs="{span: 22}">
           <ul>
-            <li>
+            <li v-for="i in 4" :key="i">
               <a href="javascript:void(0)">
                 <img src="~assets/img/tip.png">
                 <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
-              </a>
-            </li>
-            <li>
-              <a href="javascript:void(0)">
-                <img src="~assets/img/tip.png">
-                <img src="~assets/img/tipHover.png">
-                <span>专题专题专题专题专题专题专题专题专题</span>
+                <span>{{`专题标题${i}`}}</span>
               </a>
             </li>
           </ul>

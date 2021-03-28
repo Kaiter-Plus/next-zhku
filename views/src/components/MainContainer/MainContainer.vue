@@ -139,8 +139,10 @@
             height: 1.25rem;
           }
         }
-        /deep/ .el-carousel__button {
-          background-color: #27ae60;
+        /deep/ .el-carousel__indicators--horizontal {
+          .el-carousel__button {
+            background-color: #27ae60;
+          }
           @media screen and (max-width: 1200px) {
             display: none;
           }

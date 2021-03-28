@@ -69,11 +69,7 @@
       // 菜单点击事件
       isClick() {
         this.isClickState = !this.isClickState
-        if (this.isClickState) {
-          this.$refs.menuItemWrap.style = 'visibility:visible;opacity:1;'
-        } else {
-          this.$refs.menuItemWrap.style = 'visibility:hidden;opacity:0;'
-        }
+        this.$refs.menuItemWrap.classList.toggle('menu-item-show')
       },
       // 菜单项点击事件
       isActive(index) {
@@ -92,6 +88,8 @@
     box-shadow: 0 0.125rem 0.25rem 0 rgba(0, 0, 0, 0.2);
     position: sticky;
     top: 0;
+    background-color: rgba(248, 248, 248, 0.4);
+    backdrop-filter: blur(15px);
     height: 3rem;
     padding: 0 2rem;
     display: flex;
@@ -102,7 +100,7 @@
       width: 12.5625rem;
       padding: 0.1875rem;
       @media screen and (max-width: 1200px) {
-        width: 2.5rem;
+        width: 2.46rem;
       }
       img {
         height: 100%;
@@ -168,18 +166,20 @@
           padding: 0 10px;
         }
         &:hover {
-          color: #222226;
           background: #f0f0f5;
         }
-        &.active::after {
-          display: block;
-          content: '';
-          width: 100%;
-          height: 0.125rem;
-          background: #27ae60;
-          position: absolute;
-          bottom: 0;
-          left: 0;
+        &.active {
+          color: #27ae60;
+          &::after {
+            display: block;
+            content: '';
+            width: 100%;
+            height: 0.125rem;
+            background: #27ae60;
+            position: absolute;
+            bottom: 0;
+            left: 0;
+          }
         }
       }
       @media screen and (max-width: 1200px) {
@@ -193,6 +193,9 @@
           transition: all 0.3s;
           li {
             background-color: #fff;
+            &:hover {
+              background: #f0f0f5;
+            }
             &.active::after {
               display: block;
               content: '';
@@ -205,7 +208,14 @@
             }
           }
         }
+        .menu-item-show {
+          opacity: 1;
+          visibility: visible;
+        }
       }
+    }
+    @media screen and (max-width: 1200px) {
+      padding-left: 1rem;
     }
   }
 </style>

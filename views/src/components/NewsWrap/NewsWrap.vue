@@ -13,73 +13,10 @@
       <el-row>
         <el-col class="news-item-wrap" :span="24">
           <el-row class="item-list">
-            <el-col class="item" :span="11" :xs="{span: 22}">
+            <el-col class="item" :span="11" :xs="{span: 22}" v-for="i in 10" :key="i">
               <a href="javascritp:void(0)">
                 <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
-                </div>
-              </a>
-            </el-col>
-            <el-col class="item" :span="11" :xs="{span: 22}">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>人文与社会科学学院师生在“挑战杯”仲园大学生课外学术科技作品竞赛中再获佳绩</p>
+                  <p>{{`新闻列表${i}`}}</p>
                 </div>
               </a>
             </el-col>
