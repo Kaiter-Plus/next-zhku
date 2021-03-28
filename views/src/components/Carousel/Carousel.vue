@@ -27,6 +27,7 @@
   .carousel-container {
     width: 98%;
     margin: 0.75rem;
+    overflow: hidden;
     @media screen and (max-width: 1200px) {
       width: 100%;
       margin: 0;
@@ -51,6 +52,9 @@
     }
     .five {
       background-color: gray;
+    }
+    /deep/ .el-carousel {
+      overflow: hidden;
     }
     /deep/ .el-carousel__container {
       @media screen and (max-width: 768px) {

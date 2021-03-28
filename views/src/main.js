@@ -9,6 +9,7 @@ import 'element-ui/lib/theme-chalk/index.css'
 
 Vue.config.productionTip = false
 
+// oading 服务
 Vue.prototype.$loading = Loading.service
 
 new Vue({

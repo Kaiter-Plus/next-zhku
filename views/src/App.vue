@@ -1,6 +1,6 @@
 <template>
-  <div id="app">
-    <nav-bar :navItems="navItems"></nav-bar>
+  <div id="app" class="app">
+    <nav-bar :navItems="navItems" />
     <el-row class="main-container">
       <el-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}">
         <keep-alive>
@@ -94,6 +94,8 @@
 
 <style lang="less">
   #app {
+    height: 100vh;
+    // overflow: hidden;
     background-color: #f6f6f6;
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
