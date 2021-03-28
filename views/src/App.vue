@@ -3,7 +3,9 @@
     <nav-bar :navItems="navItems"></nav-bar>
     <el-row class="main-container">
       <el-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}">
-        <router-view></router-view>
+        <keep-alive>
+          <router-view></router-view>
+        </keep-alive>
       </el-col>
     </el-row>
     <copyright-footer />
