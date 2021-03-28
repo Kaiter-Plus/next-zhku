@@ -1,7 +1,6 @@
 @import './normalize.css';
 @import './reset.css';
-/* 设置 webkit 内核滚动朓样式 */
-/* 设置整体滚动条的样式 */
+/* 设置 webkit 内核滚动朓样式 */ /* 设置整体滚动条的样式 */
 ::-webkit-scrollbar {
   width: 9px;
 }

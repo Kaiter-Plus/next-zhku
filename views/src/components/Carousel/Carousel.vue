@@ -25,7 +25,6 @@
 
 <style lang="less" scoped>
   .carousel-container {
-    width: 98%;
     margin: 0.75rem;
     overflow: hidden;
     @media screen and (max-width: 1200px) {

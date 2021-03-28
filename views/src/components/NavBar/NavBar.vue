@@ -95,21 +95,25 @@
           content: '';
           display: block;
           position: absolute;
+          height: 0.375rem;
           border-bottom: 2px solid;
+          border-top: 2px solid;
           width: 2rem;
           left: 50%;
-          transition: transform 0.3s;
+          transition: all 0.3s;
         }
         &::before {
-          top: 40%;
+          top: 32%;
         }
         &::after {
-          bottom: 40%;
+          bottom: 32%;
         }
       }
       .click {
         &::before,
         &::after {
+          height: 0;
+          border-top: none;
           border-color: #27ae60;
         }
         &::before {

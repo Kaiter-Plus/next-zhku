@@ -1,11 +1,20 @@
 <template>
   <div id="app" class="app">
+    <!-- 导航栏 -->
     <nav-bar :navItems="navItems" />
+
+    <!-- 主要内容区域 -->
     <el-row class="main-container">
       <el-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}">
+
+        <!-- 轮播图 -->
+        <carousel />
+
+        <!-- 主要内容 -->
         <keep-alive>
-          <router-view></router-view>
+          <router-view />
         </keep-alive>
+
       </el-col>
     </el-row>
     <copyright-footer />
@@ -17,6 +26,7 @@
   // import require from 'network/index.js'
   // 组件
   import NavBar from 'components/NavBar/NavBar.vue'
+  import Carousel from 'components/Carousel/Carousel.vue'
   import CopyrightFooter from 'components/CopyrightFooter/CopyrightFooter.vue'
 
   export default {
@@ -87,6 +97,7 @@
     // },
     components: {
       NavBar,
+      Carousel,
       CopyrightFooter
     }
   }

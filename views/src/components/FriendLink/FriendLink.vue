@@ -6,56 +6,14 @@
         <em class="title">其它链接</em>
       </div>
       <el-tabs type="border-card" class="link-tabs">
-        <el-tab-pane v-for="(link, index) in links" :label="link" :key="index">
-          <div class="link-content">
-            <el-row>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-              <el-col :xs="{span: 6}" :sm="{span: 4}" :md="{span: 3}">
-                <a href="javascript:void(0)">
-                  <span>友链{{index}}</span>
-                </a>
-              </el-col>
-            </el-row>
-          </div>
+        <el-tab-pane v-for="(link, index) in links" :label="link.title" :key="index">
+          <el-row class="link-content">
+            <el-col class="link-item" v-for="(subLink, index) in link.children" :key="index">
+              <a :href="subLink.link">
+                <span :title="subLink.name">{{subLink.name}}</span>
+              </a>
+            </el-col>
+          </el-row>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -108,14 +66,11 @@
       }
       .link-content {
         display: flex;
-        justify-content: center;
+        justify-content: flex-start;
         flex-wrap: wrap;
-        @media screen and (min-width: 1500px) {
-          justify-content: flex-start;
-          a {
-            margin-left: 1rem;
-            margin-right: 1.5rem;
-          }
+        .link-item {
+          width: auto;
+          margin-right: 1rem;
         }
         a {
           align-items: center;
@@ -150,7 +105,7 @@
           }
           span {
             display: inline-block;
-            width: 3.75rem;
+            // width: 3.75rem;
             line-height: 2rem;
             overflow: hidden;
             white-space: nowrap;
