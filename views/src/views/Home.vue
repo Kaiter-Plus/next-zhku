@@ -14,9 +14,9 @@
 </template>
 
 <script>
-  import NewsWrap from 'components/NewsWrap/NewsWrap.vue'
-  import FriendLink from 'components/FriendLink/FriendLink.vue'
-  import Special from 'components/Special/Special.vue'
+  import NewsWrap from 'components/Home/NewsWrap.vue'
+  import FriendLink from 'components/Home/FriendLink.vue'
+  import Special from 'components/Home/Special.vue'
 
   export default {
     name: 'Home',

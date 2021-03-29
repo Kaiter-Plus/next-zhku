@@ -23,9 +23,9 @@
   // 请求
   // import require from 'network/index.js'
   // 组件
-  import NavBar from 'components/NavBar/NavBar.vue'
-  import Carousel from 'components/Carousel/Carousel.vue'
-  import CopyrightFooter from 'components/CopyrightFooter/CopyrightFooter.vue'
+  import NavBar from 'components/common/NavBar.vue'
+  import Carousel from 'components/common/Carousel.vue'
+  import CopyrightFooter from 'components/common/CopyrightFooter.vue'
 
   export default {
     name: 'app',

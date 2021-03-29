@@ -15,7 +15,7 @@
   export default {
     data() {
       return {
-        url: '/zc.pdf',
+        url: './zc.pdf',
         pageNum: 1,
         pageTotalNum: 1,
         loadedRatio: 0
