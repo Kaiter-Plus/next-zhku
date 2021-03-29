@@ -38,7 +38,7 @@
       flex-wrap: wrap;
       .gallery-item {
         width: 30%;
-        margin-bottom: 1.5rem;
+        margin: 1.5rem 0;
         box-sizing: content-box;
         display: flex;
         flex-direction: column;
@@ -47,6 +47,9 @@
         border-radius: 4px;
         overflow: hidden;
         transition: all 0.3s;
+        @media screen and (max-width: 992px) {
+          width: 80%;
+        }
         .image {
           height: auto;
           width: 100%;

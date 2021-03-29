@@ -42,7 +42,7 @@
           },
           {
             name: '机构设置',
-            path: ''
+            path: '/organization-setup'
           },
           {
             name: '人才招聘',

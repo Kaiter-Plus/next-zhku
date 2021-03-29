@@ -23,8 +23,11 @@
     name: 'Incumbent',
     data() {
       return {
-        url: 'https://www.zhku.edu.cn/__local/F/BB/A6/A73084B778B67E0B70EC52020C1_88AF66B2_25363.jpg',
-        srcList: ['https://www.zhku.edu.cn/__local/F/BB/A6/A73084B778B67E0B70EC52020C1_88AF66B2_25363.jpg', '']
+        url: 'https://www.zhku.edu.cn/__local/8/38/D3/66C68D7438E504309F2DD309A82_58FEC2AE_81DAC.gif',
+        srcList: [
+          'https://www.zhku.edu.cn/__local/8/38/D3/66C68D7438E504309F2DD309A82_58FEC2AE_81DAC.gif',
+          'https://www.zhku.edu.cn/__local/F/BB/A6/A73084B778B67E0B70EC52020C1_88AF66B2_25363.jpg'
+        ]
       }
     }
   }
@@ -38,7 +41,7 @@
       flex-wrap: wrap;
       .gallery-item {
         width: 20%;
-        margin-bottom: 1.5rem;
+        margin: 1.5rem 0;
         box-sizing: content-box;
         display: flex;
         flex-direction: column;
@@ -47,6 +50,9 @@
         border-radius: 4px;
         overflow: hidden;
         transition: all 0.3s;
+        @media screen and (max-width: 992px) {
+          width: 80%;
+        }
         .image {
           height: auto;
           width: 100%;

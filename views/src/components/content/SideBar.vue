@@ -2,10 +2,10 @@
   <div class="side-bar-container">
     <div class="side-bar-menu-button" @click="showMenu" :class="{click: isShow}"></div>
     <el-menu class="side-bar-menu" :class="{show: isShow}" default-active="0" @select="handleSelect">
-      <el-menu-item v-for="(spItem, index) in schoolProfileList" :index="String(index)" :key="index"
-        @click="switchPanel(spItem.path)">
+      <el-menu-item v-for="(item, index) in sideBarList" :index="String(index)" :key="index"
+        @click="switchPanel(item.path)">
         <i class=" el-icon-location"></i>
-        <span slot="title">{{spItem.title}}</span>
+        <span slot="title">{{item.title}}</span>
       </el-menu-item>
     </el-menu>
   </div>
@@ -21,7 +21,7 @@
       }
     },
     props: {
-      schoolProfileList: Array
+      sideBarList: Array
     },
     methods: {
       showMenu() {

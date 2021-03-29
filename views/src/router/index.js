@@ -9,6 +9,11 @@ import SchoolScenery from 'components/SchoolProfile/SchoolScenery'
 import SchoolIntroduce from 'components/SchoolProfile/SchoolIntroduce'
 import SchoolConstitution from 'components/SchoolProfile/SchoolConstitution'
 
+// 机构设置组件组
+import ResearchOrg from 'components/OrganizationSetup/ResearchOrg.vue'
+import ManagementOrg from 'components/OrganizationSetup/ManagementOrg.vue'
+import TeachingAndAuxiliaryOrg from 'components/OrganizationSetup/TeachingAndAuxiliaryOrg.vue'
+
 // 解决重复点击一个路由时报错
 const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
@@ -27,6 +32,7 @@ const routes = [
     name: 'Home',
     component: Home
   },
+  // 学校概况
   {
     path: '/school-profile',
     component: () => import(/* webpackChunkName: "SchoolProfile" */ 'views/SchoolProfile.vue'),
@@ -54,6 +60,29 @@ const routes = [
       {
         path: 'school-constitution',
         component: SchoolConstitution
+      }
+    ]
+  },
+  // 机构设置
+  {
+    path: '/organization-setup',
+    component: () => import(/* webpackChunkName: "SchoolProfile" */ 'views/OrganizationSetup.vue'),
+    children: [
+      {
+        path: '/',
+        redirect: 'management-org'
+      },
+      {
+        path: 'management-org',
+        component: ManagementOrg
+      },
+      {
+        path: 'teaching-and-auxiliary-org',
+        component: TeachingAndAuxiliaryOrg
+      },
+      {
+        path: 'research-org',
+        component: ResearchOrg
       }
     ]
   }
