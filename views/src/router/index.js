@@ -29,7 +29,6 @@ const routes = [
   },
   {
     path: '/school-profile',
-    name: 'SchoolProfile',
     component: () => import(/* webpackChunkName: "SchoolProfile" */ 'views/SchoolProfile.vue'),
     children: [
       {

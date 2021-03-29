@@ -11,9 +11,7 @@
         <carousel />
 
         <!-- 主要内容 -->
-        <keep-alive>
-          <router-view />
-        </keep-alive>
+        <router-view />
 
       </el-col>
     </el-row>

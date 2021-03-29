@@ -22,6 +22,7 @@
     name: 'Home',
     data() {
       return {
+        // loading: null,
         titles: [
           '学校要闻',
           '校园快讯',
@@ -432,12 +433,14 @@
       }
     },
     // 加载动画
-    // created() {
-    //   const loading = this.$loading({
+    // beforeCreate() {
+    //   this.loading = this.$loading({
     //     fullscreen: true
     //   })
+    // },
+    // created() {
     //   this.$nextTick(() => {
-    //     loading.close()
+    //     this.loading.close()
     //   })
     // },
     // props: {

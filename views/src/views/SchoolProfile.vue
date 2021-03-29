@@ -2,8 +2,7 @@
   <div class="school-profile">
     <div class="school-profile-wrap">
       <div class="school-profile-title">
-        <i class="icon">🌹</i>
-        <em class="title">学校概况</em>
+        <el-page-header @back="$router.go(-1)" content="学校概况"></el-page-header>
       </div>
       <el-row>
         <!-- 侧边栏 -->
@@ -11,10 +10,8 @@
           <side-bar :schoolProfileList="schoolProfileList" />
         </el-col>
         <!-- 内容区 -->
-        <el-col :span="20">
-          <keep-alive>
-            <router-view class="school-profile-panel" />
-          </keep-alive>
+        <el-col :span="20" class="main-content-wrap">
+          <router-view class="school-profile-panel" />
         </el-col>
       </el-row>
     </div>
@@ -22,7 +19,7 @@
 </template>
 
 <script>
-  import SideBar from '../components/SchoolProfile/SideBar.vue'
+  import SideBar from 'components/SchoolProfile/SideBar.vue'
 
 
   export default {
@@ -68,26 +65,29 @@
         display: flex;
         justify-content: flex-start;
         line-height: 2rem;
-        margin-left: 16px;
-        .icon {
-          width: 32px;
-          height: 32px;
-          display: inline-block;
-          background-repeat: no-repeat;
-          background-size: 100% 100%;
-          text-align: center;
-        }
-        .title {
-          color: #20232c;
-          font-size: 18px;
-          margin-left: 5px;
-          font-weight: bolder;
-          vertical-align: middle;
-          font-style: normal;
+        margin-left: 1rem;
+        /deep/ .el-page-header__left {
+          cursor: pointer;
+          &:hover,
+          &:active {
+            color: #5cc989;
+          }
         }
       }
       .school-profile-panel {
-        border-top: 1px solid #e6e6e6;
+        border: 1px solid #e6e6e6;
+        padding: 2rem;
+      }
+      @media screen and (max-width: 992px) {
+        .main-content-wrap {
+          width: 100%;
+        }
+        /deep/ .el-page-header__left * {
+          font-size: 0.5rem;
+        }
+        /deep/ .el-page-header__content {
+          font-size: 0.75rem;
+        }
       }
     }
   }
