@@ -14,10 +14,9 @@
         <el-col class="news-item-wrap" :span="24">
           <el-row class="item-list">
             <el-col class="item" :span="11" :xs="{span: 22}" v-for="i in 10" :key="i">
-              <a href="javascritp:void(0)">
-                <div>
-                  <p>{{`新闻列表${i}`}}</p>
-                </div>
+              <a href="javascritp:void(0)" :title="`新闻列表${i}`" @click="$router.push('/news')">
+                <p>{{`新闻列表${i}`}}</p>
+                <p>2021-05-05</p>
               </a>
             </el-col>
           </el-row>
@@ -56,10 +55,10 @@
         justify-content: flex-start;
         line-height: 2rem;
         .title-wrap {
-          margin-left: 16px;
+          margin-left: 1rem;
           .icon {
-            width: 32px;
-            height: 32px;
+            width: 2rem;
+            height: 2rem;
             display: inline-block;
             background-repeat: no-repeat;
             background-size: 100% 100%;
@@ -67,8 +66,8 @@
           }
           .title {
             color: #20232c;
-            font-size: 18px;
-            margin-left: 5px;
+            font-size: 1.125rem;
+            margin-left: 0.3125rem;
             font-weight: bolder;
             vertical-align: middle;
             font-style: normal;
@@ -77,15 +76,15 @@
         .news-more {
           margin: 0 2.0625rem 0 auto;
           .more {
-            padding: 4px;
+            padding: 0.25rem;
             text-align: center;
             color: #27ae60;
-            font-size: 14px;
+            font-size: 0.875rem;
             width: 6.625rem;
             height: 1.5rem;
             text-decoration: none;
             background: rgba(39, 174, 96, 0.05);
-            border-radius: 4px;
+            border-radius: 0.25rem;
             border: 1px solid rgba(39, 174, 96, 0.11);
           }
         }
@@ -107,20 +106,26 @@
             box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1);
             border-radius: 0.25rem;
             a {
+              display: flex;
               text-decoration: none;
-              display: inline-block;
               width: 100%;
               height: 100%;
-              div {
-                height: 100%;
-                padding: 0 10px;
-                p {
-                  font-size: 14px;
-                  font-weight: 400;
-                  line-height: 2.5rem;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                  white-space: nowrap;
+              justify-content: space-between;
+              p {
+                display: block;
+                font-size: 14px;
+                font-weight: 400;
+                line-height: 2.5rem;
+                overflow: hidden;
+                text-overflow: ellipsis;
+                white-space: nowrap;
+                &:nth-child(1) {
+                  flex: 1;
+                  margin-left: 0.625rem;
+                }
+                &:nth-child(2) {
+                  width: 4.5rem;
+                  margin-right: 0.625rem;
                 }
               }
             }

@@ -6,7 +6,7 @@
       </div>
       <el-row>
         <!-- 侧边栏 -->
-        <el-col :span="4">
+        <el-col :span="4" class="page-side-bar">
           <side-bar :sideBarList="sideBarList" />
         </el-col>
         <!-- 内容区 -->
@@ -44,12 +44,23 @@
         justify-content: flex-start;
         line-height: 2rem;
         margin-left: 1rem;
+        @media screen and (min-width: 992px) {
+          position: sticky;
+          top: 3.75rem;
+          z-index: 102;
+        }
         /deep/ .el-page-header__left {
           cursor: pointer;
           &:hover,
           &:active {
             color: #5cc989;
           }
+        }
+      }
+      .page-side-bar {
+        @media screen and (min-width: 992px) {
+          position: sticky;
+          top: 90px;
         }
       }
       .page-cli-panel {
@@ -60,10 +71,10 @@
           width: 100%;
         }
         /deep/ .el-page-header__left * {
-          font-size: 0.5rem;
+          font-size: 0.8rem;
         }
         /deep/ .el-page-header__content {
-          font-size: 0.75rem;
+          font-size: 0.85rem;
         }
       }
     }

@@ -1,7 +1,7 @@
 <template>
   <div id="app" class="app">
     <!-- 导航栏 -->
-    <nav-bar :navItems="navItems" />
+    <nav-bar :navItems="navItems" ref="navBar" />
 
     <!-- 主要内容区域 -->
     <el-row class="main-container">
@@ -110,7 +110,6 @@
     .content-wrap {
       margin-top: 0.75rem;
       background: #fff;
-      overflow: hidden;
       border-radius: 0.2rem;
     }
   }

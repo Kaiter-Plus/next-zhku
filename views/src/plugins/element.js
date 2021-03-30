@@ -10,8 +10,7 @@ import {
   MenuItem,
   PageHeader,
   Image,
-  Button,
-  ButtonGroup
+  Pagination
 } from 'element-ui'
 
 // 基础布局
@@ -27,9 +26,8 @@ Vue.use(MenuItem)
 Vue.use(PageHeader)
 // 图片
 Vue.use(Image)
-// 按钮
-Vue.use(Button)
-Vue.use(ButtonGroup)
+// 分页
+Vue.use(Pagination)
 // 轮播图/走马灯
 Vue.use(Carousel)
 Vue.use(CarouselItem)

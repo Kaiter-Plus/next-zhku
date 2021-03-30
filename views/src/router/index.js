@@ -19,6 +19,10 @@ const originalPush = VueRouter.prototype.push
 VueRouter.prototype.push = function push(location) {
   return originalPush.call(this, location).catch(err => err)
 }
+const originalReplace = VueRouter.prototype.replace
+VueRouter.prototype.replace = function replace(location) {
+  return originalReplace.call(this, location).catch(err => err)
+}
 
 Vue.use(VueRouter)
 
@@ -66,7 +70,7 @@ const routes = [
   // 机构设置
   {
     path: '/organization-setup',
-    component: () => import(/* webpackChunkName: "SchoolProfile" */ 'views/OrganizationSetup.vue'),
+    component: () => import(/* webpackChunkName: "OrganizationSetup" */ 'views/OrganizationSetup.vue'),
     children: [
       {
         path: '/',
@@ -85,6 +89,11 @@ const routes = [
         component: ResearchOrg
       }
     ]
+  },
+  // 新闻、通知
+  {
+    path: '/news',
+    component: () => import(/* webpackChunkName: "News" */ 'views/News.vue')
   }
 ]
 

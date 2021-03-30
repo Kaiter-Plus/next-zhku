@@ -34,7 +34,7 @@
         border-radius: 0.25rem;
         padding: 0.5rem;
         font-size: 0.875rem;
-        border: solid 1px;
+        box-shadow: 0 0.0625rem 0.25rem 0 rgba(0, 0, 0, 0.1);
         img {
           width: 0.5rem;
           height: 0.5rem;
