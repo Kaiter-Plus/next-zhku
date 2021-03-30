@@ -22,17 +22,45 @@
             <p>
               3月28日下午，我校在海珠校区行政楼409会议室召开了健康养殖创新研究院学术委员会成立大会暨第一届学术委员会会议，会议由肖更生副校长主持。科技处处长周新华宣读了学校《关于同意成立健康养殖创新研究院学术委员会的批复》，中国工程院院士麦康森、陈焕春，广东省农业科学院廖明教授，中国农业大学呙于明教授，华南农业大学江青艳教授、吴珍芳教授、李永涛教授，华南理工大学赵谋明教授、中国水产科学研究院珠江水产研究所卢迈新研究员、仲恺农业工程学院田允波教授、林蠡教授、王玮教授等当选为健康养殖创新研究院第一届学术委员会委员，肖更生副校长为学术委员会委员颁发了聘书。健康养殖创新研究院全体教师参加了会议。
             </p>
-            <img src="https://news.zhku.edu.cn/__local/0/71/C6/81439BF49CBA2718505FF9C7C96_1224EC3A_3EF2C.jpg"
-              alt="111">
+            <el-image src="https://news.zhku.edu.cn/__local/0/71/C6/81439BF49CBA2718505FF9C7C96_1224EC3A_3EF2C.jpg"
+              fit="fill" :lazy="true" :preview-src-list="srcList">
+              <div slot="placeholder" class="image-slot">
+                <span class="tip">加载中...</span>
+              </div>
+              <div slot="error" class="image-slot">
+                <i class="el-icon-picture-outline"></i>
+              </div>
+            </el-image>
             <p>
               会议一致推举麦康森院士担任学术委员会主任，廖明教授、田允波教授担任副主任，王玮教授担任学委会秘书。
             </p>
-            <img src="https://news.zhku.edu.cn/__local/A/40/84/1FCB132D8A840506681027A1BBF_BB978A11_17D53.jpg"
-              alt="111">
-            <img src="https://news.zhku.edu.cn/__local/2/ED/FE/51915D9480D65BF883CEDB0D345_B73C3358_17B9A.jpg"
-              alt="111">
-            <img src="https://news.zhku.edu.cn/__local/A/6D/EE/8F6399249FEEFBB86C06FBE14C0_2B7F82AA_2EB5A.jpg"
-              alt="111">
+            <el-image src="https://news.zhku.edu.cn/__local/A/40/84/1FCB132D8A840506681027A1BBF_BB978A11_17D53.jpg"
+              fit="fill" :lazy="true" :preview-src-list="srcList">
+              <div slot="placeholder" class="image-slot">
+                <span class="tip">加载中...</span>
+              </div>
+              <div slot="error" class="image-slot">
+                <i class="el-icon-picture-outline"></i>
+              </div>
+            </el-image>
+            <el-image src="https://news.zhku.edu.cn/__local/2/ED/FE/51915D9480D65BF883CEDB0D345_B73C3358_17B9A.jpg"
+              fit="fill" :lazy="true" :preview-src-list="srcList">
+              <div slot="placeholder" class="image-slot">
+                <span class="tip">加载中...</span>
+              </div>
+              <div slot="error" class="image-slot">
+                <i class="el-icon-picture-outline"></i>
+              </div>
+            </el-image>
+            <el-image src="https://news.zhku.edu.cn/__local/A/6D/EE/8F6399249FEEFBB86C06FBE14C0_2B7F82AA_2EB5A.jpg"
+              fit="fill" :lazy="true" :preview-src-list="srcList">
+              <div slot="placeholder" class="image-slot">
+                <span class="tip">加载中...</span>
+              </div>
+              <div slot="error" class="image-slot">
+                <i class="el-icon-picture-outline"></i>
+              </div>
+            </el-image>
             <p>
               委员们首先审议并通过了《仲恺农业工程学院健康养殖创新研究院学术会员会章程》，随后，听取了研究院执行院长黄燕华教授代表研究院作的科研工作进展汇报、研究院“十四五”科研规划以及2021年科研工作计划。黄院长从平台建设、团队组建、研究内容、阶段性成果等方面总结汇报了研究院建立一年多以来的工作，分析了目前存在的不足和下一步的努力方向，围绕“方向聚焦、平台搭建、成果培育、人才托举”等方面，对“十四五”期间的科研规划进行了展望，并就2021年的科研工作计划进行了简要汇报。
             </p>
@@ -45,8 +73,15 @@
             <p>
               最后，肖更生副校长代表学校对仲恺农业工程学院健康养殖创新研究院学术委员会的成立表示祝贺，对各位专家莅临学校指导表示热烈欢迎，他简要介绍了学校的发展目标定位，研究院建设的历史背景。要求研究院要尊重、重视学术委员会，秉承“教授治学”、“专家治院”的理念，充分发挥学术委员会在研究院发展中的巨大作用。他鼓励研究院师生瞄准行业重大需求，在学术委员会的引导和监督下，开展顶天立地科学研究和技术攻关，为广东地区畜牧水产等相关行业的发展提供技术支撑。最后，他表示，将一如继往地支持研究院的建设，为打造高水平研究平台和创建高水平应用型大学提供平台和智力保障。
             </p>
-            <img src="https://news.zhku.edu.cn/__local/B/1E/94/C73D633CB19DF61839824505A84_C477562B_340EE.jpg"
-              alt="111">
+            <el-image src="https://news.zhku.edu.cn/__local/B/1E/94/C73D633CB19DF61839824505A84_C477562B_340EE.jpg"
+              fit="fill" :lazy="true" :preview-src-list="srcList">
+              <div slot="placeholder" class="image-slot">
+                <span class="tip">加载中...</span>
+              </div>
+              <div slot="error" class="image-slot">
+                <i class="el-icon-picture-outline"></i>
+              </div>
+            </el-image>
             <p>
               会后，当选的学术委员会委员集体在行政楼前合影留念并参观研究院平台。
             </p>
@@ -65,6 +100,17 @@
   import AsideItem from 'components/content/AsideItem.vue'
   export default {
     name: 'News',
+    data() {
+      return {
+        srcList: [
+          'https://news.zhku.edu.cn/__local/0/71/C6/81439BF49CBA2718505FF9C7C96_1224EC3A_3EF2C.jpg',
+          'https://news.zhku.edu.cn/__local/A/40/84/1FCB132D8A840506681027A1BBF_BB978A11_17D53.jpg',
+          'https://news.zhku.edu.cn/__local/2/ED/FE/51915D9480D65BF883CEDB0D345_B73C3358_17B9A.jpg',
+          'https://news.zhku.edu.cn/__local/A/6D/EE/8F6399249FEEFBB86C06FBE14C0_2B7F82AA_2EB5A.jpg',
+          'https://news.zhku.edu.cn/__local/B/1E/94/C73D633CB19DF61839824505A84_C477562B_340EE.jpg'
+        ]
+      }
+    },
     components: {
       AsideItem
     }
@@ -141,8 +187,10 @@
             line-height: 26px;
             margin: 0 0 16px;
           }
+          /deep/ .el-image,
           img {
             width: 100%;
+            margin: 0 0 16px;
           }
         }
       }
