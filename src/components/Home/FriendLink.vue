@@ -7,13 +7,13 @@
       </div>
       <el-tabs type="border-card" class="link-tabs">
         <el-tab-pane v-for="link in links" :label="link.title" :key="link.id">
-          <el-row class="link-content">
-            <el-col class="link-item" v-for="subLink in link.children" :key="subLink.id">
+          <zk-row class="link-content">
+            <zk-col class="link-item" v-for="subLink in link.children" :key="subLink.id">
               <a :href="subLink.href">
                 <span :title="subLink.name">{{subLink.title}}</span>
               </a>
-            </el-col>
-          </el-row>
+            </zk-col>
+          </zk-row>
         </el-tab-pane>
       </el-tabs>
     </div>
@@ -23,6 +23,10 @@
 <script>
   // 请求
   import require from 'network/index.js'
+
+  // 组件
+  import ZkRow from 'components/common/Row.vue'
+  import ZkCol from 'components/common/Col.vue'
 
   export default {
     name: 'FriendLink',
@@ -47,6 +51,10 @@
         console.error(err)
       })
     },
+    components: {
+      ZkRow,
+      ZkCol
+    }
   }
 </script>
 

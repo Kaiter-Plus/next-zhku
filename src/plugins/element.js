@@ -1,7 +1,5 @@
 import Vue from 'vue'
 import {
-  Row,
-  Col,
   Carousel,
   CarouselItem,
   Tabs,
@@ -14,9 +12,6 @@ import {
   Backtop
 } from 'element-ui'
 
-// 基础布局
-Vue.use(Row)
-Vue.use(Col)
 // 标签栏
 Vue.use(Tabs)
 Vue.use(TabPane)

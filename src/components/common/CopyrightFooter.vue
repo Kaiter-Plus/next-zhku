@@ -1,14 +1,14 @@
 <template>
   <div class="copyright-footer">
-    <el-row class="copyright-footer-wrap">
-      <el-col :span="24">
+    <zk-row class="copyright-footer-wrap">
+      <zk-col :span="24">
         <ul class="copyright-footer-top">
           <li>版权所有</li>
           <li>中国·广东·仲恺农业工程学院</li>
           <li>邮编：510225</li>
         </ul>
-      </el-col>
-      <el-col :span="24">
+      </zk-col>
+      <zk-col :span="24">
         <ul class="copyright-footer-bottom">
           <li>
             <span>当天访问量：</span>
@@ -20,14 +20,18 @@
           </li>
           <li>备案/许可证号：粤ICP备05008893号</li>
         </ul>
-      </el-col>
-    </el-row>
+      </zk-col>
+    </zk-row>
   </div>
 </template>
 
 <script>
   // 请求
   import require from 'network/index.js'
+
+  // 组件
+  import ZkRow from 'components/common/Row.vue'
+  import ZkCol from 'components/common/Col.vue'
 
   export default {
     name: 'CopyrightFooter',
@@ -52,6 +56,10 @@
         console.error(err)
       })
     },
+    components: {
+      ZkRow,
+      ZkCol
+    }
   }
 </script>
 

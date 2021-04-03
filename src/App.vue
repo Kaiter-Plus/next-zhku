@@ -7,8 +7,8 @@
     <nav-bar :navItems="navItems" ref="navBar" />
 
     <!-- 主要内容区域 -->
-    <el-row class="main-container">
-      <el-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}">
+    <zk-row class="main-container">
+      <zk-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}">
 
         <!-- 轮播图 -->
         <carousel :images="images" />
@@ -16,8 +16,8 @@
         <!-- 主要内容 -->
         <router-view :newsTitles="newsTitles" />
 
-      </el-col>
-    </el-row>
+      </zk-col>
+    </zk-row>
 
     <!-- 页脚，授权信息 -->
     <copyright-footer />
@@ -35,6 +35,8 @@
   import require from 'network/index.js'
 
   // 组件
+  import ZkRow from 'components/common/Row.vue'
+  import ZkCol from 'components/common/Col.vue'
   import Banner from 'components/common/Banner.vue'
   import NavBar from 'components/common/NavBar.vue'
   import Carousel from 'components/common/Carousel.vue'
@@ -92,6 +94,8 @@
       })
     },
     components: {
+      ZkRow,
+      ZkCol,
       NavBar,
       Carousel,
       CopyrightFooter,
@@ -105,7 +109,7 @@
     // 背景图片加载失败时的背景色
     background-color: #27ae6060;
     // 默认背景，后面做背景切换可用
-    background: url('~assets/img/background/bg0.png');
+    // background: url('~assets/img/background/bg0.png');
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

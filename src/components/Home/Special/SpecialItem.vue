@@ -1,6 +1,6 @@
 <template>
   <div class="special-item">
-    <el-col class="special-item-wrap" :span="11" :xs="{span: 22}" v-for="specialTitle in specialTitles"
+    <zk-col class="special-item-wrap" :span="11" :xs="{span: 22}" v-for="specialTitle in specialTitles"
       :key="specialTitle.id">
       <special-item-content :specialhref="specialTitle.href.split('/')[1]" />
       <div class="special-item-title">
@@ -13,13 +13,14 @@
           <a :href="specialTitle.href">进入专题</a>
         </div>
       </div>
-    </el-col>
+    </zk-col>
   </div>
 
 </template>
 
 <script>
   // 导入组件
+  import ZkCol from 'components/common/Col.vue'
   import SpecialItemContent from 'components/Home/Special/SpecialItemContent.vue'
 
   export default {
@@ -33,6 +34,7 @@
       }
     },
     components: {
+      ZkCol,
       SpecialItemContent
     }
   }

@@ -1,21 +1,25 @@
 <template>
-  <el-row class="news-item">
-    <el-col class="news-item-wrap" :span="24">
-      <el-row class="item-list">
-        <el-col class="item" :span="11" :xs="{span: 22}" v-for="news in newsList" :key="news.id">
+  <zk-row class="news-item">
+    <zk-col class="news-item-wrap" :span="24">
+      <zk-row class="item-list">
+        <zk-col class="item" :span="11" :xs="{span: 22}" v-for="news in newsList" :key="news.id">
           <a :href="news.href" :title="news.title">
             <p>{{news.title}}</p>
             <p>{{news.date}}</p>
           </a>
-        </el-col>
-      </el-row>
-    </el-col>
-  </el-row>
+        </zk-col>
+      </zk-row>
+    </zk-col>
+  </zk-row>
 </template>
 
 <script>
   // 请求
   import require from 'network/index.js'
+
+  // 组件
+  import ZkRow from 'components/common/Row.vue'
+  import ZkCol from 'components/common/Col.vue'
 
   export default {
     name: 'NewsItem',
@@ -45,6 +49,10 @@
       newsHref() {
         return this.newsHrefs.split(/\/{1,2}/g)[2]
       }
+    },
+    components: {
+      ZkRow,
+      ZkCol
     }
   }
 </script>

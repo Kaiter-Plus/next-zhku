@@ -5,9 +5,9 @@
         <span class="icon">🐸</span>
         <em class="title">专题</em>
       </div>
-      <el-row class="special-content">
+      <zk-row class="special-content">
         <special-item :specialTitles="specialTitles" />
-      </el-row>
+      </zk-row>
     </div>
   </div>
 </template>
@@ -16,7 +16,8 @@
   // 导入请求
   import require from 'network/index.js'
 
-  // 导入组件
+  // 组件
+  import ZkRow from 'components/common/Row.vue'
   import SpecialItem from 'components/Home/Special/SpecialItem.vue'
 
   export default {
@@ -40,6 +41,7 @@
       })
     },
     components: {
+      ZkRow,
       SpecialItem
     }
   }

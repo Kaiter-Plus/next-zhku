@@ -4,23 +4,25 @@
       <div class="page-cli-title">
         <el-page-header @back="$router.go(-1)" :content="title"></el-page-header>
       </div>
-      <el-row>
+      <zk-row>
         <!-- 侧边栏 -->
-        <el-col :span="4" class="page-side-bar">
+        <zk-col :span="4" class="page-side-bar">
           <side-bar :sideBarList="sideBarList" />
-        </el-col>
+        </zk-col>
         <!-- 内容区 -->
-        <el-col :span="20" class="main-content-wrap">
+        <zk-col :span="20" class="main-content-wrap">
           <router-view class="page-cli-panel" />
-        </el-col>
-      </el-row>
+        </zk-col>
+      </zk-row>
     </div>
   </div>
 </template>
 
 <script>
+  // 组件
+  import ZkRow from 'components/common/Row.vue'
+  import ZkCol from 'components/common/Col.vue'
   import SideBar from 'components/content/SideBar.vue'
-
 
   export default {
     name: 'SchoolProfile',
@@ -29,6 +31,8 @@
       sideBarList: Array
     },
     components: {
+      ZkRow,
+      ZkCol,
       SideBar
     }
   }

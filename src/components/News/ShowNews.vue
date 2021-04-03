@@ -1,10 +1,10 @@
 <template>
   <div class="news">
-    <el-row class="news-container" :gutter="10">
-      <el-col tag="aside" class="news-aside" :span="6">
+    <zk-row class="news-container" :gutter="10">
+      <zk-col tag="aside" class="news-aside" :span="6">
         <aside-item v-for="i in 4" :key="i"></aside-item>
-      </el-col>
-      <el-col tag="main" class="news-main" :span="18">
+      </zk-col>
+      <zk-col tag="main" class="news-main" :span="18">
         <div class="news-content-box">
           <div class="news-header-box">
             <div class="news-title-box">
@@ -90,13 +90,15 @@
             </p>
           </article>
         </div>
-      </el-col>
-    </el-row>
-
+      </zk-col>
+    </zk-row>
   </div>
 </template>
 
 <script>
+  // 组件
+  import ZkRow from 'components/common/Row.vue'
+  import ZkCol from 'components/common/Col.vue'
   import AsideItem from 'components/content/AsideItem.vue'
   export default {
     name: 'News',
@@ -112,6 +114,8 @@
       }
     },
     components: {
+      ZkRow,
+      ZkCol,
       AsideItem
     }
   }
