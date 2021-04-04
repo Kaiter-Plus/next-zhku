@@ -97,8 +97,8 @@
 
 <script>
   // 组件
-  import ZkRow from 'components/common/Row.vue'
-  import ZkCol from 'components/common/Col.vue'
+  import ZkRow from 'components/common/layout/Row.vue'
+  import ZkCol from 'components/common/layout/Col.vue'
   import AsideItem from 'components/content/AsideItem.vue'
   export default {
     name: 'News',

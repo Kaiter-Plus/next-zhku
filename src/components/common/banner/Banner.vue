@@ -1,9 +1,9 @@
 <template>
   <transition name="fade">
     <div v-show="isShow" class="banner">
-      <img :src="bannerSrc" alt="banner">
+      <slot></slot>
       <div class="close" @click="hidden()">
-        <i class="el-icon-close"></i>
+        <i class="iconfont icon-cuowu"></i>
       </div>
     </div>
   </transition>
@@ -12,21 +12,9 @@
 <script>
   export default {
     name: 'Banner',
-    props: {
-      bannerSrc: {
-        type: String,
-        default: ''
-      }
-    },
     data() {
       return {
         isShow: true
-      }
-    },
-    created() {
-      // 如果没有 banner 图片则直接不显示
-      if ('' === this.bannerSrc) {
-        this.isShow = false
       }
     },
     methods: {
@@ -40,9 +28,6 @@
 <style lang="less" scoped>
   .banner {
     position: relative;
-    img {
-      width: 100%;
-    }
     .close {
       position: absolute;
       width: 1.6875rem;

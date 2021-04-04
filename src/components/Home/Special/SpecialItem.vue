@@ -20,7 +20,7 @@
 
 <script>
   // 导入组件
-  import ZkCol from 'components/common/Col.vue'
+  import ZkCol from 'components/common/layout/Col.vue'
   import SpecialItemContent from 'components/Home/Special/SpecialItemContent.vue'
 
   export default {

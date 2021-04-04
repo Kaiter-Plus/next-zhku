@@ -1,39 +1,38 @@
 <template>
   <div class="side-bar-container">
     <div class="side-bar-menu-button" @click="showMenu" :class="{click: isShow}"></div>
-    <el-menu class="side-bar-menu" :class="{show: isShow}" default-active="0" @select="handleSelect">
-      <el-menu-item v-for="(item, index) in sideBarList" :index="String(index)" :key="index"
-        @click="switchPanel(item.path)">
-        <i class=" el-icon-location"></i>
-        <span slot="title">{{item.title}}</span>
-      </el-menu-item>
-    </el-menu>
+    <ul class="side-bar" :class="{show: isShow}">
+      <li class="side-bar-item" :class="{isActive: currentIndex === index}" v-for="(item, index) in sideBarList"
+        :key="index" @click="switchPanel(item.path, index)">
+        <i class="icon" :class="classList"></i>
+        <span>{{item.title}}</span>
+      </li>
+    </ul>
   </div>
 </template>
 
 <script>
   export default {
     name: 'SideBar',
+    props: {
+      sideBarList: Array,
+      classList: [String, Array]
+    },
     data() {
       return {
         isShow: false,
         currentIndex: 0
       }
     },
-    props: {
-      sideBarList: Array
-    },
     methods: {
       showMenu() {
         this.isShow = !this.isShow
       },
-      handleSelect(key) {
-        this.currentIndex = key
-      },
-      switchPanel(path) {
+      switchPanel(path, index) {
+        this.currentIndex = index
         this.isShow = !this.isShow
         this.$router.replace(path)
-      },
+      }
     }
   }
 </script>
@@ -64,8 +63,44 @@
         bottom: 32%;
       }
     }
-    .side-bar-menu {
+    .side-bar {
+      list-style: none;
+      position: relative;
+      margin: 0;
+      padding-left: 0;
       background-color: transparent;
+      .side-bar-item {
+        font-size: 14px;
+        color: #303133;
+        padding: 0 20px;
+        cursor: pointer;
+        transition: border-color 0.3s, background-color 0.3s, color 0.3s;
+        box-sizing: border-box;
+        height: 56px;
+        line-height: 56px;
+        list-style: none;
+        position: relative;
+        white-space: nowrap;
+        &:hover {
+          color: #5cc989;
+          outline: 0;
+          background-color: rgba(31, 145, 78, 0.11);
+        }
+        &.isActive {
+          position: relative;
+          background-color: rgba(31, 145, 78, 0.05);
+          &::after {
+            display: block;
+            content: '';
+            width: 0.25rem;
+            height: 100%;
+            background: #27ae60;
+            position: absolute;
+            bottom: 0;
+            right: 0;
+          }
+        }
+      }
     }
     @media screen and (max-width: 992px) {
       position: absolute;
@@ -73,11 +108,11 @@
       margin-left: 0;
       top: -44px;
       right: 0;
-      .side-bar-menu {
+      .side-bar {
         visibility: hidden;
         opacity: 0;
         transition: all 0.3s;
-        background-color: #ffffff60;
+        background-color: #ffffff;
       }
       .side-bar-menu-button {
         display: block;
@@ -103,31 +138,6 @@
           transform: rotate(-45deg);
         }
       }
-      /deep/ .el-menu-item.is-active {
-        &::after {
-          bottom: 0;
-          left: 0;
-        }
-      }
-    }
-  }
-  /deep/ .el-menu-item:focus,
-  .el-menu-item:hover {
-    color: #5cc989;
-    outline: 0;
-    background-color: rgba(31, 145, 78, 0.11);
-  }
-  /deep/ .el-menu-item.is-active {
-    color: #5cc989;
-    &::after {
-      display: block;
-      content: '';
-      width: 0.25rem;
-      height: 100%;
-      background: #27ae60;
-      position: absolute;
-      bottom: 0;
-      right: 0;
     }
   }
 </style>

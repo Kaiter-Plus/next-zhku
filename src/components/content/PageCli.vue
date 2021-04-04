@@ -2,12 +2,12 @@
   <div class="page-cli">
     <div class="page-cli-wrap">
       <div class="page-cli-title">
-        <el-page-header @back="$router.go(-1)" :content="title"></el-page-header>
+        <page-header @back="$router.go(-1)" :content="title"></page-header>
       </div>
       <zk-row>
         <!-- 侧边栏 -->
         <zk-col :span="4" class="page-side-bar">
-          <side-bar :sideBarList="sideBarList" />
+          <side-bar :sideBarList="sideBarList" :classList="classList" />
         </zk-col>
         <!-- 内容区 -->
         <zk-col :span="20" class="main-content-wrap">
@@ -20,17 +20,20 @@
 
 <script>
   // 组件
-  import ZkRow from 'components/common/Row.vue'
-  import ZkCol from 'components/common/Col.vue'
-  import SideBar from 'components/content/SideBar.vue'
+  import PageHeader from 'components/common/page-header/PageHeader.vue'
+  import ZkRow from 'components/common/layout/Row.vue'
+  import ZkCol from 'components/common/layout/Col.vue'
+  import SideBar from 'components/content/sidebar/SideBar.vue'
 
   export default {
     name: 'SchoolProfile',
     props: {
       title: String,
-      sideBarList: Array
+      sideBarList: Array,
+      classList: [String, Array]
     },
     components: {
+      PageHeader,
       ZkRow,
       ZkCol,
       SideBar
@@ -53,13 +56,6 @@
           top: 3.75rem;
           z-index: 102;
         }
-        /deep/ .el-page-header__left {
-          cursor: pointer;
-          &:hover,
-          &:active {
-            color: #5cc989;
-          }
-        }
       }
       .page-side-bar {
         @media screen and (min-width: 992px) {
@@ -74,10 +70,10 @@
         .main-content-wrap {
           width: 100%;
         }
-        /deep/ .el-page-header__left * {
+        /deep/ .page-header__left * {
           font-size: 0.8rem;
         }
-        /deep/ .el-page-header__content {
+        /deep/ .page-header__content {
           font-size: 0.85rem;
         }
       }

@@ -2,11 +2,11 @@
   <div class="friend-link">
     <div class="friend-link-wrap">
       <div class="link-title">
-        <span class="icon">🌹</span>
+        <i class="icon iconfont icon-youqinglianjie"></i>
         <em class="title">友情链接</em>
       </div>
-      <el-tabs type="border-card" class="link-tabs">
-        <el-tab-pane v-for="link in links" :label="link.title" :key="link.id">
+      <tabs type="border-card" class="link-tabs">
+        <tab-pane v-for="link in links" :label="link.title" :key="link.id">
           <zk-row class="link-content">
             <zk-col class="link-item" v-for="subLink in link.children" :key="subLink.id">
               <a :href="subLink.href">
@@ -14,8 +14,8 @@
               </a>
             </zk-col>
           </zk-row>
-        </el-tab-pane>
-      </el-tabs>
+        </tab-pane>
+      </tabs>
     </div>
   </div>
 </template>
@@ -25,8 +25,10 @@
   import require from 'network/index.js'
 
   // 组件
-  import ZkRow from 'components/common/Row.vue'
-  import ZkCol from 'components/common/Col.vue'
+  import ZkRow from 'components/common/layout/Row.vue'
+  import ZkCol from 'components/common/layout/Col.vue'
+  import Tabs from 'components/common/tabs/Tabs.vue'
+  import TabPane from 'components/common/tabs/TabPane.vue'
 
   export default {
     name: 'FriendLink',
@@ -53,7 +55,9 @@
     },
     components: {
       ZkRow,
-      ZkCol
+      ZkCol,
+      Tabs,
+      TabPane
     }
   }
 </script>
@@ -64,6 +68,7 @@
     .friend-link-wrap {
       margin: 1rem auto 0;
       width: 98%;
+      overflow: hidden;
       .link-title {
         margin-bottom: 0.375rem;
         display: flex;
@@ -143,19 +148,18 @@
         }
       }
     }
-    /deep/ .el-tabs--border-card {
+    /deep/ .tabs--border-card {
       background-color: #ffffff90;
     }
-    /deep/ .el-tabs--border-card > .el-tabs__header .el-tabs__item:hover,
-    /deep/ .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {
-      color: #27ae60;
+    /deep/ .tabs--border-card > .tabs__header .tabs__item:hover,
+    /deep/ .tabs--border-card > .tabs__header .tabs__item.is-active {
       background-color: #ffffff80;
     }
-    /deep/ .el-tabs--border-card > .el-tabs__header {
+    /deep/ .tabs--border-card > .tabs__header.is-top {
       background-color: rgba(31, 145, 78, 0.11);
     }
-    /deep/ .el-tabs__nav-next,
-    /deep/ .el-tabs__nav-prev {
+    /deep/ .tabs__nav-next,
+    /deep/ .tabs__nav-prev {
       line-height: 40px;
       font-size: 20px;
     }

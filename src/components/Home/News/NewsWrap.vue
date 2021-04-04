@@ -3,7 +3,7 @@
     <div class="news-container">
       <div class="news-title">
         <div class="title-wrap">
-          <span class="icon">⭐</span>
+          <i class="icon iconfont icon-xinwen"></i>
           <em class="title">{{newsTitle.title}}</em>
         </div>
         <div class="news-more">

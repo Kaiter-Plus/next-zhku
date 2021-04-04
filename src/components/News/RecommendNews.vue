@@ -20,7 +20,7 @@
         <zk-col class="title" :span="24">
           <div>
             <a href="https://news.zhku.edu.cn/info/1002/23417.htm" @mouseover="isShow=false">
-              省委第十巡视组向仲恺农业工程学院党委反馈巡视情况
+              仲恺农业工程学院举行校训发布仪式
             </a>
           </div>
         </zk-col>
@@ -34,8 +34,8 @@
   import require from 'network/index.js'
 
   // 组件
-  import ZkRow from 'components/common/Row.vue'
-  import ZkCol from 'components/common/Col.vue'
+  import ZkRow from 'components/common/layout/Row.vue'
+  import ZkCol from 'components/common/layout/Col.vue'
 
   export default {
     name: 'RecommendNews',

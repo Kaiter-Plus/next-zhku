@@ -2,14 +2,14 @@
   <div class="school-scenery">
     <div class="gallery">
       <div class="gallery-item" v-for="img in imgList" :key="img.id">
-        <el-image class="image" :src="img.src" :preview-src-list="srcList">
+        <zk-image class="image" :src="img.src" :preview-src-list="srcList">
           <div slot="placeholder" class="image-slot">
             <span class="tip">加载中...</span>
           </div>
           <div slot="error" class="image-slot">
-            <i class="el-icon-picture-outline"></i>
+            <i class="iconfont icon-xinwen"></i>
           </div>
-        </el-image>
+        </zk-image>
         <div class="image-title">
           <span>{{ img.title }}</span>
         </div>
@@ -21,6 +21,9 @@
 <script>
   // 请求
   import require from 'network/index.js'
+
+  // 组件
+  import ZkImage from 'components/common/image/Imager.vue'
 
   export default {
     name: 'SchoolScenery',
@@ -53,6 +56,9 @@
         }
         return list
       }
+    },
+    components: {
+      ZkImage
     }
   }
 </script>
@@ -65,6 +71,7 @@
       flex-wrap: wrap;
       .gallery-item {
         width: 30%;
+        height: 100%;
         margin: 1.5rem 0;
         box-sizing: content-box;
         display: flex;
@@ -81,9 +88,6 @@
           height: auto;
           width: 100%;
           background-color: #f5f7fa;
-          display: flex;
-          justify-content: center;
-          align-items: center;
           font-size: 14px;
           color: #789ce2;
           vertical-align: middle;
@@ -102,6 +106,7 @@
           font-size: 1.25rem;
           line-height: 2rem;
           text-align: center;
+          background-color: #fff;
         }
       }
     }

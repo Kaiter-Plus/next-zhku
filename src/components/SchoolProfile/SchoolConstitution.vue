@@ -1,14 +1,16 @@
 <template>
   <div class="school-constitution">
     <pdf :page="pageNum" :src="url" @progress="loadedRatio=$event" @num-pages="pageTotalNum=$event"></pdf>
-    <el-pagination small :page-size="1" class="page" @prev-click="prePage" @next-click="nextPage"
+    <pagination small :page-size="1" class="page" @prev-click="prePage" @next-click="nextPage"
       @current-change="currentPage($event)" :current-page.sync="current" background layout="prev, pager, next"
       :total="pageTotalNum">
-    </el-pagination>
+    </pagination>
   </div>
 </template>
 
 <script>
+  // 导入组件
+  import Pagination from 'components/common/pagination/pagination'
   import pdf from 'vue-pdf'
   export default {
     data() {
@@ -51,7 +53,8 @@
       }
     },
     components: {
-      pdf
+      pdf,
+      Pagination
     }
   }
 </script>
@@ -60,10 +63,7 @@
   .school-constitution {
     text-align: center;
     .page {
-      margin-bottom: 1rem;
-    }
-    /deep/ .el-pagination.is-background .el-pager li:not(.disabled).active {
-      background-color: #27ae60;
+      margin: 0.875rem 0;
     }
   }
 </style>

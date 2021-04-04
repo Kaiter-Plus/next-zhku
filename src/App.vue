@@ -1,7 +1,9 @@
 <template>
   <div id="app">
     <!-- Banner -->
-    <banner :bannerSrc="bannerSrc" />
+    <banner>
+      <img :src="bannerSrc" alt="banner" style="width: 100%">
+    </banner>
 
     <!-- 导航栏 -->
     <nav-bar :navItems="navItems" ref="navBar" />
@@ -11,7 +13,7 @@
       <zk-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}">
 
         <!-- 轮播图 -->
-        <carousel :images="images" />
+        <carousel-container :images="images" />
 
         <!-- 主要内容 -->
         <router-view :newsTitles="newsTitles" />
@@ -23,9 +25,9 @@
     <copyright-footer />
 
     <!-- 返回顶部 -->
-    <el-backtop :visibility-height="100" :right="20">
-      <i class="el-icon-caret-top"></i>
-    </el-backtop>
+    <back-top :visibility-height="100" :right="20">
+      <i class="iconfont icon-fanhuidingbu"></i>
+    </back-top>
 
   </div>
 </template>
@@ -35,12 +37,13 @@
   import require from 'network/index.js'
 
   // 组件
-  import ZkRow from 'components/common/Row.vue'
-  import ZkCol from 'components/common/Col.vue'
-  import Banner from 'components/common/Banner.vue'
-  import NavBar from 'components/common/NavBar.vue'
-  import Carousel from 'components/common/Carousel.vue'
-  import CopyrightFooter from 'components/common/CopyrightFooter.vue'
+  import ZkRow from 'components/common/layout/Row.vue'
+  import ZkCol from 'components/common/layout/Col.vue'
+  import Banner from 'components/common/banner/Banner.vue'
+  import NavBar from 'components/content/NavBar.vue'
+  import CarouselContainer from 'components/content/CarouselContainer.vue'
+  import CopyrightFooter from 'components/content/CopyrightFooter.vue'
+  import BackTop from 'components/common/backtop/BackTop.vue'
 
   export default {
     name: 'app',
@@ -62,15 +65,7 @@
           {
             name: '学校新闻',
             path: '/news'
-          },
-          {
-            name: '待加入',
-            path: ''
-          },
-          {
-            name: '待加入',
-            path: ''
-          },
+          }
         ],
         bannerSrc: null,
         images: null,
@@ -97,9 +92,10 @@
       ZkRow,
       ZkCol,
       NavBar,
-      Carousel,
+      CarouselContainer,
       CopyrightFooter,
-      Banner
+      Banner,
+      BackTop
     }
   }
 </script>
@@ -109,7 +105,7 @@
     // 背景图片加载失败时的背景色
     background-color: #27ae6060;
     // 默认背景，后面做背景切换可用
-    // background: url('~assets/img/background/bg0.png');
+    background: url('~assets/img/background/bg0.png');
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
@@ -117,9 +113,6 @@
       margin-top: 0.75rem;
       background: #ffffff60;
       border-radius: 0.2rem;
-    }
-    .el-icon-caret-top {
-      color: #27ae60;
     }
   }
 </style>

@@ -10,6 +10,8 @@
     "axios": "^0.21.1",
     "core-js": "^3.6.5",
     "element-ui": "^2.4.5",
+    "resize-observer-polyfill": "^1.5.1",
+    "throttle-debounce": "^1.1.0",
     "vue": "^2.6.11",
     "vue-pdf": "^4.2.0",
     "vue-router": "^3.5.1",

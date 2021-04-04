@@ -6,19 +6,19 @@
       </div>
       <div class="exchange-btn">
         <div class="btn btn-change">
-          <i class="icon el-icon-refresh"></i>
+          <i class="icon iconfont icon-shuaxin"></i>
           <span>换一批</span>
         </div>
         <a class="btn more" :href="news.href">
           <span>更多</span>
-          <i class="el-icon-arrow-right"></i>
+          <i class="icon iconfont icon-you"></i>
         </a>
       </div>
     </header>
     <div class="news-card-wrap">
       <div v-for="newsTitle in newsTitles" class="news-card" :title="newsTitle.title" :key="newsTitle.id">
         <a :href="newsTitle.href">
-          <img src="~assets/img/background/bg0.png" alt="test">
+          <img src="~assets/img/cover.png" alt="test">
           <span>
             {{ newsTitle.title }}
           </span>
@@ -97,6 +97,7 @@
           width: 4.5rem;
           transition: all 0.3s;
           .icon {
+            display: inline-block;
             transition: all 0.3s;
             transform-origin: center;
           }
@@ -131,8 +132,9 @@
           transform: translateY(-0.675rem);
         }
         img {
-          width: 100%;
+          margin: 0 auto;
           height: 6rem;
+          display: block;
         }
         span {
           display: inline-block;

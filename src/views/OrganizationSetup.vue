@@ -1,6 +1,6 @@
 <template>
   <div class="organization-setup">
-    <page-cli :sideBarList="organizationSetupList" :title="title" />
+    <page-cli :sideBarList="organizationSetupList" :title="title" :classList="['iconfont', 'icon-jigou']" />
   </div>
 </template>
 

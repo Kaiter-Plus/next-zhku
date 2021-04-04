@@ -30,8 +30,8 @@
   import require from 'network/index.js'
 
   // 组件
-  import ZkRow from 'components/common/Row.vue'
-  import ZkCol from 'components/common/Col.vue'
+  import ZkRow from 'components/common/layout/Row.vue'
+  import ZkCol from 'components/common/layout/Col.vue'
 
   export default {
     name: 'CopyrightFooter',

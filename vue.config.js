@@ -8,7 +8,10 @@ module.exports = {
         components: '@/components',
         network: '@/network',
         plugins: '@/plugins',
-        views: '@/views'
+        views: '@/views',
+        utils: '@/utils',
+        mixins: '@/mixins',
+        transitions: '@/transitions'
       }
     }
   }

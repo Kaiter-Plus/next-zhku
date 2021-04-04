@@ -2,14 +2,14 @@
   <div class="incumbent">
     <div class="gallery">
       <div class="gallery-item" v-for="img in imgList" :key="img.id">
-        <el-image class="image" :src="img.src" :preview-src-list="srcList">
+        <zk-image class="image" :src="img.src" :preview-src-list="srcList">
           <div slot="placeholder" class="image-slot">
             <span class="tip">加载中...</span>
           </div>
           <div slot="error" class="image-slot">
-            <i class="el-icon-picture-outline"></i>
+            <i class="iconfont icon-xinwen"></i>
           </div>
-        </el-image>
+        </zk-image>
         <div class="image-title">
           <a :href="img.href">{{ img.title }}</a>
         </div>
@@ -21,6 +21,9 @@
 <script>
   // 请求
   import require from 'network/index.js'
+
+  // 组件
+  import ZkImage from 'components/common/image/Imager.vue'
 
   export default {
     name: 'Incumbent',
@@ -53,6 +56,9 @@
         }
         return list
       }
+    },
+    components: {
+      ZkImage
     }
   }
 </script>
@@ -74,6 +80,7 @@
         border-radius: 4px;
         overflow: hidden;
         transition: all 0.3s;
+        display: flex;
         @media screen and (max-width: 992px) {
           width: 80%;
         }
@@ -81,9 +88,6 @@
           height: auto;
           width: 100%;
           background-color: #f5f7fa;
-          display: flex;
-          justify-content: center;
-          align-items: center;
           font-size: 14px;
           color: #789ce2;
           vertical-align: middle;
@@ -102,6 +106,8 @@
           font-size: 1rem;
           line-height: 2rem;
           text-align: center;
+          background-color: #fff;
+          flex: 1;
         }
       }
     }

@@ -2,7 +2,7 @@
   <div class="special">
     <div class="special-wrap">
       <div class="special-title">
-        <span class="icon">🐸</span>
+        <i class="icon iconfont icon-zhuanti"></i>
         <em class="title">专题</em>
       </div>
       <zk-row class="special-content">
@@ -17,7 +17,7 @@
   import require from 'network/index.js'
 
   // 组件
-  import ZkRow from 'components/common/Row.vue'
+  import ZkRow from 'components/common/layout/Row.vue'
   import SpecialItem from 'components/Home/Special/SpecialItem.vue'
 
   export default {

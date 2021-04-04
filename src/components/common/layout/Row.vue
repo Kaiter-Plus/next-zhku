@@ -29,7 +29,7 @@
       return {
         marginLeft: 0,
         marginright: 0,
-        classList: ['row']
+        classList: []
       }
     },
     created() {
@@ -43,7 +43,6 @@
           this.classList.push(`is-align-${this.align}`)
         }
       }
-      return ret
     },
     computed: {
       // 判断是否有 gutter 属性，添加对应的 margin
