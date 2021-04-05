@@ -15,11 +15,11 @@
       offset: Number,
       pull: Number,
       push: Number,
-      xs: [Number, Object],
-      sm: [Number, Object],
-      md: [Number, Object],
-      lg: [Number, Object],
-      xl: [Number, Object]
+      xs: [Number, Object, String],
+      sm: [Number, Object, String],
+      md: [Number, Object, String],
+      lg: [Number, Object, String],
+      xl: [Number, Object, String]
     },
     data() {
       return {
@@ -42,6 +42,8 @@
         // 遍历是否添加了 xs sm md lg xl 如果有则添加对应的类名
         ;['xs', 'sm', 'md', 'lg', 'xl'].forEach(size => {
           if (typeof this[size] === 'number') {
+            this.classList.push(`col-${size}-${this[size]}`)
+          } else if (typeof this[size] === 'string') {
             this.classList.push(`col-${size}-${this[size]}`)
           } else if (typeof this[size] === 'object') {
             let props = this[size];

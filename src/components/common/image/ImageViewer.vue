@@ -20,8 +20,8 @@
       <!-- ACTIONS -->
       <div class="image-viewer__btn image-viewer__actions">
         <div class="image-viewer__actions__inner">
-          <i class="iconfont icon-fangda" @click="handleActions('zoomOut')"></i>
-          <i class="iconfont icon-suoxiao" @click="handleActions('zoomIn')"></i>
+          <i class="iconfont icon-suoxiao" @click="handleActions('zoomOut')"></i>
+          <i class="iconfont icon-fangda" @click="handleActions('zoomIn')"></i>
           <i class="image-viewer__actions__divider"></i>
           <i :class="mode.icon" @click="toggleMode"></i>
           <i class="image-viewer__actions__divider"></i>

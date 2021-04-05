@@ -50,7 +50,7 @@
         height: 14.9375rem;
       }
       @media screen and (min-width: 1201px) and (max-width: 1920px) {
-        height: 17.9375rem;
+        height: 18.5rem;
       }
       @media screen and (min-width: 1921px) {
         height: 18.9375rem;

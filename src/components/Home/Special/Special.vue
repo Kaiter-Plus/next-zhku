@@ -2,7 +2,7 @@
   <div class="special">
     <div class="special-wrap">
       <div class="special-title">
-        <i class="icon iconfont icon-zhuanti"></i>
+        <div class="special-icon"></div>
         <em class="title">专题</em>
       </div>
       <zk-row class="special-content">
@@ -55,21 +55,19 @@
       width: 98%;
       .special-title {
         margin-bottom: 0.375rem;
-        display: flex;
-        justify-content: flex-start;
         line-height: 2rem;
         padding-left: 1rem;
-        .icon {
-          width: 32px;
-          height: 32px;
+        .special-icon {
           display: inline-block;
-          background-repeat: no-repeat;
-          background-size: 100% 100%;
-          text-align: center;
+          width: 1.25rem;
+          height: 1.25rem;
+          vertical-align: middle;
+          background: url(~assets/img/icon/zhuanti.png) no-repeat;
+          background-size: contain;
         }
         .title {
           color: #20232c;
-          font-size: 18px;
+          font-size: 1.125rem;
           margin-left: 5px;
           font-weight: bolder;
           vertical-align: middle;

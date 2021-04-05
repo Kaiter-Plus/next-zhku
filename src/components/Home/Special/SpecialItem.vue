@@ -6,7 +6,10 @@
       <div class="special-item-title">
         <div class="special-item-title-left">
           <a :href="specialTitle.href">
-            <span>🚩{{specialTitle.title}}</span>
+            <span>
+              <div class="red-flag"></div>
+              {{specialTitle.title}}
+            </span>
           </a>
         </div>
         <div class="special-item-title-right">
@@ -71,6 +74,13 @@
               overflow: hidden;
               white-space: nowrap;
               text-overflow: ellipsis;
+              .red-flag {
+                display: inline-block;
+                width: 1rem;
+                height: 1rem;
+                background: url(~assets/img/icon/hongqi.png) no-repeat;
+                background-size: contain;
+              }
             }
           }
         }

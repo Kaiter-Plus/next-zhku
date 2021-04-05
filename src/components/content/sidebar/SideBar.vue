@@ -4,7 +4,7 @@
     <ul class="side-bar" :class="{show: isShow}">
       <li class="side-bar-item" :class="{isActive: currentIndex === index}" v-for="(item, index) in sideBarList"
         :key="index" @click="switchPanel(item.path, index)">
-        <i class="icon" :class="classList"></i>
+        <i class="icon"></i>
         <span>{{item.title}}</span>
       </li>
     </ul>
@@ -16,7 +16,6 @@
     name: 'SideBar',
     props: {
       sideBarList: Array,
-      classList: [String, Array]
     },
     data() {
       return {
@@ -99,6 +98,15 @@
             bottom: 0;
             right: 0;
           }
+        }
+        .icon {
+          display: inline-block;
+          width: 1.25rem;
+          height: 1.25rem;
+          margin-right: 0.25rem;
+          vertical-align: middle;
+          background: url(~assets/img/icon/xuexiao.png) no-repeat;
+          background-size: contain;
         }
       }
     }

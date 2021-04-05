@@ -7,7 +7,7 @@
       <zk-row>
         <!-- 侧边栏 -->
         <zk-col :span="4" class="page-side-bar">
-          <side-bar :sideBarList="sideBarList" :classList="classList" />
+          <side-bar :sideBarList="sideBarList" />
         </zk-col>
         <!-- 内容区 -->
         <zk-col :span="20" class="main-content-wrap">
@@ -29,8 +29,7 @@
     name: 'SchoolProfile',
     props: {
       title: String,
-      sideBarList: Array,
-      classList: [String, Array]
+      sideBarList: Array
     },
     components: {
       PageHeader,

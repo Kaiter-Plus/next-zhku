@@ -10,7 +10,7 @@
 
     <!-- 主要内容区域 -->
     <zk-row class="main-container">
-      <zk-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}">
+      <zk-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}" :xl="{span: 18, offset: 3}">
 
         <!-- 轮播图 -->
         <carousel-container :images="images" />

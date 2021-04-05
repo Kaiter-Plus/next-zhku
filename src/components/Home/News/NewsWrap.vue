@@ -3,7 +3,7 @@
     <div class="news-container">
       <div class="news-title">
         <div class="title-wrap">
-          <i class="icon iconfont icon-xinwen"></i>
+          <div class="news-icon"></div>
           <em class="title">{{newsTitle.title}}</em>
         </div>
         <div class="news-more">
@@ -48,13 +48,13 @@
         line-height: 2rem;
         .title-wrap {
           margin-left: 1rem;
-          .icon {
-            width: 2rem;
-            height: 2rem;
+          .news-icon {
             display: inline-block;
-            background-repeat: no-repeat;
-            background-size: 100% 100%;
-            text-align: center;
+            width: 1.25rem;
+            height: 1.25rem;
+            vertical-align: middle;
+            background: url(~assets/img/icon/xinwen.png) no-repeat;
+            background-size: contain;
           }
           .title {
             color: #20232c;

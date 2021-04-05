@@ -2,7 +2,7 @@
   <div class="friend-link">
     <div class="friend-link-wrap">
       <div class="link-title">
-        <i class="icon iconfont icon-youqinglianjie"></i>
+        <div class="friend-link-icon"></div>
         <em class="title">友情链接</em>
       </div>
       <tabs type="border-card" class="link-tabs">
@@ -70,21 +70,18 @@
       width: 98%;
       overflow: hidden;
       .link-title {
-        margin-bottom: 0.375rem;
-        display: flex;
-        justify-content: flex-start;
         line-height: 2rem;
         padding: 0.3rem 0 0 1rem;
         @media screen and (max-width: 1200px) {
           padding-left: 0;
         }
-        .icon {
-          width: 32px;
-          height: 32px;
+        .friend-link-icon {
           display: inline-block;
-          background-repeat: no-repeat;
-          background-size: 100% 100%;
-          text-align: center;
+          width: 1.25rem;
+          height: 1.25rem;
+          vertical-align: middle;
+          background: url(~assets/img/icon/youqinglianjie.png) no-repeat;
+          background-size: contain;
         }
         .title {
           color: #20232c;
@@ -96,7 +93,7 @@
         }
       }
       .link-tabs {
-        margin: 1.5rem;
+        margin: 0.625rem 1.5rem 1.5rem;
       }
       .link-content {
         display: flex;

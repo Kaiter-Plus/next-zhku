@@ -1,6 +1,6 @@
 <template>
   <div class="school-profile">
-    <page-cli :sideBarList="schoolProfileList" :title="title" :classList="['iconfont','icon-xuexiao_']" />
+    <page-cli :sideBarList="schoolProfileList" :title="title" />
   </div>
 </template>
 
