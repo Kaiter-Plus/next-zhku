@@ -8,7 +8,7 @@
     </zk-col>
     <zk-col class="news-title-wrap" :span="24" :md="9" :xl="12">
       <zk-row class="news-title">
-        <zk-col :span="12" :md="24" class="title">
+        <zk-col :span="24" class="title">
           <div>
             <router-link v-for="(item, index) in recommendNews" :key="item.id" :to="`/news/${item.href}`"
               :title="item.title" @mouseover.native="currentIndex = index">
@@ -105,30 +105,21 @@
           @media screen and (max-width: 991px) {
             height: 3rem;
             overflow: hidden;
-            &:nth-child(1) {
-              border-bottom: none;
-              border-right: solid 0.5px #66666640;
-            }
-            &:nth-child(2) {
-              border-top: none;
-              border-left: solid 0.5px #66666640;
-            }
             a {
               white-space: nowrap;
               text-overflow: ellipsis;
             }
           }
           div {
-            height: 50%;
-            &:nth-child(1) {
-              border-bottom: solid 0.5px #66666640;
-            }
-            &:nth-child(2) {
-              border-top: solid 0.5px #66666640;
+            height: 100%;
+            display: flex;
+            flex-direction: column;
+            @media screen and (max-width: 991px) {
+              flex-direction: row;
             }
             a {
               width: 100%;
-              height: 100%;
+              height: 50%;
               box-sizing: border-box;
               display: inline-block;
               font-size: 1.125rem;
@@ -137,8 +128,25 @@
               line-height: 100%;
               overflow: hidden;
               padding: 1rem;
+              &:nth-child(1) {
+                border-bottom: solid 0.5px #66666640;
+              }
+              &:nth-child(2) {
+                border-top: solid 0.5px #66666640;
+              }
               &:hover {
                 background: #ffffff90;
+              }
+              @media screen and (max-width: 991px) {
+                height: 100%;
+                &:nth-child(1) {
+                  border-bottom: none;
+                  border-right: solid 0.5px #66666640;
+                }
+                &:nth-child(2) {
+                  border-top: none;
+                  border-left: solid 0.5px #66666640;
+                }
               }
             }
           }
