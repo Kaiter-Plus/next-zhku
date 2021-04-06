@@ -66,6 +66,7 @@
     width: 40px;
     height: 40px;
     position: fixed;
+    z-index: 100;
     box-shadow: 0 0 6px rgba(0, 0, 0, 0.12);
     background: #fff url(~assets/img/icon/theme.png) no-repeat center / 80%;
     border-radius: 50%;
