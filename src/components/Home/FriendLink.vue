@@ -108,7 +108,7 @@
           text-decoration: none;
           color: #555666;
           display: inline-block;
-          border: 1px solid #e8e8ed;
+          border: 1px solid #b5e7cb;
           padding: 0 2.2rem;
           border-radius: 0.25rem;
           font-size: 0.9375rem;

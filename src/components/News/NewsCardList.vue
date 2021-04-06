@@ -3,14 +3,14 @@
     <header v-if="news" class="news-type-title">
       <div class="title">
         <div class="news-icon"></div>
-        <a :href="news.href">{{ news.title }}</a>
+        <a :href="`https://news.zhku.edu.cn/${news.href}`">{{ news.title }}</a>
       </div>
       <div class="exchange-btn">
-        <div class="btn btn-change">
+        <div class="btn btn-change" @click="changeNews(news.href.split('.')[0])">
           <i class="icon iconfont icon-shuaxin"></i>
           <span>换一批</span>
         </div>
-        <a class="btn more" :href="news.href">
+        <a class="btn more" :href="`https://news.zhku.edu.cn/${news.href}`">
           <span>更多</span>
           <i class="icon iconfont icon-you"></i>
         </a>
@@ -20,14 +20,14 @@
       <zk-row>
         <zk-col :span="12" :sm="6" md="4-8" v-for="newsTitle in newsTitles" class="news-card" :title="newsTitle.title"
           :key="newsTitle.id">
-          <a :href="newsTitle.href">
+          <router-link :to="`/news/${newsTitle.href}`">
             <div class="cover" :style="{background: randomRgbaColor()}">
-              <img src="~assets/img/cover.png" alt="test">
+              <img src="~assets/img/cover.png" alt="cover">
             </div>
             <span>
               {{ newsTitle.title }}
             </span>
-          </a>
+          </router-link>
         </zk-col>
       </zk-row>
     </div>
@@ -46,29 +46,20 @@
     name: 'NewsCard',
     data() {
       return {
-        newsTitles: null
+        newsTitles: null,
+        totalPage: null
       }
     },
     props: {
       news: Object
     },
-    created() {
-      // 加载动画
-      const loading = this.$loading({
-        target: this.$refs.newsCardList
-      })
-      require(`/news/${this.news.href}`).then(res => {
-        this.newsTitles = res
-        // 数据请求完场，关闭加载动画
-        this.$nextTick(() => {
-          loading.close()
-        })
-      }).catch(err => {
-        // 错误处理待写
-        console.error(err)
-      })
+    mounted() {
+      this.getData(this.news.href)
     },
     methods: {
+      changeNews(url) {
+        this.getData(`${url}/${this.getRandomNum(this.totalPage)}.htm`)
+      },
       //随机生成十六进制颜色
       randomRgbaColor() { //随机生成RGBA颜色
         var r = Math.floor(Math.random() * 256); //随机生成256以内r值
@@ -76,6 +67,26 @@
         var b = Math.floor(Math.random() * 256); //随机生成256以内b值
         var alpha = Math.random(); //随机生成1以内a值
         return `rgba(${r},${g},${b},${alpha})`; //返回rgba(r,g,b,a)格式颜色
+      },
+      getData(url) {
+        // 加载动画
+        const loading = this.$loading({
+          target: this.$refs.newsCardList
+        })
+        require(`/news/${url}`).then(res => {
+          this.newsTitles = res.news
+          this.totalPage = res.totalPage
+          // 数据请求完场，关闭加载动画
+          this.$nextTick(() => {
+            loading.close()
+          })
+        }).catch(err => {
+          // 错误处理待写
+          console.error(err)
+        })
+      },
+      getRandomNum(max) {
+        return Math.floor(Math.random() * (max - 2)) + 1
       }
     },
     components: {

@@ -1,7 +1,6 @@
 <template>
   <transition name="fade">
-    <div v-if="visible" @click.stop="handleClick" :style="{'right': styleRight, 'bottom': styleBottom }"
-      class="backtop">
+    <div v-if="visible" @click.stop="handleClick" :style="{'right': styleRight, 'bottom': styleBottom}" class="backtop">
       <slot>
         🚀
       </slot>

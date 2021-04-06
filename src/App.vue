@@ -1,5 +1,6 @@
 <template>
-  <div id="app">
+  <div id="app" :style="`background: ${background}`">
+
     <!-- Banner -->
     <banner>
       <img :src="bannerSrc" alt="banner" style="width: 100%">
@@ -24,8 +25,11 @@
     <!-- 页脚，授权信息 -->
     <copyright-footer />
 
+    <!-- 切换主题 -->
+    <theme @selectTheme="switchTheme" :right="20" />
+
     <!-- 返回顶部 -->
-    <back-top :visibility-height="100" :right="20">
+    <back-top :visibility-height="100" :right="20" :bottom="95">
       <i class="iconfont icon-fanhuidingbu"></i>
     </back-top>
 
@@ -44,6 +48,7 @@
   import CarouselContainer from 'components/content/CarouselContainer.vue'
   import CopyrightFooter from 'components/content/CopyrightFooter.vue'
   import BackTop from 'components/common/backtop/BackTop.vue'
+  import Theme from 'components/common/theme/Theme.vue'
 
   export default {
     name: 'app',
@@ -69,7 +74,8 @@
         ],
         bannerSrc: null,
         images: null,
-        newsTitles: null
+        newsTitles: null,
+        background: null
       }
     },
     created() {
@@ -87,6 +93,32 @@
         // 错误处理待写
         console.error(err)
       })
+
+      // 在页面加载时读取 localStorage 里的主题信息
+      if (localStorage.getItem('theme')) {
+        this.background = localStorage.getItem('theme')
+      }
+
+      // 在页面加载时读取 sessionStorage 里的状态信息
+      if (sessionStorage.getItem('state')) {
+        this.$store.replaceState(Object.assign({}, this.$store.state, JSON.parse(sessionStorage.getItem('state'))))
+      }
+
+      // 页面刷新时将 state 数据存储到 sessionStorage 中
+      window.addEventListener('pagehide', () => {
+        sessionStorage.setItem('state', JSON.stringify(this.$store.state))
+      })
+    },
+    methods: {
+      // 切换主题
+      switchTheme(background) {
+        this.background = background
+        this.storageTheme(background)
+      },
+      // 保存主题到本地
+      storageTheme(background) {
+        localStorage.setItem('theme', background)
+      }
     },
     components: {
       ZkRow,
@@ -95,7 +127,8 @@
       CarouselContainer,
       CopyrightFooter,
       Banner,
-      BackTop
+      BackTop,
+      Theme
     }
   }
 </script>
@@ -103,9 +136,8 @@
 <style lang="less">
   #app {
     // 背景图片加载失败时的背景色
-    background-color: #27ae6060;
-    // 默认背景，后面做背景切换可用
-    background: url('~assets/img/background/bg0.png');
+    background: #81ffef;
+    // 主背景色
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

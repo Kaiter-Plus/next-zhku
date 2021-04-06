@@ -1,93 +1,69 @@
 <template>
-  <div class="news">
+  <div class="show-news" v-if="news">
+    <page-header @back="$router.go(-1)" :content="news.title"></page-header>
     <zk-row class="news-container" :gutter="10">
       <zk-col tag="aside" class="news-aside" :span="6">
-        <aside-item v-for="i in 4" :key="i"></aside-item>
+        <aside-item :recentUpdates="recentUpdates"></aside-item>
       </zk-col>
-      <zk-col tag="main" class="news-main" :span="18">
+      <zk-col class="news-main" :span="18">
         <div class="news-content-box">
           <div class="news-header-box">
             <div class="news-title-box">
-              <h1 class="news-title">我校举行健康养殖创新研究院学术委员会成立大会暨第一届学术委员会会议</h1>
+              <h1 class="news-title">{{ news.title }}</h1>
             </div>
             <div class="news-info-box">
-              <img src="https://news.zhku.edu.cn/images/medal.png" alt="排行榜" class="ranking-list">
+              <img src="~assets/img/icon/medal.png" alt="排行榜" class="ranking-list">
               <div class="info">
-                <span>健康养殖创新研究院</span>
-                <span>2021-03-29 17:22:16</span>
+                <span>{{ news.author }}</span>
+                <span>{{ news.date }}</span>
               </div>
             </div>
           </div>
-          <article class="news-content">
-            <p>
-              3月28日下午，我校在海珠校区行政楼409会议室召开了健康养殖创新研究院学术委员会成立大会暨第一届学术委员会会议，会议由肖更生副校长主持。科技处处长周新华宣读了学校《关于同意成立健康养殖创新研究院学术委员会的批复》，中国工程院院士麦康森、陈焕春，广东省农业科学院廖明教授，中国农业大学呙于明教授，华南农业大学江青艳教授、吴珍芳教授、李永涛教授，华南理工大学赵谋明教授、中国水产科学研究院珠江水产研究所卢迈新研究员、仲恺农业工程学院田允波教授、林蠡教授、王玮教授等当选为健康养殖创新研究院第一届学术委员会委员，肖更生副校长为学术委员会委员颁发了聘书。健康养殖创新研究院全体教师参加了会议。
-            </p>
-            <el-image src="https://news.zhku.edu.cn/__local/0/71/C6/81439BF49CBA2718505FF9C7C96_1224EC3A_3EF2C.jpg"
-              fit="fill" :lazy="true" :preview-src-list="srcList">
-              <div slot="placeholder" class="image-slot">
-                <span class="tip">加载中...</span>
-              </div>
-              <div slot="error" class="image-slot">
-                <i class="el-icon-picture-outline"></i>
-              </div>
-            </el-image>
-            <p>
-              会议一致推举麦康森院士担任学术委员会主任，廖明教授、田允波教授担任副主任，王玮教授担任学委会秘书。
-            </p>
-            <el-image src="https://news.zhku.edu.cn/__local/A/40/84/1FCB132D8A840506681027A1BBF_BB978A11_17D53.jpg"
-              fit="fill" :lazy="true" :preview-src-list="srcList">
-              <div slot="placeholder" class="image-slot">
-                <span class="tip">加载中...</span>
-              </div>
-              <div slot="error" class="image-slot">
-                <i class="el-icon-picture-outline"></i>
-              </div>
-            </el-image>
-            <el-image src="https://news.zhku.edu.cn/__local/2/ED/FE/51915D9480D65BF883CEDB0D345_B73C3358_17B9A.jpg"
-              fit="fill" :lazy="true" :preview-src-list="srcList">
-              <div slot="placeholder" class="image-slot">
-                <span class="tip">加载中...</span>
-              </div>
-              <div slot="error" class="image-slot">
-                <i class="el-icon-picture-outline"></i>
-              </div>
-            </el-image>
-            <el-image src="https://news.zhku.edu.cn/__local/A/6D/EE/8F6399249FEEFBB86C06FBE14C0_2B7F82AA_2EB5A.jpg"
-              fit="fill" :lazy="true" :preview-src-list="srcList">
-              <div slot="placeholder" class="image-slot">
-                <span class="tip">加载中...</span>
-              </div>
-              <div slot="error" class="image-slot">
-                <i class="el-icon-picture-outline"></i>
-              </div>
-            </el-image>
-            <p>
-              委员们首先审议并通过了《仲恺农业工程学院健康养殖创新研究院学术会员会章程》，随后，听取了研究院执行院长黄燕华教授代表研究院作的科研工作进展汇报、研究院“十四五”科研规划以及2021年科研工作计划。黄院长从平台建设、团队组建、研究内容、阶段性成果等方面总结汇报了研究院建立一年多以来的工作，分析了目前存在的不足和下一步的努力方向，围绕“方向聚焦、平台搭建、成果培育、人才托举”等方面，对“十四五”期间的科研规划进行了展望，并就2021年的科研工作计划进行了简要汇报。
-            </p>
-            <p>
-              学术委员会委员高度评价了健康养殖创新研究院在一年多时间内的工作进度和取得的成绩，表示了对学校发展的关注和期望，同时针对研究院“十四五”发展规划提出了中肯的意见和建设性的建议。委员们一致提出，研究院目标定位、考核指标首先要服从服务于学校整体定位与远期发展目标，还应充分考虑学科归属和依托，应进一步凝练方向，本着差异化发展的思路，瞄准国家重大需求，紧盯养殖业共性关键技术，通过密切的校企合作，以解决产业问题为目标和导向，特别是在新型饲料蛋白原料开发与功能解析、广东特色肉鸽产业关键技术研究方面，借鉴如水禽创新团队等的成功经验，同时结合环境调控与资源化利用、动物性食品开发等环节，充分整合现有资源与优势，实现学科交叉互补，助力绿色养殖。
-            </p>
-            <p>
-              学术委员会主任麦康森院士还特别强调和鼓励研究院师生，科研方向凝练需要渐进，从文字表达的凝练到学术思想的凝练都是磨练的过程，要打牢基础，跳出“五唯”，靠实际成绩来实现助力学校发展的目标。
-            </p>
-            <p>
-              最后，肖更生副校长代表学校对仲恺农业工程学院健康养殖创新研究院学术委员会的成立表示祝贺，对各位专家莅临学校指导表示热烈欢迎，他简要介绍了学校的发展目标定位，研究院建设的历史背景。要求研究院要尊重、重视学术委员会，秉承“教授治学”、“专家治院”的理念，充分发挥学术委员会在研究院发展中的巨大作用。他鼓励研究院师生瞄准行业重大需求，在学术委员会的引导和监督下，开展顶天立地科学研究和技术攻关，为广东地区畜牧水产等相关行业的发展提供技术支撑。最后，他表示，将一如继往地支持研究院的建设，为打造高水平研究平台和创建高水平应用型大学提供平台和智力保障。
-            </p>
-            <el-image src="https://news.zhku.edu.cn/__local/B/1E/94/C73D633CB19DF61839824505A84_C477562B_340EE.jpg"
-              fit="fill" :lazy="true" :preview-src-list="srcList">
-              <div slot="placeholder" class="image-slot">
-                <span class="tip">加载中...</span>
-              </div>
-              <div slot="error" class="image-slot">
-                <i class="el-icon-picture-outline"></i>
-              </div>
-            </el-image>
-            <p>
-              会后，当选的学术委员会委员集体在行政楼前合影留念并参观研究院平台。
-            </p>
-            <p>
-              健康养殖创新研究院学术委员会的成立及第一届学术委员会会议的召开，充分体现了学校尊重专家的办学态度，为研究院的发展与定位指明了方向。研究院师生将牢记使命，遵循校训，聚焦绿色发展，坚持融合创新，为实现学校建设特色鲜明的高水平应用型大学总体目标作出应有的贡献。
-            </p>
+          <article class="news-content" v-for="item in news.content" :key="item.id">
+            <!-- 段落 -->
+            <template v-if="item.tag === 'p'">
+              <a v-if="item.text.indexOf('http') === 0" :href="item.text">原文链接</a>
+              <p v-else>{{ item.text }}</p>
+            </template>
+            <!-- 表格 -->
+            <template v-else-if="item.tag === 'table'">
+              <table v-html="item.text "></table>
+            </template>
+            <!-- 图片 -->
+            <template v-else-if="item.tag === 'img'">
+              <zk-image :src="item.src" fit="fill" :lazy="true" :preview-src-list="srcList">
+                <div slot="placeholder" class="image-slot">
+                  <svg t="1617676383747" class="icon" viewBox="0 0 1166 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="4277" width="48" height="48">
+                    <path
+                      d="M940.75011862 90.56399583H220.72382214A120.58936239 120.58936239 0 0 0 100.88657649 211.15335824v601.69328352a120.58936239 120.58936239 0 0 0 120.08795149 120.33865653H940.75011862a120.58936239 120.58936239 0 0 0 119.83724565-120.33865653v-601.69328352A120.58936239 120.58936239 0 0 0 940.75011862 90.56399583z m59.91862283 653.84003461l-144.15568264-184.26856732a47.63405138 47.63405138 0 0 0-77.9694216-6.01693319l-167.72200289 168.47411964-173.98964115-222.877221a44.87629106 44.87629106 0 0 0-71.95248839 0l-204.07430547 246.94495213V211.15335824a56.65945078 56.65945078 0 0 1 59.91862283-60.16932868H940.75011862a64.68202837 64.68202837 0 0 1 59.91862283 60.16932868zM794.33808571 297.6467675a90.50469805 90.50469805 0 1 0 2e-8 127.60911739 90.50469805 90.50469805 0 0 0 0-127.60911739z"
+                      fill="#9f9f9f" p-id="4278"></path>
+                  </svg>
+                  图片加载中...
+                </div>
+                <div slot="error" class="image-slot">
+                  <svg t="1617676296117" class="icon" viewBox="0 0 1024 1024" version="1.1"
+                    xmlns="http://www.w3.org/2000/svg" p-id="2911" width="48" height="48">
+                    <path d="M0 61.44h1024v901.12H0z" fill="#999999" p-id="2912"></path>
+                    <path
+                      d="M409.6 614.4s81.92-102.4 143.36-184.32c-167.936-116.736-366.592 108.544-532.48 319.488V942.08h368.64l204.8-204.8-184.32-122.88z"
+                      fill="#DDDDDD" p-id="2913"></path>
+                    <path
+                      d="M1024 950.272V731.136C856.064 407.552 716.8 634.88 716.8 634.88c-40.96-102.4-73.728-149.504-122.88-184.32-61.44 61.44-143.36 163.84-143.36 163.84l204.8 102.4-180.224 221.184c178.176-6.144 370.688 34.816 548.864 12.288z"
+                      fill="#DDDDDD" p-id="2914"></path>
+                    <path d="M983.04 102.4v819.2H40.96V102.4h942.08m40.96-40.96H0v901.12h1024V61.44z" fill="#CCCCCC"
+                      p-id="2915"></path>
+                    <path
+                      d="M126.976 305.152c-8.192-8.192-8.192-20.48 0-28.672l86.016-86.016c8.192-8.192 20.48-8.192 28.672 0 8.192 8.192 8.192 20.48 0 28.672l-86.016 86.016c-8.192 6.144-20.48 6.144-28.672 0z"
+                      fill="#DDDDDD" p-id="2916"></path>
+                    <path
+                      d="M241.664 305.152c-8.192 8.192-20.48 8.192-28.672 0l-86.016-86.016c-8.192-8.192-8.192-20.48 0-28.672 8.192-8.192 20.48-8.192 28.672 0l86.016 86.016c8.192 6.144 8.192 20.48 0 28.672z"
+                      fill="#DDDDDD" p-id="2917"></path>
+                  </svg>
+                  图片加载失败了...
+                </div>
+              </zk-image>
+            </template>
           </article>
         </div>
       </zk-col>
@@ -96,106 +72,152 @@
 </template>
 
 <script>
+  // 请求
+  import require from 'network/index.js'
+
   // 组件
+  import PageHeader from 'components/common/page-header/PageHeader.vue'
   import ZkRow from 'components/common/layout/Row.vue'
   import ZkCol from 'components/common/layout/Col.vue'
+  import ZkImage from 'components/common/image/Imager.vue'
   import AsideItem from 'components/content/AsideItem.vue'
   export default {
-    name: 'News',
+    name: 'ShowNews',
     data() {
       return {
-        srcList: [
-          'https://news.zhku.edu.cn/__local/0/71/C6/81439BF49CBA2718505FF9C7C96_1224EC3A_3EF2C.jpg',
-          'https://news.zhku.edu.cn/__local/A/40/84/1FCB132D8A840506681027A1BBF_BB978A11_17D53.jpg',
-          'https://news.zhku.edu.cn/__local/2/ED/FE/51915D9480D65BF883CEDB0D345_B73C3358_17B9A.jpg',
-          'https://news.zhku.edu.cn/__local/A/6D/EE/8F6399249FEEFBB86C06FBE14C0_2B7F82AA_2EB5A.jpg',
-          'https://news.zhku.edu.cn/__local/B/1E/94/C73D633CB19DF61839824505A84_C477562B_340EE.jpg'
-        ]
+        news: null,
+        srcList: [],
+        recentUpdates: null
       }
     },
+    mounted() {
+      this.getData(this.$route.params)
+    },
+    methods: {
+      getData(params) {
+        const loading = this.$loading({
+          target: '.show-news'
+        })
+        require(`/news/${params.info}/${params.type}/${params.no}`).then(res => {
+          this.srcList.length = 0
+          this.news = res
+          this.recentUpdates = res.recentUpdates
+          res.content.forEach(v => {
+            if (v.src) {
+              this.srcList.push(v.src)
+            }
+          })
+          this.$nextTick(() => {
+            loading.close()
+          })
+        }).catch(err => {
+          // 错误处理待写
+          console.error(err)
+        })
+      }
+    },
+    // 防止组件复用不更新数据
+    beforeRouteUpdate(to, from, next) {
+      if (to.fullPath !== from.fullPath) {
+        this.getData(to.params)
+      }
+      next()
+    },
     components: {
+      PageHeader,
       ZkRow,
       ZkCol,
+      ZkImage,
       AsideItem
     }
   }
 </script>
 
 <style lang="less" scoped>
-  .news-container {
-    .news-aside {
-      margin-top: 1rem;
-      position: sticky;
-      top: 3.75rem;
-      @media screen and (max-width: 992px) {
-        display: none;
+  .show-news {
+    margin: 0 0.75rem 0.75rem;
+    .news-container {
+      .news-aside {
+        margin-top: 1rem;
+        position: sticky;
+        top: 3.75rem;
+        @media screen and (max-width: 992px) {
+          display: none;
+        }
+      }
+      .news-main {
+        @media screen and (max-width: 992px) {
+          width: 100%;
+        }
+        .news-content-box {
+          margin-top: 1rem;
+          position: relative;
+          padding: 0 1.5rem 1rem;
+          background: #ffffff60;
+          .news-header-box {
+            border-bottom: 1px solid #f5f6f7;
+            padding-top: 0.5rem;
+            z-index: 9;
+            .news-title-box {
+              margin-bottom: 0.5rem;
+              .news-title {
+                font-size: 1.75rem;
+                word-wrap: break-word;
+                color: #222226;
+                font-weight: 600;
+                line-height: 2rem;
+                margin: 0;
+                word-break: break-all;
+              }
+            }
+            .news-info-box {
+              position: relative;
+              background: #f8f8f899;
+              border-radius: 0.25rem;
+              font-size: 0.875rem;
+              line-height: 2rem;
+              color: #999aaa;
+              display: flex;
+              .ranking-list {
+                width: 1.5rem;
+                height: 1.5rem;
+                margin: 0.25rem;
+                margin-right: 12px;
+              }
+              span {
+                color: #555666;
+                margin-right: 20px;
+                vertical-align: top;
+                line-height: 32px;
+              }
+            }
+          }
+          .news-content {
+            position: relative;
+            padding-top: 16px;
+            word-wrap: break-word;
+            p {
+              text-indent: 2em;
+              color: #4d4d4d;
+              font-weight: 400;
+              line-height: 26px;
+              margin: 0 0 16px;
+            }
+            /deep/ .image,
+            img {
+              width: 100%;
+              margin: 0 0 16px;
+            }
+          }
+        }
       }
     }
-    .news-main {
-      @media screen and (max-width: 992px) {
-        width: 100%;
+    @media screen and (max-width: 992px) {
+      /deep/ .page-header__left * {
+        font-size: 0.8rem;
       }
-      .news-content-box {
-        margin-top: 1rem;
-        position: relative;
-        padding: 0 1.5rem 1rem;
-        background: #fff;
-        .news-header-box {
-          border-bottom: 1px solid #f5f6f7;
-          padding-top: 0.5rem;
-          z-index: 9;
-          background-color: #fff;
-          .news-title-box {
-            margin-bottom: 0.5rem;
-            .news-title {
-              font-size: 1.75rem;
-              word-wrap: break-word;
-              color: #222226;
-              font-weight: 600;
-              line-height: 2rem;
-              margin: 0;
-              word-break: break-all;
-            }
-          }
-          .news-info-box {
-            position: relative;
-            background: #f8f8f8;
-            border-radius: 0.25rem;
-            font-size: 0.875rem;
-            line-height: 2rem;
-            color: #999aaa;
-            display: flex;
-            .ranking-list {
-              width: 1.5rem;
-              height: 1.5rem;
-              margin: 0.25rem;
-              margin-right: 12px;
-            }
-            span {
-              color: #555666;
-              margin-right: 20px;
-              vertical-align: top;
-              line-height: 32px;
-            }
-          }
-        }
-        .news-content {
-          position: relative;
-          padding-top: 16px;
-          word-wrap: break-word;
-          p {
-            text-indent: 2em;
-            color: #4d4d4d;
-            font-weight: 400;
-            line-height: 26px;
-            margin: 0 0 16px;
-          }
-          /deep/ .el-image,
-          img {
-            width: 100%;
-            margin: 0 0 16px;
-          }
-        }
+      /deep/ .page-header__content {
+        font-size: 0.85rem;
       }
     }
   }

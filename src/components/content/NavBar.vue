@@ -6,7 +6,7 @@
     <ul class="menu">
       <div class="menu-button" :class="{click: isClickState}" @click="isClick"></div>
       <div class="menu-item-wrap" ref="menuItemWrap">
-        <li v-for="(item, index) in navItems" :class="{active: isActive(index)}" :key="index">
+        <li v-for="(item, index) in navItems" :class="{active: currentIndex === index}" :key="index">
           <a href="javascript:void(0)" @click="itemClick(index, item.path)">{{item.name}}</a>
         </li>
       </div>
@@ -29,15 +29,14 @@
         currentIndex: 0
       }
     },
+    created() {
+      this.currentIndex = +this.$store.state.navIndex
+    },
     methods: {
       // 菜单点击事件
       isClick() {
         this.isClickState = !this.isClickState
         this.$refs.menuItemWrap.classList.toggle('menu-item-show')
-      },
-      // 菜单项是否被点击点击
-      isActive(index) {
-        return this.currentIndex === index
       },
       // 菜单项点击事件
       itemClick(index, path) {
@@ -45,6 +44,8 @@
         this.isClick()
         // 切换菜单项激活状态
         this.currentIndex = index
+        // 存储当前点击的 index
+        this.$store.commit('setNavIndex', index)
         // 路由跳转
         if (path) {
           this.$router.push(path)

@@ -5,7 +5,7 @@
       <special-item-content :specialhref="specialTitle.href.split('/')[1]" />
       <div class="special-item-title">
         <div class="special-item-title-left">
-          <a :href="specialTitle.href">
+          <a :href="`https://news.zhku.edu.cn/${specialTitle.href}`">
             <span>
               <div class="red-flag"></div>
               {{specialTitle.title}}
@@ -13,7 +13,7 @@
           </a>
         </div>
         <div class="special-item-title-right">
-          <a :href="specialTitle.href">进入专题</a>
+          <a :href="`https://news.zhku.edu.cn/${specialTitle.href}`">进入专题</a>
         </div>
       </div>
     </zk-col>

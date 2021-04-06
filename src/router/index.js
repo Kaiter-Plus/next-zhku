@@ -94,6 +94,11 @@ const routes = [
   {
     path: '/news',
     component: () => import(/* webpackChunkName: "News" */ 'views/News.vue')
+  },
+  // 新闻展示
+  {
+    path: '/news/:info/:type/:no',
+    component: () => import(/* webpackChunkName: "ShowNews" */ 'components/News/ShowNews.vue')
   }
 ]
 

@@ -1,28 +1,19 @@
 <template>
   <zk-row class="recommend-news" ref="recommendNews">
     <zk-col class="image-container" :span="24" :md="15" :xl="12">
-      <a v-show="isShow" href="https://news.zhku.edu.cn/info/1001/22206.htm">
-        <img src="https://news.zhku.edu.cn/__local/3/6C/92/0088691E3AB45EE9E69494C7324_D7943D5F_1955E.jpg" alt="test">
-      </a>
-      <a v-show="!isShow" href="https://news.zhku.edu.cn/info/1002/23417.htm">
-        <img src="https://news.zhku.edu.cn/__local/6/65/25/747DE9AA3EB90CEE5C389022A3F_EEAE896E_37B07.jpg" alt="test">
-      </a>
+      <router-link v-for="(item, index) in recommendNews" :key="item.id" v-show="currentIndex === index"
+        :to="`/news/${item.href}`" :title="item.title">
+        <img :src="item.imgSrc" :alt="item.title">
+      </router-link>
     </zk-col>
     <zk-col class="news-title-wrap" :span="24" :md="9" :xl="12">
       <zk-row class="news-title">
         <zk-col :span="12" :md="24" class="title">
           <div>
-            <a title="省委第十巡视组向仲恺农业工程学院党委反馈巡视情况" href="https://news.zhku.edu.cn/info/1001/22206.htm"
-              @mouseover="isShow=true">
-              省委第十巡视组向仲恺农业工程学院党委反馈巡视情况
-            </a>
-          </div>
-        </zk-col>
-        <zk-col :span="12" :md="24" class="title">
-          <div>
-            <a title="仲恺农业工程学院举行校训发布仪式" href="https://news.zhku.edu.cn/info/1002/23417.htm" @mouseover="isShow=false">
-              仲恺农业工程学院举行校训发布仪式
-            </a>
+            <router-link v-for="(item, index) in recommendNews" :key="item.id" :to="`/news/${item.href}`"
+              :title="item.title" @mouseover.native="currentIndex = index">
+              {{ item.title }}
+            </router-link>
           </div>
         </zk-col>
       </zk-row>
@@ -42,7 +33,7 @@
     name: 'RecommendNews',
     data() {
       return {
-        isShow: true,
+        currentIndex: 0,
         recommendNews: null
       }
     },
@@ -109,14 +100,8 @@
       .news-title {
         height: 100%;
         .title {
-          height: 50%;
+          height: 100%;
           background-color: #ffffff60;
-          &:nth-child(1) {
-            border-bottom: solid 0.5px #66666640;
-          }
-          &:nth-child(2) {
-            border-top: solid 0.5px #66666640;
-          }
           @media screen and (max-width: 991px) {
             height: 3rem;
             overflow: hidden;
@@ -134,7 +119,13 @@
             }
           }
           div {
-            height: 100%;
+            height: 50%;
+            &:nth-child(1) {
+              border-bottom: solid 0.5px #66666640;
+            }
+            &:nth-child(2) {
+              border-top: solid 0.5px #66666640;
+            }
             a {
               width: 100%;
               height: 100%;

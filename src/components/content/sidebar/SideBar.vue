@@ -23,6 +23,9 @@
         currentIndex: 0
       }
     },
+    created() {
+      this.currentIndex = +this.$store.state.sideBarIndex
+    },
     methods: {
       showMenu() {
         this.isShow = !this.isShow
@@ -30,6 +33,9 @@
       switchPanel(path, index) {
         this.currentIndex = index
         this.isShow = !this.isShow
+        // 存储当前点击的 index
+        this.$store.commit('setSideBarIndex', index)
+        // 跳转页面
         this.$router.replace(path)
       }
     }

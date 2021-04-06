@@ -3,10 +3,10 @@
     <zk-col class="news-item-wrap" :span="24">
       <zk-row class="item-list">
         <zk-col class="item" :span="11" :xs="{span: 22}" v-for="news in newsList" :key="news.id">
-          <a :href="news.href" :title="news.title">
+          <router-link :to="`/news/${news.href}`" :title="news.title" replace>
             <p>{{news.title}}</p>
             <p>{{news.date}}</p>
-          </a>
+          </router-link>
         </zk-col>
       </zk-row>
     </zk-col>
@@ -36,7 +36,7 @@
         target: '.item-list'
       })
       require(`/news/${this.newsHref}`).then(res => {
-        this.newsList = res
+        this.newsList = res.news
         this.$nextTick(() => {
           loading.close()
         })

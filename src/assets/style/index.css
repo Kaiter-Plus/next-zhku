@@ -65,3 +65,16 @@ a:active {
   color: #27ae60 !important;
   transition: color 0.3s;
 }
+
+/* 细线表格 */
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+table tr td {
+  padding: 8px 12px;
+  text-align: center;
+  color: #333;
+  border: 1px solid #ddd;
+  border-collapse: collapse;
+}

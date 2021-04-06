@@ -28,6 +28,10 @@
         ]
       }
     },
+    beforeRouteLeave(to, from, next) {
+      this.$store.commit('setSideBarIndex', 0)
+      next()
+    },
     components: {
       PageCli
     }

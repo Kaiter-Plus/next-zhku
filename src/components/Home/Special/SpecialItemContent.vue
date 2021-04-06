@@ -1,12 +1,12 @@
 <template>
   <ul>
     <li v-for="content in contentList" :key="content.id" :title="content.title">
-      <a :href="content.href">
+      <router-link :to="`/news/${content.href}`" replace>
         <img src="~assets/img/tip.png">
         <img src="~assets/img/tipHover.png">
         <span class="title">{{ content.title }}</span>
         <span class="date">{{ content.date }}</span>
-      </a>
+      </router-link>
     </li>
   </ul>
 </template>
