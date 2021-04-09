@@ -43,6 +43,10 @@
       &:hover {
         background-color: rgba(0, 0, 0, 0.3);
       }
+      @media screen and (max-width: 991px) {
+        width: 1rem;
+        line-height: 1rem;
+      }
     }
   }
   .fade-enter-active,
