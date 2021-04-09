@@ -26,35 +26,14 @@
 </template>
 
 <script>
-  // 请求
-  import require from 'network/index.js'
-
   // 组件
   import ZkRow from 'components/common/layout/Row.vue'
   import ZkCol from 'components/common/layout/Col.vue'
 
   export default {
     name: 'CopyrightFooter',
-    data() {
-      return {
-        visits: null
-      }
-    },
-    created() {
-      // 加载动画
-      const loading = this.$loading({
-        target: '.copyright-footer-wrap'
-      })
-      require(`/footer`).then(res => {
-        this.visits = res
-        // 数据请求完场，关闭加载动画
-        this.$nextTick(() => {
-          loading.close()
-        })
-      }).catch(err => {
-        // 错误处理待写
-        console.error(err)
-      })
+    props: {
+      visits: null
     },
     components: {
       ZkRow,

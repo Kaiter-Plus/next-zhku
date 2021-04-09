@@ -17,13 +17,15 @@
         <carousel-container :images="images" />
 
         <!-- 主要内容 -->
-        <router-view :newsTitles="newsTitles" />
+        <keep-alive exclude="ShowNews">
+          <router-view :newsTitles="newsTitles" :friendLink="friendLink" />
+        </keep-alive>
 
       </zk-col>
     </zk-row>
 
     <!-- 页脚，授权信息 -->
-    <copyright-footer />
+    <copyright-footer :visits="visits" />
 
     <!-- 切换主题 -->
     <theme @selectTheme="switchTheme" :right="20" />
@@ -75,6 +77,8 @@
         bannerSrc: null,
         images: null,
         newsTitles: null,
+        friendLink: null,
+        visits: null,
         background: null
       }
     },
@@ -86,9 +90,15 @@
         this.bannerSrc = res.bannerSrc
         this.images = res.images
         this.newsTitles = res.newsTitles
-        this.$nextTick(() => {
-          loading.close()
-        })
+        this.friendLink = res.friendLink
+        this.visits = res.visits
+        // 如果已经渠道数据，关闭加载动画
+        const timer = setInterval(() => {
+          if (this.bannerSrc) {
+            loading.close()
+            clearInterval(timer)
+          }
+        }, 500)
       }).catch(err => {
         // 错误处理待写
         console.error(err)

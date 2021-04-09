@@ -22,14 +22,25 @@
     },
     data() {
       return {
-        contentList: []
+        contentList: null
       }
     },
     created() {
+      const loading = this.$loading({
+        target: '.special-content',
+        fullscreen: false
+      })
       require(`/special/${this.specialhref}`).then(res => {
         this.contentList = res
+        // 如果已经渠道数据，关闭加载动画
+        const timer = setInterval(() => {
+          if (this.contentList) {
+            loading.close()
+            clearInterval(timer)
+          }
+        }, 500)
       }).catch(err => {
-        console.log(err);
+        console.error(err)
       })
     }
   }

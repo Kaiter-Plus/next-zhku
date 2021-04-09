@@ -28,18 +28,23 @@
     },
     data() {
       return {
-        newsList: []
+        newsList: null
       }
     },
     created() {
       const loading = this.$loading({
-        target: '.item-list'
+        target: '.item-list',
+        fullscreen: false
       })
       require(`/news/${this.newsHref}`).then(res => {
         this.newsList = res.news
-        this.$nextTick(() => {
-          loading.close()
-        })
+        // 如果已经渠道数据，关闭加载动画
+        const timer = setInterval(() => {
+          if (this.newsList) {
+            loading.close()
+            clearInterval(timer)
+          }
+        }, 500)
       }).catch(err => {
         // 错误处理待写
         console.error(err)

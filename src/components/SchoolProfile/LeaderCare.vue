@@ -44,6 +44,12 @@
   </div>
 </template>
 
+<script>
+  export default {
+    name: 'LeaderCare'
+  }
+</script>
+
 
 <style lang="less" scoped>
   .schoolabout {

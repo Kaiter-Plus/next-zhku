@@ -11,7 +11,9 @@
         </zk-col>
         <!-- 内容区 -->
         <zk-col :span="20" class="main-content-wrap">
-          <router-view class="page-cli-panel" />
+          <keep-alive>
+            <router-view class="page-cli-panel" />
+          </keep-alive>
         </zk-col>
       </zk-row>
     </div>
@@ -26,7 +28,7 @@
   import SideBar from 'components/content/sidebar/SideBar.vue'
 
   export default {
-    name: 'SchoolProfile',
+    name: 'PageCli',
     props: {
       title: String,
       sideBarList: Array

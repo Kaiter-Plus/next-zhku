@@ -21,7 +21,8 @@
     created() {
       // 加载动画
       const loading = this.$loading({
-        fullscreen: true
+        target: '.management-org',
+        fullscreen: false
       })
       require(`/organizationSetup/gljg.htm`).then(res => {
         this.links = res

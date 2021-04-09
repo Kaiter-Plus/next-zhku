@@ -40,7 +40,8 @@
     created() {
       // 加载动画
       const loading = this.$loading({
-        target: this.$refs.recommendNews
+        target: this.$refs.recommendNews,
+        fullscreen: false
       })
       require(`/news`).then(res => {
         this.recommendNews = res

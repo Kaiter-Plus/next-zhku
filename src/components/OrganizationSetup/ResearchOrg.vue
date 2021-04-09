@@ -1,5 +1,5 @@
 <template>
-  <div class="management-org">
+  <div class="research-org">
     <link-container :links="links" />
   </div>
 </template>
@@ -11,7 +11,7 @@
   import LinkContainer from 'components/content/LinkContainer.vue'
 
   export default {
-    name: 'ManegementOrg',
+    name: 'ResearchOrg',
     data() {
       return {
         links: null
@@ -20,7 +20,8 @@
     created() {
       // 加载动画
       const loading = this.$loading({
-        fullscreen: true
+        target: '.research-org',
+        fullscreen: false
       })
       require(`/organizationSetup/yjjg.htm`).then(res => {
         this.links = res

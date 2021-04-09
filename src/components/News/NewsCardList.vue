@@ -1,5 +1,5 @@
 <template>
-  <div class="news-card-list" ref="newsCardList">
+  <div class="news-card-list">
     <header v-if="news" class="news-type-title">
       <div class="title">
         <div class="news-icon"></div>
@@ -16,7 +16,7 @@
         </a>
       </div>
     </header>
-    <div class="news-card-wrap">
+    <div class="news-card-wrap" ref="newsCardWrap">
       <zk-row>
         <zk-col :span="12" :sm="6" md="4-8" v-for="newsTitle in newsTitles" class="news-card" :title="newsTitle.title"
           :key="newsTitle.id">
@@ -43,11 +43,13 @@
   import ZkCol from 'components/common/layout/Col.vue'
 
   export default {
-    name: 'NewsCard',
+    name: 'NewsCardList',
     data() {
       return {
         newsTitles: null,
-        totalPage: null
+        totalPage: null,
+        // 加载状态
+        isLoading: true
       }
     },
     props: {
@@ -60,27 +62,45 @@
       changeNews(url) {
         this.getData(`${url}/${this.getRandomNum(this.totalPage)}.htm`)
       },
-      //随机生成十六进制颜色
-      randomRgbaColor() { //随机生成RGBA颜色
-        var r = Math.floor(Math.random() * 256); //随机生成256以内r值
-        var g = Math.floor(Math.random() * 256); //随机生成256以内g值
-        var b = Math.floor(Math.random() * 256); //随机生成256以内b值
-        var alpha = Math.random(); //随机生成1以内a值
-        return `rgba(${r},${g},${b},${alpha})`; //返回rgba(r,g,b,a)格式颜色
+      // 随机生成十六进制颜色
+      randomRgbaColor() { // 随机生成RGBA颜色
+        var r = Math.floor(Math.random() * 256); // 随机生成256以内r值
+        var g = Math.floor(Math.random() * 256); // 随机生成256以内g值
+        var b = Math.floor(Math.random() * 256); // 随机生成256以内b值
+        var alpha = Math.random(); // 随机生成1以内a值
+        return `rgba(${r},${g},${b},${alpha})`; // 返回rgba(r,g,b,a)格式颜色
       },
       getData(url) {
         // 加载动画
         const loading = this.$loading({
-          target: this.$refs.newsCardList
+          target: this.$refs.newsCardWrap,
+          fullscreen: false
         })
         require(`/news/${url}`).then(res => {
           this.newsTitles = res.news
-          this.totalPage = res.totalPage
-          // 数据请求完场，关闭加载动画
-          this.$nextTick(() => {
-            loading.close()
-          })
+          if (!this.totalPage) {
+            this.totalPage = res.totalPage
+          }
+          this.isLoading = false
+          // 如果已经渠道数据，关闭加载动画
+          const timer = setInterval(() => {
+            if (!this.isLoading) {
+              loading.close()
+              this.isLoading = true
+              clearInterval(timer)
+            }
+          }, 500)
         }).catch(err => {
+          // 加载失败了也要关闭加载，提高体验
+          this.isLoading = false
+          // 如果已经渠道数据，关闭加载动画
+          const timer = setInterval(() => {
+            if (!this.isLoading) {
+              loading.close()
+              this.isLoading = true
+              clearInterval(timer)
+            }
+          }, 500)
           // 错误处理待写
           console.error(err)
         })

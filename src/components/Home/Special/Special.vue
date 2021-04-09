@@ -24,20 +24,25 @@
     name: 'Special',
     data() {
       return {
-        specialTitles: [],
+        specialTitles: null,
       }
     },
     created() {
       const loading = this.$loading({
-        target: '.special-content'
+        target: '.special-content',
+        fullscreen: false
       })
       require('/special').then(res => {
         this.specialTitles = res
-        this.$nextTick(() => {
-          loading.close()
-        })
+        // 如果已经渠道数据，关闭加载动画
+        const timer = setInterval(() => {
+          if (this.specialTitles) {
+            loading.close()
+            clearInterval(timer)
+          }
+        }, 500)
       }).catch(err => {
-        console.log(err);
+        console.error(err)
       })
     },
     components: {

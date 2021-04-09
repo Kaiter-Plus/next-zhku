@@ -13,6 +13,7 @@
   import Pagination from 'components/common/pagination/pagination'
   import pdf from 'vue-pdf'
   export default {
+    name: 'SchoolConstitution',
     data() {
       return {
         url: './zc.pdf',

@@ -80,7 +80,7 @@
   import ZkRow from 'components/common/layout/Row.vue'
   import ZkCol from 'components/common/layout/Col.vue'
   import ZkImage from 'components/common/image/Imager.vue'
-  import AsideItem from 'components/content/AsideItem.vue'
+  import AsideItem from 'components/content/news/AsideItem.vue'
   export default {
     name: 'ShowNews',
     data() {
@@ -96,7 +96,8 @@
     methods: {
       getData(params) {
         const loading = this.$loading({
-          target: '.show-news'
+          target: '.show-news',
+          fullscreen: false
         })
         require(`/news/${params.info}/${params.type}/${params.no}`).then(res => {
           this.srcList.length = 0

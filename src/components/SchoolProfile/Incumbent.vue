@@ -35,7 +35,8 @@
     created() {
       // 加载动画
       const loading = this.$loading({
-        target: '.incumbent'
+        target: '.incumbent',
+        fullscreen: false
       })
       require(`/schoolProfile/incumbent`).then(res => {
         this.imgList = res

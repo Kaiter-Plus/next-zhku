@@ -35,7 +35,8 @@
     created() {
       // 加载动画
       const loading = this.$loading({
-        target: '.school-scenery'
+        target: '.school-scenery',
+        fullscreen: false
       })
       require(`/schoolProfile/school-scenery`).then(res => {
         this.imgList = res

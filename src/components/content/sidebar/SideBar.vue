@@ -24,7 +24,10 @@
       }
     },
     created() {
-      this.currentIndex = +this.$store.state.sideBarIndex
+      this.resetIndex()
+    },
+    activated() {
+      this.resetIndex()
     },
     methods: {
       showMenu() {
@@ -37,6 +40,9 @@
         this.$store.commit('setSideBarIndex', index)
         // 跳转页面
         this.$router.replace(path)
+      },
+      resetIndex() {
+        this.currentIndex = +this.$store.state.sideBarIndex
       }
     }
   }

@@ -6,7 +6,7 @@
         <em class="title">友情链接</em>
       </div>
       <tabs type="border-card" class="link-tabs">
-        <tab-pane v-for="link in links" :label="link.title" :key="link.id">
+        <tab-pane v-for="link in friendLink" :label="link.title" :key="link.id">
           <zk-row class="link-content">
             <zk-col class="link-item" v-for="subLink in link.children" :key="subLink.id">
               <a :href="subLink.href">
@@ -21,9 +21,6 @@
 </template>
 
 <script>
-  // 请求
-  import require from 'network/index.js'
-
   // 组件
   import ZkRow from 'components/common/layout/Row.vue'
   import ZkCol from 'components/common/layout/Col.vue'
@@ -32,26 +29,8 @@
 
   export default {
     name: 'FriendLink',
-    data() {
-      return {
-        links: Array
-      }
-    },
-    created() {
-      // 加载动画
-      const loading = this.$loading({
-        target: '.link-tabs'
-      })
-      require(`/friendLink`).then(res => {
-        this.links = res
-        // 数据请求完场，关闭加载动画
-        this.$nextTick(() => {
-          loading.close()
-        })
-      }).catch(err => {
-        // 错误处理待写
-        console.error(err)
-      })
+    props: {
+      friendLink: Array
     },
     components: {
       ZkRow,

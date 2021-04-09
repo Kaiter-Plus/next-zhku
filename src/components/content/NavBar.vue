@@ -1,8 +1,8 @@
 <template>
   <div class="navbar">
-    <a class="logo" href="/">
+    <router-link class="logo" to="/" @click.native="resetNavIndex">
       <img src="~assets/img/logo.png">
-    </a>
+    </router-link>
     <ul class="menu">
       <div class="menu-button" :class="{click: isClickState}" @click="isClick"></div>
       <div class="menu-item-wrap" ref="menuItemWrap">
@@ -50,6 +50,10 @@
         if (path) {
           this.$router.push(path)
         }
+      },
+      resetNavIndex() {
+        this.currentIndex = 0
+        this.$store.commit('setNavIndex', 0)
       }
     },
   }

@@ -3,8 +3,14 @@ import axios from 'axios'
 export default function request(config) {
   // 创建 axios 实例
   const instance = axios.create({
+    // 发布使用
+    // baseURL: 'http://121.37.230.214',
+    // 本地测试使用
     baseURL: 'http://localhost',
-    timeout: 5000
+    timeout: 10000,
+    headers: {
+      'Content-Type': 'application/json;charset=utf-8'
+    }
   })
 
   // axios 拦截器
@@ -21,7 +27,7 @@ export default function request(config) {
       return res.data
     },
     error => {
-      throw error.response.status
+      throw error
     }
   )
 

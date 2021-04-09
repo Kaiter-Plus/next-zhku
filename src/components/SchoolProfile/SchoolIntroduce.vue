@@ -21,7 +21,8 @@
     created() {
       // 加载动画
       const loading = this.$loading({
-        target: '.school-introduce'
+        target: '.school-introduce',
+        fullscreen: false
       })
       require(`/schoolProfile/school-introduce`).then(res => {
         this.article = res

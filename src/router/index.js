@@ -3,16 +3,19 @@ import VueRouter from 'vue-router'
 import Home from 'views/Home.vue'
 
 // 学校概况组件组
-import Incumbent from 'components/SchoolProfile/Incumbent'
-import LeaderCare from 'components/SchoolProfile/LeaderCare'
-import SchoolScenery from 'components/SchoolProfile/SchoolScenery'
-import SchoolIntroduce from 'components/SchoolProfile/SchoolIntroduce'
-import SchoolConstitution from 'components/SchoolProfile/SchoolConstitution'
+const Incumbent = () => import(/* webpackChunkName: "Incumbent" */ 'components/SchoolProfile/Incumbent')
+const LeaderCare = () => import(/* webpackChunkName: "LeaderCare" */ 'components/SchoolProfile/LeaderCare')
+const SchoolScenery = () => import(/* webpackChunkName: "SchoolScenery" */ 'components/SchoolProfile/SchoolScenery')
+const SchoolIntroduce = () =>
+  import(/* webpackChunkName: "SchoolIntroduce" */ 'components/SchoolProfile/SchoolIntroduce')
+const SchoolConstitution = () =>
+  import(/* webpackChunkName: "SchoolConstitution" */ 'components/SchoolProfile/SchoolConstitution')
 
 // 机构设置组件组
-import ResearchOrg from 'components/OrganizationSetup/ResearchOrg.vue'
-import ManagementOrg from 'components/OrganizationSetup/ManagementOrg.vue'
-import TeachingAndAuxiliaryOrg from 'components/OrganizationSetup/TeachingAndAuxiliaryOrg.vue'
+const ResearchOrg = () => import(/* webpackChunkName: "ResearchOrg" */ 'components/OrganizationSetup/ResearchOrg')
+const ManagementOrg = () => import(/* webpackChunkName: "ManagementOrg" */ 'components/OrganizationSetup/ManagementOrg')
+const TeachingAndAuxiliaryOrg = () =>
+  import(/* webpackChunkName: "TeachingAndAuxiliaryOrg" */ 'components/OrganizationSetup/TeachingAndAuxiliaryOrg')
 
 // 解决重复点击一个路由时报错
 const originalPush = VueRouter.prototype.push
@@ -98,7 +101,7 @@ const routes = [
   // 新闻展示
   {
     path: '/news/:info/:type/:no',
-    component: () => import(/* webpackChunkName: "ShowNews" */ 'components/News/ShowNews.vue')
+    component: () => import(/* webpackChunkName: "ShowNews" */ 'components/content/news/ShowNews.vue')
   }
 ]
 

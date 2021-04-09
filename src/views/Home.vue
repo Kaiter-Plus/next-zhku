@@ -8,7 +8,7 @@
     <special />
 
     <!-- 友情链接 -->
-    <friend-link />
+    <friend-link :friendLink="friendLink" />
 
   </div>
 </template>
@@ -22,7 +22,8 @@
   export default {
     name: 'Home',
     props: {
-      newsTitles: Array
+      newsTitles: Array,
+      friendLink: Array
     },
     components: {
       NewsWrap,
