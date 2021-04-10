@@ -31,10 +31,6 @@
             href: 'mtzk.htm'
           },
           {
-            title: '专题报道',
-            href: 'ztbd.htm'
-          },
-          {
             title: '讲座预告',
             href: 'jzyg.htm'
           },

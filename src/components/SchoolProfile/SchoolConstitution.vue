@@ -16,7 +16,10 @@
     name: 'SchoolConstitution',
     data() {
       return {
-        url: './zc.pdf',
+        // 开发时使用
+        url: '/api/zc.pdf',
+        // 发布时使用本地文件
+        // url: './zc.pdf',
         pageNum: 1,
         pageTotalNum: 1,
         loadedRatio: 0,
