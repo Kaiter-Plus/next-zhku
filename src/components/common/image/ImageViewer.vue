@@ -40,9 +40,12 @@
 </template>
 
 <script>
+  // 导入注册事件和关闭事件函数
   import { on, off } from '@/utils/dom';
+  // 导入 使用 requestAnimatioinFrame 来进行节流操作 判断时候时 firefox 浏览器
   import { rafThrottle, isFirefox } from '@/utils/util';
 
+  // 初始化图标
   const Mode = {
     CONTAIN: {
       name: 'contain',
@@ -54,6 +57,7 @@
     }
   };
 
+  // 鼠标滚轮事件的事件名
   const mousewheelEventName = isFirefox() ? 'DOMMouseScroll' : 'mousewheel';
 
   export default {
@@ -155,6 +159,7 @@
         this.onClose();
       },
       deviceSupportInstall() {
+        // 监听键盘点击事件
         this._keyDownHandler = rafThrottle(e => {
           const keyCode = e.keyCode;
           switch (keyCode) {
@@ -184,6 +189,7 @@
               break;
           }
         });
+        // 监听鼠标滚轮事件
         this._mouseWheelHandler = rafThrottle(e => {
           const delta = e.wheelDelta ? e.wheelDelta : -e.detail;
           if (delta > 0) {
@@ -201,6 +207,7 @@
         on(document, 'keydown', this._keyDownHandler);
         on(document, mousewheelEventName, this._mouseWheelHandler);
       },
+      // 移除事件
       deviceSupportUninstall() {
         off(document, 'keydown', this._keyDownHandler);
         off(document, mousewheelEventName, this._mouseWheelHandler);

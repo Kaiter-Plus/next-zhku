@@ -1,5 +1,5 @@
 <template>
-  <div id="app" :style="`background: ${background}`">
+  <div id="app" :style="`background: ${background}`" ref="app">
 
     <!-- Banner -->
     <banner>
@@ -92,7 +92,7 @@
         this.newsTitles = res.newsTitles
         this.friendLink = res.friendLink
         this.visits = res.visits
-        // 如果已经渠道数据，关闭加载动画
+        // 如果已经取到数据，关闭加载动画
         const timer = setInterval(() => {
           if (this.bannerSrc) {
             loading.close()
@@ -118,6 +118,34 @@
       window.addEventListener('pagehide', () => {
         sessionStorage.setItem('state', JSON.stringify(this.$store.state))
       })
+    },
+    mounted() {
+      // 如果是特殊节日，切换背景为特定的图片
+      const date = new Date()
+      const month = `${date.getMonth() + 1}`.padStart(2, '0')
+      const day = `${date.getDate()}`.padStart(2, '0')
+      const month_day = `${month}.${day}`
+      switch (month_day) {
+        case '04.23': {
+          this.$refs.app.style = `background: url(./img/background/${month_day}.jpeg) no-repeat fixed 0 0 / cover`
+          break
+        }
+        case '07.01': {
+          this.$refs.app.style = `background: url(./img/background/${month_day}.jpeg) no-repeat fixed 0 0 / cover`
+          break
+        }
+        case '08.01': {
+          this.$refs.app.style = `background: url(./img/background/${month_day}.jpeg) no-repeat fixed 0 0 / cover`
+          break
+        }
+        case '10.01': {
+          this.$refs.app.style = `background: url(./img/background/${month_day}.jpeg) no-repeat fixed 0 0 / cover`
+          break
+        }
+        default: {
+          break
+        }
+      }
     },
     methods: {
       // 切换主题
@@ -145,9 +173,6 @@
 
 <style lang="less">
   #app {
-    // 背景图片加载失败时的背景色
-    background: #81ffef;
-    // 主背景色
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;

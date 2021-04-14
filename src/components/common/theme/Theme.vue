@@ -12,6 +12,10 @@
   export default {
     name: 'Theme',
     props: {
+      defaultColor: {
+        type: String,
+        default: '#81ffef'
+      },
       tip: {
         type: String,
         default: '切换主题'
@@ -53,9 +57,9 @@
       colorClick(color) {
         this.$emit('selectTheme', color)
       },
-      // 霍夫默认主题
+      // 恢复默认主题
       resetTheme() {
-        this.$emit('selectTheme', '#81ffef;')
+        this.$emit('selectTheme', this.defaultColor)
       }
     }
   }

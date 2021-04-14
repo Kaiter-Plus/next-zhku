@@ -1,7 +1,7 @@
 import Pager from './Pager.vue'
 
 export default {
-  name: 'ElPagination',
+  name: 'Pagination',
 
   props: {
     // 每页显示数量

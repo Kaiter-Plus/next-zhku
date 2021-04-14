@@ -30,10 +30,12 @@ VueRouter.prototype.replace = function replace(location) {
 Vue.use(VueRouter)
 
 const routes = [
+  // /
   {
     path: '/',
     redirect: '/home'
   },
+  // 首页
   {
     path: '/home',
     name: 'Home',

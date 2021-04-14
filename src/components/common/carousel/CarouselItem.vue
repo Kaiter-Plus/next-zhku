@@ -13,8 +13,12 @@
 </template>
 
 <script>
+  // 为了兼容浏览器添加 transform transition animation 的前缀
   import { autoprefixer } from 'utils/util';
+
+  // 如果时 card 类型，设置卡片的缩放率
   const CARD_SCALE = 0.83;
+
   export default {
     name: 'CarouselItem',
 
@@ -39,6 +43,7 @@
     },
 
     methods: {
+      // 处理下一个展示元素的下标
       processIndex(index, activeIndex, length) {
         if (activeIndex === 0 && index === length - 1) {
           return -1;
@@ -51,7 +56,7 @@
         }
         return index;
       },
-
+      // 计算卡片的 translate
       calcCardTranslate(index, activeIndex) {
         const parentWidth = this.$parent.$el.offsetWidth;
         if (this.inStage) {
@@ -62,12 +67,12 @@
           return (3 + CARD_SCALE) * parentWidth / 4;
         }
       },
-
+      // 计算 translate
       calcTranslate(index, activeIndex, isVertical) {
         const distance = this.$parent.$el[isVertical ? 'offsetHeight' : 'offsetWidth'];
         return distance * (index - activeIndex);
       },
-
+      // translate 的元素
       translateItem(index, activeIndex, oldIndex) {
         const parentType = this.$parent.type;
         const parentDirection = this.parentDirection;
@@ -93,7 +98,7 @@
         }
         this.ready = true;
       },
-
+      // 处理元素的点击
       handleItemClick() {
         const parent = this.$parent;
         if (parent && parent.type === 'card') {
@@ -104,10 +109,11 @@
     },
 
     computed: {
+      // 容器的方向
       parentDirection() {
         return this.$parent.direction;
       },
-
+      // 初始化样式
       itemStyle() {
         const translateType = this.parentDirection === 'vertical' ? 'translateY' : 'translateX';
         const value = `${translateType}(${this.translate}px) scale(${this.scale})`;
@@ -119,10 +125,12 @@
     },
 
     created() {
+      // 执行容器的元素更新方法
       this.$parent && this.$parent.updateItems();
     },
 
     destroyed() {
+      // 执行容器的元素更新方法
       this.$parent && this.$parent.updateItems();
     }
   };

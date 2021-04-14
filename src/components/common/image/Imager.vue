@@ -16,13 +16,18 @@
 </template>
 
 <script>
+  // 图片放大展示的容器
   import ImageViewer from './ImageViewer.vue';
+  // 导入注册事件、取消事件、获取滚动容器、一个元素是否在指定的容器内的方法
   import { on, off, getScrollContainer, isInContainer } from '@/utils/dom';
+  // 导入判断一个变量的类型方法
   import { isString, isHtmlElement } from '@/utils/types';
+  // 导入节流函数
   import throttle from 'throttle-debounce/throttle';
 
+  // 是否支持 object-fit 属性
   const isSupportObjectFit = () => document.documentElement.style.objectFit !== undefined;
-
+  // 初始化 object-fit 的值
   const ObjectFit = {
     NONE: 'none',
     CONTAIN: 'contain',
@@ -120,7 +125,7 @@
       loadImage() {
         if (this.$isServer) return;
 
-        // reset status
+        // 状态重置
         this.loading = true;
         this.error = false;
 
@@ -128,8 +133,7 @@
         img.onload = e => this.handleLoad(e, img);
         img.onerror = this.handleError.bind(this);
 
-        // bind html attrs
-        // so it can behave consistently
+        // 绑定 html 属性
         Object.keys(this.$attrs)
           .forEach((key) => {
             const value = this.$attrs[key];
@@ -137,23 +141,27 @@
           });
         img.src = this.src;
       },
+      // 处理加载中
       handleLoad(e, img) {
         this.imageWidth = img.width;
         this.imageHeight = img.height;
         this.loading = false;
         this.error = false;
       },
+      // 处理加载失败
       handleError(e) {
         this.loading = false;
         this.error = true;
         this.$emit('error', e);
       },
+      // 处理懒加载
       handleLazyLoad() {
         if (isInContainer(this.$el, this._scrollContainer)) {
           this.show = true;
           this.removeLazyLoadListener();
         }
       },
+      // 添加懒加载监听函数
       addLazyLoadListener() {
         if (this.$isServer) return;
 
@@ -175,6 +183,7 @@
           this.handleLazyLoad();
         }
       },
+      // 移除懒加载监听函数
       removeLazyLoadListener() {
         const { _scrollContainer, _lazyLoadHandler } = this;
 
@@ -184,9 +193,8 @@
         this._scrollContainer = null;
         this._lazyLoadHandler = null;
       },
-      /**
-       * simulate object-fit behavior to compatible with IE11 and other browsers which not support object-fit
-       */
+
+      // 对不兼容 object-fit 的浏览器做出兼容处理
       getImageStyle(fit) {
         const { imageWidth, imageHeight } = this;
         const {
@@ -215,16 +223,18 @@
             return {};
         }
       },
+      // 处理点击事件
       clickHandler() {
-        // don't show viewer when preview is false
+        // 如果只有一张，不做处理
         if (!this.preview) {
           return;
         }
-        // prevent body scroll
+        // 循环展示 srcList 的图片
         prevOverflow = document.body.style.overflow;
         document.body.style.overflow = 'hidden';
         this.showViewer = true;
       },
+      // 处理关闭 Viewer 的事件
       closeViewer() {
         document.body.style.overflow = prevOverflow;
         this.showViewer = false;

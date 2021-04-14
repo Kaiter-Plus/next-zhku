@@ -16,7 +16,7 @@
 
 <script type="text/babel">
   export default {
-    name: 'ElPager',
+    name: 'Pager',
 
     props: {
       currentPage: Number,
