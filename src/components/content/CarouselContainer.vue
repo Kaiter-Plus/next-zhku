@@ -1,25 +1,28 @@
 <template>
   <div class="carousel-container">
-    <carousel :interval="2500">
-      <carousel-item v-for="image in images" :key="image.id">
-        <img class="carousel-img" :src="image.src" :alt="image.alt">
-      </carousel-item>
-    </carousel>
+    <el-carousel :interval="2500">
+      <el-carousel-item v-for="image in images" :key="image.id">
+        <img class="carousel-img" :src="image.content" :alt="image.title">
+      </el-carousel-item>
+    </el-carousel>
   </div>
 </template>
 
 <script>
-  // 导入组件
-  import Carousel from 'components/common/carousel/Carousel.vue'
-  import CarouselItem from 'components/common/carousel/CarouselItem.vue'
+  // 请求
+  import require from 'network/index.js'
+
   export default {
     name: 'CarouselContainer',
-    props: {
-      images: Array
+    data() {
+      return {
+        images: null
+      }
     },
-    components: {
-      Carousel,
-      CarouselItem
+    created() {
+      require('/public/image/carousel').then(({ data }) => {
+        this.images = data
+      })
     }
   }
 </script>
@@ -36,10 +39,10 @@
       width: 100%;
       height: 100%;
     }
-    /deep/ .carousel {
+    /deep/ .el-carousel {
       overflow: hidden;
     }
-    /deep/ .carousel__container {
+    /deep/ .el-carousel__container {
       @media screen and (max-width: 768px) {
         height: 9.9375rem;
       }
@@ -56,7 +59,7 @@
         height: 18.9375rem;
       }
     }
-    /deep/ .carousel__arrow {
+    /deep/ .el-carousel__arrow {
       color: #27ae60;
       background-color: rgba(39, 174, 96, 0.11);
       @media screen and (max-width: 1200px) {
@@ -64,8 +67,8 @@
         height: 1.25rem;
       }
     }
-    /deep/ .carousel__indicators--horizontal {
-      .carousel__button {
+    /deep/ .el-carousel__indicators--horizontal {
+      .el-carousel__button {
         background-color: #27ae60;
       }
       @media screen and (max-width: 1200px) {

@@ -23,7 +23,7 @@
       theme: {
         type: Array,
         default: () => [
-          '#fff;',
+          '#f6f6f6;',
           'linear-gradient( 135deg, #81FBB8 10%, #28C76F 100%);',
           'linear-gradient( 135deg, #43CBFF 10%, #9708CC 100%);',
           'linear-gradient( 135deg, #FFD26F 10%, #3677FF 100%);',
@@ -77,6 +77,7 @@
     &:hover {
       &::before,
       .theme-color-container {
+        transform: translate(0, 50%);
         visibility: visible;
         opacity: 1;
       }
@@ -85,11 +86,10 @@
     &::before {
       content: '';
       border: 10px solid;
-      border-color: transparent transparent transparent #fff;
+      border-color: transparent transparent transparent #ffffff99;
       position: absolute;
       right: 35px;
       bottom: 50%;
-      transform: translateY(50%);
     }
     // 所有主题
     .theme-color-container {
@@ -99,20 +99,23 @@
       right: 55px;
       bottom: 50%;
       width: 250px;
-      background-color: #fff;
-      transform: translateY(50%);
+      border-radius: 9px;
+      background-color: #ffffff99;
+      backdrop-filter: blur(10px);
       padding: 5px;
       .theme-color {
         width: 40px;
         height: 40px;
         margin: 5px;
         cursor: pointer;
+        border-radius: 50%;
         border: solid 1px #ccc;
         box-sizing: border-box;
       }
     }
     &::before,
     .theme-color-container {
+      transform: translate(-20px, 50%);
       transition: all 0.3s;
       visibility: hidden;
       opacity: 0;

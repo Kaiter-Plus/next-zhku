@@ -6,7 +6,7 @@ export default function request(config) {
     // 发布使用
     // baseURL: 'http://121.37.230.214',
     // 本地测试使用
-    baseURL: 'http://localhost',
+    baseURL: 'http://localhost:8888',
     timeout: 10000,
     headers: {
       'Content-Type': 'application/json;charset=utf-8'

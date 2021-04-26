@@ -2,38 +2,40 @@
   <div id="app" :style="`background: ${background}`" ref="app">
 
     <!-- Banner -->
-    <banner>
-      <img :src="bannerSrc" alt="banner" style="width: 100%">
+    <banner v-if="banner">
+      <a :href="banner.href">
+        <img :src="banner.content" alt="banner" style="width: 100%">
+      </a>
     </banner>
 
     <!-- 导航栏 -->
     <nav-bar :navItems="navItems" ref="navBar" />
 
     <!-- 主要内容区域 -->
-    <zk-row class="main-container">
-      <zk-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}" :xl="{span: 18, offset: 3}">
+    <el-row class="main-container">
+      <el-col class="content-wrap" :span="24" :lg="{span: 20, offset: 2}" :xl="{span: 18, offset: 3}">
 
         <!-- 轮播图 -->
-        <carousel-container :images="images" />
+        <carousel-container />
 
         <!-- 主要内容 -->
         <keep-alive exclude="ShowNews">
-          <router-view :newsTitles="newsTitles" :friendLink="friendLink" />
+          <router-view />
         </keep-alive>
 
-      </zk-col>
-    </zk-row>
+      </el-col>
+    </el-row>
 
     <!-- 页脚，授权信息 -->
-    <copyright-footer :visits="visits" />
+    <copyright-footer :footer="footer" />
 
     <!-- 切换主题 -->
     <theme @selectTheme="switchTheme" :right="20" />
 
     <!-- 返回顶部 -->
-    <back-top :visibility-height="100" :right="20" :bottom="95">
-      <i class="iconfont icon-fanhuidingbu"></i>
-    </back-top>
+    <el-backtop :visibility-height="100" :right="20" :bottom="95">
+      <i class="el-icon-caret-top" style="color: #5cc989"></i>
+    </el-backtop>
 
   </div>
 </template>
@@ -43,17 +45,21 @@
   import require from 'network/index.js'
 
   // 组件
-  import ZkRow from 'components/common/layout/Row.vue'
-  import ZkCol from 'components/common/layout/Col.vue'
   import Banner from 'components/common/banner/Banner.vue'
   import NavBar from 'components/content/NavBar.vue'
   import CarouselContainer from 'components/content/CarouselContainer.vue'
   import CopyrightFooter from 'components/content/CopyrightFooter.vue'
-  import BackTop from 'components/common/backtop/BackTop.vue'
   import Theme from 'components/common/theme/Theme.vue'
 
   export default {
     name: 'app',
+    components: {
+      NavBar,
+      CarouselContainer,
+      CopyrightFooter,
+      Banner,
+      Theme
+    },
     data() {
       return {
         navItems: [
@@ -74,17 +80,22 @@
             path: '/news'
           }
         ],
-        bannerSrc: null,
-        images: null,
-        newsTitles: null,
-        friendLink: null,
-        visits: null,
+        banner: null,
+        footer: null,
         background: null
       }
     },
     created() {
-      const loading = this.$loading({
-        fullscreen: true
+      // const loading = this.$loading({
+      //   fullscreen: true
+      // })
+      // 获取 banner 图
+      require('/public/image/banner').then(({ data }) => {
+        this.banner = data
+      })
+      // 获取页脚
+      require('/public/footer').then(({ data }) => {
+        this.footer = data
       })
       require('/home').then(res => {
         this.bannerSrc = res.bannerSrc
@@ -93,12 +104,12 @@
         this.friendLink = res.friendLink
         this.visits = res.visits
         // 如果已经取到数据，关闭加载动画
-        const timer = setInterval(() => {
-          if (this.bannerSrc) {
-            loading.close()
-            clearInterval(timer)
-          }
-        }, 500)
+        // const timer = setInterval(() => {
+        //   if (this.bannerSrc) {
+        //     loading.close()
+        //     clearInterval(timer)
+        //   }
+        // }, 500)
       }).catch(err => {
         // 错误处理待写
         console.error(err)
@@ -157,16 +168,6 @@
       storageTheme(background) {
         localStorage.setItem('theme', background)
       }
-    },
-    components: {
-      ZkRow,
-      ZkCol,
-      NavBar,
-      CarouselContainer,
-      CopyrightFooter,
-      Banner,
-      BackTop,
-      Theme
     }
   }
 </script>
@@ -176,6 +177,7 @@
     font-family: 'Avenir', Helvetica, Arial, sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    background: #81ffef;
     .content-wrap {
       margin-top: 0.75rem;
       background: #ffffff60;

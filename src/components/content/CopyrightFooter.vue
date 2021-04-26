@@ -1,24 +1,22 @@
 <template>
-  <div class="copyright-footer">
+  <div class="copyright-footer" v-if="footer">
     <zk-row class="copyright-footer-wrap">
       <zk-col :span="24">
         <ul class="copyright-footer-top">
           <li>版权所有</li>
-          <li>中国·广东·仲恺农业工程学院</li>
-          <li>邮编：510225</li>
+          <li>{{ footer.address }}</li>
+          <li>邮编：{{ footer.postCode }}</li>
         </ul>
       </zk-col>
       <zk-col :span="24">
         <ul class="copyright-footer-bottom">
           <li>
-            <span>当天访问量：</span>
-            <img v-if="visits" :src="visits.today" alt="当天访问量">
+            <span>当天访问量：{{ footer.visitsToday }}</span>
           </li>
           <li>
-            <span>站点总访问量：</span>
-            <img v-if="visits" :src="visits.total" alt="站点总访问量">
+            <span>站点总访问量：{{ footer.visitsTotal }}</span>
           </li>
-          <li>备案/许可证号：粤ICP备05008893号</li>
+          <li>备案/许可证号：{{ footer.record }}</li>
         </ul>
       </zk-col>
     </zk-row>
@@ -33,7 +31,10 @@
   export default {
     name: 'CopyrightFooter',
     props: {
-      visits: null
+      footer: {
+        type: Object,
+        require: true
+      }
     },
     components: {
       ZkRow,

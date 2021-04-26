@@ -1,9 +1,7 @@
 <template>
   <div v-if="article" class="school-introduce">
     <h2 class="title">{{ article.title }}</h2>
-    <p class="paragraph" v-for="paragraph in article.content" :key="paragraph.id">
-      {{ paragraph.text }}
-    </p>
+    <div class="paragraph" v-html="article.content"></div>
   </div>
 </template>
 
@@ -24,8 +22,8 @@
         target: '.school-introduce',
         fullscreen: false
       })
-      require(`/schoolProfile/school-introduce`).then(res => {
-        this.article = res
+      require(`/public/news/school-introduce`).then(({ data }) => {
+        this.article = data
         // 数据请求完场，关闭加载动画
         this.$nextTick(() => {
           loading.close()

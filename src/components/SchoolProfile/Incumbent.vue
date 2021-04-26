@@ -2,7 +2,7 @@
   <div class="incumbent">
     <div class="gallery">
       <div class="gallery-item" v-for="img in imgList" :key="img.id">
-        <zk-image class="image" :src="img.src" :preview-src-list="srcList">
+        <zk-image class="image" :src="img.content" :preview-src-list="srcList">
           <div slot="placeholder" class="image-slot">
             <span class="tip">加载中...</span>
           </div>
@@ -11,7 +11,7 @@
           </div>
         </zk-image>
         <div class="image-title">
-          <a :href="img.href">{{ img.title }}</a>
+          {{ img.title }}
         </div>
       </div>
     </div>
@@ -38,8 +38,8 @@
         target: '.incumbent',
         fullscreen: false
       })
-      require(`/schoolProfile/incumbent`).then(res => {
-        this.imgList = res
+      require(`/public/image/incumbent`).then(({ data }) => {
+        this.imgList = data
         // 数据请求完场，关闭加载动画
         this.$nextTick(() => {
           loading.close()
@@ -51,11 +51,7 @@
     },
     computed: {
       srcList() {
-        const list = []
-        for (const img of this.imgList) {
-          list.push(img.src)
-        }
-        return list
+        return this.imgList.map(v => v.content)
       }
     },
     components: {

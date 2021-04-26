@@ -6,14 +6,8 @@
         <em class="title">友情链接</em>
       </div>
       <tabs type="border-card" class="link-tabs">
-        <tab-pane v-for="link in friendLink" :label="link.title" :key="link.id">
-          <zk-row class="link-content">
-            <zk-col class="link-item" v-for="subLink in link.children" :key="subLink.id">
-              <a :href="subLink.href">
-                <span :title="subLink.name">{{subLink.title}}</span>
-              </a>
-            </zk-col>
-          </zk-row>
+        <tab-pane v-for="category in categories" :label="category.description" :key="category.id">
+          <link-content :category="category.id"></link-content>
         </tab-pane>
       </tabs>
     </div>
@@ -21,22 +15,34 @@
 </template>
 
 <script>
+  // 请求
+  import require from 'network/index.js'
+
   // 组件
   import ZkRow from 'components/common/layout/Row.vue'
   import ZkCol from 'components/common/layout/Col.vue'
   import Tabs from 'components/common/tabs/Tabs.vue'
   import TabPane from 'components/common/tabs/TabPane.vue'
+  import LinkContent from './LinkContent.vue'
 
   export default {
     name: 'FriendLink',
-    props: {
-      friendLink: Array
-    },
     components: {
       ZkRow,
       ZkCol,
       Tabs,
-      TabPane
+      TabPane,
+      LinkContent
+    },
+    data() {
+      return {
+        categories: null
+      }
+    },
+    created() {
+      require('/public/link/categories').then(({ data }) => {
+        this.categories = data
+      })
     }
   }
 </script>
@@ -73,55 +79,6 @@
       }
       .link-tabs {
         margin: 0.625rem 1.5rem 1.5rem;
-      }
-      .link-content {
-        display: flex;
-        justify-content: flex-start;
-        flex-wrap: wrap;
-        .link-item {
-          width: auto;
-          margin-right: 1rem;
-        }
-        a {
-          align-items: center;
-          text-decoration: none;
-          color: #555666;
-          display: inline-block;
-          border: 1px solid #b5e7cb;
-          padding: 0 2.2rem;
-          border-radius: 0.25rem;
-          font-size: 0.9375rem;
-          margin-bottom: 0.3125rem;
-          @media screen and (max-width: 1430px) {
-            padding: 0 1.7rem;
-          }
-          @media screen and (max-width: 1300px) {
-            padding: 0 1.5rem;
-          }
-          @media screen and (max-width: 540px) {
-            padding: 0px 1.2rem;
-          }
-          @media screen and (max-width: 490px) {
-            padding: 0px 0.2rem;
-            font-size: 14px;
-          }
-          &:link,
-          &:visited {
-            color: #555666;
-          }
-          &:hover,
-          &:active {
-            border: 1px solid rgba(39, 174, 96, 0.11);
-          }
-          span {
-            display: inline-block;
-            // width: 3.75rem;
-            line-height: 2rem;
-            overflow: hidden;
-            white-space: nowrap;
-            text-overflow: ellipsis;
-          }
-        }
       }
     }
     /deep/ .tabs--border-card {
