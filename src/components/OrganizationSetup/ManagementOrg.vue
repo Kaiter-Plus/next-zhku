@@ -1,42 +1,38 @@
 <template>
-  <div class="management-org">
+  <div class="management-org" v-loading="loading">
     <link-container :links="links" />
   </div>
 </template>
 
 <script>
-  // 请求
-  import require from 'network/index.js'
+// 请求
+import { fetchLinks } from 'api/link.js'
 
-  // 导入组件
-  import LinkContainer from 'components/content/LinkContainer.vue'
+// 类型常量
+import { MANAGEMENT } from '@/constant/link'
 
-  export default {
-    name: 'ManegementOrg',
-    data() {
-      return {
-        links: null
-      }
-    },
-    created() {
-      // 加载动画
-      const loading = this.$loading({
-        target: '.management-org',
-        fullscreen: false
-      })
-      require(`/organizationSetup/gljg.htm`).then(res => {
-        this.links = res
-        // 数据请求完场，关闭加载动画
-        this.$nextTick(() => {
-          loading.close()
-        })
-      }).catch(err => {
-        // 错误处理待写
-        console.error(err)
-      })
-    },
-    components: {
-      LinkContainer
+// 导入组件
+import LinkContainer from 'components/content/LinkContainer.vue'
+
+export default {
+  name: 'ManegementOrg',
+  data() {
+    return {
+      links: null,
+      loading: false
     }
+  },
+  created() {
+    // 加载动画
+    this.loading = true
+    fetchLinks(MANAGEMENT).then(({ data }) => {
+      this.links = data
+      // 数据请求完场，关闭加载动画
+      this.loading = false
+    })
+  },
+  components: {
+    LinkContainer
   }
+}
 </script>

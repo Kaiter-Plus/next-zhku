@@ -1,14 +1,14 @@
 <template>
   <div class="copyright-footer" v-if="footer">
-    <zk-row class="copyright-footer-wrap">
-      <zk-col :span="24">
+    <el-row class="copyright-footer-wrap">
+      <el-col :span="24">
         <ul class="copyright-footer-top">
           <li>版权所有</li>
           <li>{{ footer.address }}</li>
           <li>邮编：{{ footer.postCode }}</li>
         </ul>
-      </zk-col>
-      <zk-col :span="24">
+      </el-col>
+      <el-col :span="24">
         <ul class="copyright-footer-bottom">
           <li>
             <span>当天访问量：{{ footer.visitsToday }}</span>
@@ -18,27 +18,25 @@
           </li>
           <li>备案/许可证号：{{ footer.record }}</li>
         </ul>
-      </zk-col>
-    </zk-row>
+      </el-col>
+    </el-row>
   </div>
 </template>
 
 <script>
-  // 组件
-  import ZkRow from 'components/common/layout/Row.vue'
-  import ZkCol from 'components/common/layout/Col.vue'
+  import { fetchFooter } from 'api/footer.js'
 
   export default {
     name: 'CopyrightFooter',
-    props: {
-      footer: {
-        type: Object,
-        require: true
+    data() {
+      return {
+        footer: null
       }
     },
-    components: {
-      ZkRow,
-      ZkCol
+    created() {
+      fetchFooter().then(({ data }) => {
+        this.footer = data
+      })
     }
   }
 </script>

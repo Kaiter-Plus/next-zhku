@@ -1,32 +1,6 @@
 @import './normalize.css';
 @import './reset.css';
 
-/* 图标 */
-@import './iconfont/iconfont.css';
-
-/* 基本布局 */
-@import './theme/row.css';
-@import './theme/col.css';
-
-/* 轮播图 */
-@import './theme/carousel.css';
-@import './theme/carousel-item.css';
-
-/* 返回顶部 */
-@import './theme/backtop.css';
-
-/* 标签栏 */
-@import './theme/tabs.css';
-
-/* 页头 */
-@import './theme/page-header.css';
-
-/* 分页 */
-@import './theme/pagination.css';
-
-/* 图片 */
-@import './theme/image.css';
-
 /* 设置 webkit 内核滚动朓样式 */ /* 设置整体滚动条的样式 */
 ::-webkit-scrollbar {
   width: 9px;
@@ -77,4 +51,11 @@ table tr td {
   color: #333;
   border: 1px solid #ddd;
   border-collapse: collapse;
+}
+
+/* 查看文章时的图片大小 */
+.news-content img {
+  width: 90%;
+  height: auto;
+  transform: translateX(-1em);
 }

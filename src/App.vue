@@ -27,7 +27,7 @@
     </el-row>
 
     <!-- 页脚，授权信息 -->
-    <copyright-footer :footer="footer" />
+    <copyright-footer />
 
     <!-- 切换主题 -->
     <theme @selectTheme="switchTheme" :right="20" />
@@ -42,7 +42,7 @@
 
 <script>
   // 请求
-  import require from 'network/index.js'
+  import { fetchBanner } from 'api/image'
 
   // 组件
   import Banner from 'components/common/banner/Banner.vue'
@@ -81,38 +81,12 @@
           }
         ],
         banner: null,
-        footer: null,
         background: null
       }
     },
     created() {
-      // const loading = this.$loading({
-      //   fullscreen: true
-      // })
-      // 获取 banner 图
-      require('/public/image/banner').then(({ data }) => {
+      fetchBanner().then(({ data }) => {
         this.banner = data
-      })
-      // 获取页脚
-      require('/public/footer').then(({ data }) => {
-        this.footer = data
-      })
-      require('/home').then(res => {
-        this.bannerSrc = res.bannerSrc
-        this.images = res.images
-        this.newsTitles = res.newsTitles
-        this.friendLink = res.friendLink
-        this.visits = res.visits
-        // 如果已经取到数据，关闭加载动画
-        // const timer = setInterval(() => {
-        //   if (this.bannerSrc) {
-        //     loading.close()
-        //     clearInterval(timer)
-        //   }
-        // }, 500)
-      }).catch(err => {
-        // 错误处理待写
-        console.error(err)
       })
 
       // 在页面加载时读取 localStorage 里的主题信息

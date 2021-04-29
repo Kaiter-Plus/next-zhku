@@ -1,42 +1,51 @@
 <template>
-  <div class="teaching-and-auxiliary-org">
+  <div class="teaching-and-auxiliary-org" v-loading="loading">
     <link-container :links="links" />
   </div>
 </template>
 
 <script>
-  // 请求
-  import require from 'network/index.js'
+// 请求
+import { fetchLinks } from 'api/link.js'
 
-  // 导入组件
-  import LinkContainer from 'components/content/LinkContainer.vue'
+// 类型常量
+import { TEACHING, TEACHINGASSISTANT, DETACHMENT } from '@/constant/link'
 
-  export default {
-    name: 'TeachingAndAuxiliaryOrg',
-    data() {
-      return {
-        links: null
-      }
-    },
-    created() {
+// 导入组件
+import LinkContainer from 'components/content/LinkContainer.vue'
+
+export default {
+  name: 'TeachingAndAuxiliaryOrg',
+  components: { LinkContainer },
+  data() {
+    return {
+      links: null,
+      loading: false
+    }
+  },
+  created() {
+    this.getLinks()
+  },
+  methods: {
+    getLinks() {
       // 加载动画
-      const loading = this.$loading({
-        target: '.teaching-and-auxiliary-org',
-        fullscreen: true
-      })
-      require(`/organizationSetup/jxjjfjg.htm`).then(res => {
-        this.links = res
+      this.loading = true
+      fetchLinks(TEACHING).then(({ data }) => {
+        this.links = [...this.links, ...data]
         // 数据请求完场，关闭加载动画
-        this.$nextTick(() => {
-          loading.close()
-        })
-      }).catch(err => {
-        // 错误处理待写
-        console.error(err)
+        this.loading = false
       })
-    },
-    components: {
-      LinkContainer
+      fetchLinks(TEACHINGASSISTANT).then(({ data }) => {
+        this.links = [...this.links, ...data]
+        // 数据请求完场，关闭加载动画
+        this.loading = false
+      })
+      fetchLinks(DETACHMENT).then(({ data }) => {
+        this.links = [...this.links, ...data]
+        // 数据请求完场，关闭加载动画
+        this.loading = false
+      })
     }
   }
+}
 </script>

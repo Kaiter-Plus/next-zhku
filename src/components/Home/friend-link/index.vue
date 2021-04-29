@@ -5,42 +5,32 @@
         <div class="friend-link-icon"></div>
         <em class="title">友情链接</em>
       </div>
-      <tabs type="border-card" class="link-tabs">
-        <tab-pane v-for="category in categories" :label="category.description" :key="category.id">
+      <el-tabs type="border-card" class="link-tabs">
+        <el-tab-pane v-for="category in categories" :label="category.description" :key="category.id">
           <link-content :category="category.id"></link-content>
-        </tab-pane>
-      </tabs>
+        </el-tab-pane>
+      </el-tabs>
     </div>
   </div>
 </template>
 
 <script>
   // 请求
-  import require from 'network/index.js'
+  import { fetchLinkCategories } from 'api/link'
 
   // 组件
-  import ZkRow from 'components/common/layout/Row.vue'
-  import ZkCol from 'components/common/layout/Col.vue'
-  import Tabs from 'components/common/tabs/Tabs.vue'
-  import TabPane from 'components/common/tabs/TabPane.vue'
   import LinkContent from './LinkContent.vue'
 
   export default {
     name: 'FriendLink',
-    components: {
-      ZkRow,
-      ZkCol,
-      Tabs,
-      TabPane,
-      LinkContent
-    },
+    components: { LinkContent },
     data() {
       return {
         categories: null
       }
     },
     created() {
-      require('/public/link/categories').then(({ data }) => {
+      fetchLinkCategories().then(({ data }) => {
         this.categories = data
       })
     }
@@ -81,18 +71,19 @@
         margin: 0.625rem 1.5rem 1.5rem;
       }
     }
-    /deep/ .tabs--border-card {
+    /deep/ .el-tabs--border-card {
       background-color: #ffffff90;
     }
-    /deep/ .tabs--border-card > .tabs__header .tabs__item:hover,
-    /deep/ .tabs--border-card > .tabs__header .tabs__item.is-active {
+    /deep/ .el-tabs--border-card > .el-tabs__header .el-tabs__item:hover,
+    /deep/ .el-tabs--border-card > .el-tabs__header .el-tabs__item.is-active {
+      color: #27ae60;
       background-color: #ffffff80;
     }
-    /deep/ .tabs--border-card > .tabs__header.is-top {
+    /deep/ .el-tabs--border-card > .el-tabs__header.is-top {
       background-color: rgba(31, 145, 78, 0.11);
     }
-    /deep/ .tabs__nav-next,
-    /deep/ .tabs__nav-prev {
+    /deep/ .el-tabs__nav-next,
+    /deep/ .el-tabs__nav-prev {
       line-height: 40px;
       font-size: 20px;
     }

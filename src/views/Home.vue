@@ -2,7 +2,7 @@
   <div class="home">
 
     <!-- 新闻 -->
-    <news-wrap v-for="newsTitle in newsTitles" :newsTitle="newsTitle" :key="newsTitle.id" />
+    <news-wrap v-for="newsCategory in newsCategories" :newsCategory="newsCategory" :key="newsCategory.id" />
 
     <!-- 专题 -->
     <special />
@@ -14,20 +14,34 @@
 </template>
 
 <script>
+  // 请求
+  import { getHomeNewsCategoies } from 'api/news'
+
   // 导入组件
   import NewsWrap from 'components/Home/News/NewsWrap.vue'
-  import FriendLink from 'components/Home/friend-link/index.vue'
   import Special from 'components/Home/Special/Special.vue'
+  import FriendLink from 'components/Home/friend-link/index.vue'
 
   export default {
     name: 'Home',
-    props: {
-      newsTitles: Array,
+    components: { NewsWrap, FriendLink, Special },
+    data() {
+      return {
+        newsCategories: null,
+        loading: false
+      }
     },
-    components: {
-      NewsWrap,
-      FriendLink,
-      Special
+    created() {
+      this.getData()
+    },
+    methods: {
+      getData() {
+        this.loading = true
+        getHomeNewsCategoies().then(({ data }) => {
+          this.newsCategories = data
+          this.loading = false
+        })
+      }
     }
   }
 </script>

@@ -1,36 +1,54 @@
 import axios from 'axios'
+import qs from 'qs'
+import { Message } from 'element-ui'
 
-export default function request(config) {
-  // 创建 axios 实例
-  const instance = axios.create({
-    // 发布使用
-    // baseURL: 'http://121.37.230.214',
-    // 本地测试使用
-    baseURL: 'http://localhost:8888',
-    timeout: 10000,
-    headers: {
-      'Content-Type': 'application/json;charset=utf-8'
+const service = axios.create({
+  baseURL: process.env.VUE_APP_BASE_API,
+  timeout: 10000,
+  headers: {
+    'Content-Type': 'application/json;charset=utf-8'
+  },
+  transformRequest: [
+    function(data) {
+      return qs.stringify(data)
     }
-  })
+  ]
+})
 
-  // axios 拦截器
-  instance.interceptors.request.use(
-    config => {
-      return config
-    },
-    error => {
-      return error
-    }
-  )
-  instance.interceptors.response.use(
-    res => {
-      return res.data
-    },
-    error => {
-      throw error
-    }
-  )
+// axios 拦截器
+service.interceptors.request.use(
+  config => {
+    return config
+  },
+  error => {
+    return Promise.reject(error)
+  }
+)
+service.interceptors.response.use(
+  response => {
+    const res = response.data
 
-  // 3. 发送网络请求
-  return instance(config)
-}
+    // 如果返回的 code 不是 20000，则是错误
+    if (res.code !== 20000) {
+      Message({
+        message: res.message || 'Error',
+        type: 'error',
+        duration: 5 * 1000
+      })
+      return Promise.reject(new Error(res.message || 'Error'))
+    } else {
+      return res
+    }
+  },
+  error => {
+    Message({
+      message: error.message,
+      type: 'error',
+      duration: 5 * 1000
+    })
+    return Promise.reject(error)
+  }
+)
+
+// 3. 发送网络请求
+export default service

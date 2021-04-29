@@ -1,63 +1,46 @@
 <template>
-  <div class="news">
+  <div class="news" v-loading="loading">
 
     <!-- 推荐新闻 -->
-    <recommend-news />
+    <!-- <recommend-news /> -->
 
     <!-- 新闻卡片列表 -->
-    <news-card-list v-for="(news, index) in newsList" :key="index" :news="news" />
+    <news-card-list v-for="category in categories" :key="category.id" :category="category" />
 
   </div>
 </template>
 
 <script>
-  import RecommendNews from 'components/News/RecommendNews'
-  import NewsCardList from 'components/News/NewsCardList'
-  export default {
-    name: 'News',
-    data() {
-      return {
-        newsList: [
-          {
-            title: '学校要闻',
-            href: 'xxyw.htm'
-          },
-          {
-            title: '校园快讯',
-            href: 'xykx.htm'
-          },
-          {
-            title: '媒体仲恺',
-            href: 'mtzk.htm'
-          },
-          {
-            title: '讲座预告',
-            href: 'jzyg.htm'
-          },
-          {
-            title: '仲恺人物',
-            href: 'zkrw.htm'
-          },
-          {
-            title: '仲园思政',
-            href: 'zysz.htm'
-          },
-          {
-            title: '仲恺讲坛',
-            href: 'zkjt1.htm'
-          }
-        ]
-      }
-    },
-    components: {
-      RecommendNews,
-      NewsCardList
+// 请求
+import { getAllNewsCategoies } from 'api/news'
+import RecommendNews from 'components/News/RecommendNews'
+import NewsCardList from 'components/News/NewsCardList'
+export default {
+  name: 'News',
+  components: { RecommendNews, NewsCardList },
+  data() {
+    return {
+      categories: null,
+      loading: false
+    }
+  },
+  created() {
+    this.getData()
+  },
+  methods: {
+    getData() {
+      this.loading = true
+      getAllNewsCategoies().then(({ data }) => {
+        this.categories = data
+        this.loading = false
+      })
     }
   }
+}
 </script>
 
 <style lang="less" scoped>
-  .news {
-    margin: 0 1rem;
-  }
+.news {
+  margin: 0 1rem;
+}
 </style>

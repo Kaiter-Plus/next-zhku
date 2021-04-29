@@ -1,44 +1,35 @@
 <template>
   <div class="special-item">
-    <zk-col class="special-item-wrap" :span="11" :xs="{span: 22}" v-for="specialTitle in specialTitles"
-      :key="specialTitle.id">
-      <special-item-content :specialhref="specialTitle.href.split('/')[1]" />
+    <el-col class="special-item-wrap" :span="11" :xs="{span: 22}" v-for="specialCategory in specialCategories"
+      :key="specialCategory.id">
+      <special-item-content :category="specialCategory.id" />
       <div class="special-item-title">
         <div class="special-item-title-left">
-          <a :href="`https://news.zhku.edu.cn/${specialTitle.href}`">
+          <a href="javascript:void(0)">
             <span>
               <div class="red-flag"></div>
-              {{specialTitle.title}}
+              {{specialCategory.description}}
             </span>
           </a>
         </div>
         <div class="special-item-title-right">
-          <a :href="`https://news.zhku.edu.cn/${specialTitle.href}`">进入专题</a>
+          <a href="javascript:void(0)">进入专题</a>
         </div>
       </div>
-    </zk-col>
+    </el-col>
   </div>
 
 </template>
 
 <script>
   // 导入组件
-  import ZkCol from 'components/common/layout/Col.vue'
   import SpecialItemContent from 'components/Home/Special/SpecialItemContent.vue'
 
   export default {
+    components: { SpecialItemContent },
     name: 'SpecialItem',
     props: {
-      specialTitles: Array
-    },
-    computed: {
-      specialhref() {
-        return this.specialTitles.href.split('/')[1]
-      }
-    },
-    components: {
-      ZkCol,
-      SpecialItemContent
+      specialCategories: Array
     }
   }
 </script>

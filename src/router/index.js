@@ -102,13 +102,14 @@ const routes = [
   },
   // 新闻展示
   {
-    path: '/news/:info/:type/:no',
+    path: '/show/:type/:title',
     component: () => import(/* webpackChunkName: "ShowNews" */ 'components/content/news/ShowNews.vue')
   }
 ]
 
 const router = new VueRouter({
-  routes
+  routes,
+  scrollBehavior: () => ({ y: 0 })
 })
 
 export default router

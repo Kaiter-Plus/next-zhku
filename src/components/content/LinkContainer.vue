@@ -1,8 +1,8 @@
 <template>
   <div class="link-container">
     <ul class="link-content">
-      <li class="link-item" v-for="(link, index) in links" :key="index">
-        <a :href="link.href">
+      <li class="link-item" v-for="link in links" :key="link.id">
+        <a :href="link.link">
           <img src="~assets/img/tip.png">
           <img src="~assets/img/tipHover.png">
           <span>{{ link.title }}</span>

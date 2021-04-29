@@ -4,26 +4,25 @@
       <div class="news-title">
         <div class="title-wrap">
           <div class="news-icon"></div>
-          <em class="title">{{newsTitle.title}}</em>
+          <em class="title">{{newsCategory.description}}</em>
         </div>
         <div class="news-more">
-          <a :href="newsTitle.href" class="more">查看更多>></a>
+          <a href="javascript:void(0)" class="more">查看更多>></a>
         </div>
       </div>
-      <news-item :newsHrefs="newsTitle.href" />
+      <news-item :category="newsCategory.id" />
     </div>
   </div>
 </template>
 
 <script>
+  // 组件
   import NewsItem from 'components/Home/News/NewsItem.vue'
   export default {
     name: 'NewsWrap',
+    components: { NewsItem },
     props: {
-      newsTitle: Object
-    },
-    components: {
-      NewsItem
+      newsCategory: Object
     }
   }
 </script>

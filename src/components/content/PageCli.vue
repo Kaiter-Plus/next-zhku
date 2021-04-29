@@ -2,42 +2,34 @@
   <div class="page-cli">
     <div class="page-cli-wrap">
       <div class="page-cli-title">
-        <page-header @back="$router.go(-1)" :content="title"></page-header>
+        <el-page-header @back="$router.go(-1)" :content="title"></el-page-header>
       </div>
-      <zk-row>
+      <el-row>
         <!-- 侧边栏 -->
-        <zk-col :span="4" class="page-side-bar">
+        <el-col :span="4" class="page-side-bar">
           <side-bar :sideBarList="sideBarList" />
-        </zk-col>
+        </el-col>
         <!-- 内容区 -->
-        <zk-col :span="20" class="main-content-wrap">
+        <el-col :span="20" class="main-content-wrap">
           <keep-alive>
             <router-view class="page-cli-panel" />
           </keep-alive>
-        </zk-col>
-      </zk-row>
+        </el-col>
+      </el-row>
     </div>
   </div>
 </template>
 
 <script>
   // 组件
-  import PageHeader from 'components/common/page-header/PageHeader.vue'
-  import ZkRow from 'components/common/layout/Row.vue'
-  import ZkCol from 'components/common/layout/Col.vue'
   import SideBar from 'components/content/sidebar/SideBar.vue'
 
   export default {
     name: 'PageCli',
+    components: { SideBar },
     props: {
       title: String,
       sideBarList: Array
-    },
-    components: {
-      PageHeader,
-      ZkRow,
-      ZkCol,
-      SideBar
     }
   }
 </script>
@@ -71,10 +63,10 @@
         .main-content-wrap {
           width: 100%;
         }
-        /deep/ .page-header__left * {
+        /deep/ .el-page-header__left * {
           font-size: 0.8rem;
         }
-        /deep/ .page-header__content {
+        /deep/ .el-page-header__content {
           font-size: 0.85rem;
         }
       }

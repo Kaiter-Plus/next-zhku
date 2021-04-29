@@ -1,57 +1,50 @@
 <template>
-  <div v-if="article" class="school-introduce">
+  <div class="school-introduce" v-loading="loading" v-if="article">
     <h2 class="title">{{ article.title }}</h2>
-    <div class="paragraph" v-html="article.content"></div>
+    <div class="content" v-html="article.content"></div>
   </div>
 </template>
 
 <script>
-  // 请求
-  import require from 'network/index.js'
+// 请求
+import { fetchSchoolIntrodece } from 'api/news'
 
-  export default {
-    name: 'SchoolIntroduce',
-    data() {
-      return {
-        article: null
-      }
-    },
-    created() {
-      // 加载动画
-      const loading = this.$loading({
-        target: '.school-introduce',
-        fullscreen: false
-      })
-      require(`/public/news/school-introduce`).then(({ data }) => {
-        this.article = data
-        // 数据请求完场，关闭加载动画
-        this.$nextTick(() => {
-          loading.close()
-        })
-      }).catch(err => {
-        // 错误处理待写
-        console.error(err)
-      })
-    },
-  }
+export default {
+  name: 'SchoolIntroduce',
+  data() {
+    return {
+      article: null,
+      loading: false
+    }
+  },
+  created() {
+    // 加载动画
+    this.loading = true
+    fetchSchoolIntrodece().then(({ data }) => {
+      this.article = data
+      // 数据请求完场，关闭加载动画
+      this.loading = false
+    })
+  },
+}
 </script>
 
 <style lang="less" scoped>
-  .school-introduce {
-    padding: 3.125rem;
-    @media screen and (max-width: 992px) {
-      padding: 1rem;
-    }
-    .title {
-      font-size: 2rem;
-      text-align: center;
-      line-height: 5rem;
-    }
-    .paragraph {
-      font-size: 1rem;
-      line-height: 2rem;
-      text-indent: 2em;
-      font-weight: 500;
-    }
+.school-introduce {
+  padding: 3.125rem;
+  @media screen and (max-width: 992px) {
+    padding: 1rem;
   }
+  .title {
+    font-size: 2rem;
+    text-align: center;
+    line-height: 5rem;
+  }
+  .content {
+    font-size: 1rem;
+    line-height: 2rem;
+    text-indent: 2em;
+    font-weight: 500;
+  }
+}
 </style>

@@ -1,53 +1,40 @@
 <template>
-  <div class="special">
+  <div class="special" v-loading="loading">
     <div class="special-wrap">
       <div class="special-title">
         <div class="special-icon"></div>
         <em class="title">专题</em>
       </div>
-      <zk-row class="special-content">
-        <special-item :specialTitles="specialTitles" />
-      </zk-row>
+      <el-row class="special-content">
+        <special-item :specialCategories="specialCategories" />
+      </el-row>
     </div>
   </div>
 </template>
 
 <script>
   // 导入请求
-  import require from 'network/index.js'
+  import { getHomeSpecialCategoies } from 'api/special'
 
   // 组件
-  import ZkRow from 'components/common/layout/Row.vue'
   import SpecialItem from 'components/Home/Special/SpecialItem.vue'
 
   export default {
     name: 'Special',
+    components: { SpecialItem },
     data() {
       return {
-        specialTitles: null,
+        specialCategories: null,
+        loading: false
       }
     },
     created() {
-      const loading = this.$loading({
-        target: '.special-content',
-        fullscreen: false
-      })
-      require('/special').then(res => {
-        this.specialTitles = res
+      this.loading = true
+      getHomeSpecialCategoies().then(({ data }) => {
+        this.specialCategories = data
         // 如果已经渠道数据，关闭加载动画
-        const timer = setInterval(() => {
-          if (this.specialTitles) {
-            loading.close()
-            clearInterval(timer)
-          }
-        }, 500)
-      }).catch(err => {
-        console.error(err)
+        this.loading = false
       })
-    },
-    components: {
-      ZkRow,
-      SpecialItem
     }
   }
 </script>
