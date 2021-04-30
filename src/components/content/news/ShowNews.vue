@@ -19,6 +19,9 @@
               </div>
             </div>
           </div>
+          <div class="source-link" v-if="news.sourceLink">
+            <a :href="news.sourceLink">点击查看原文</a>
+          </div>
           <article class="news-content" v-html="news.content"></article>
         </div>
       </el-col>
@@ -166,6 +169,9 @@ export default {
           font-weight: 400;
           line-height: 26px;
           margin: 0 0 16px;
+        }
+        .source-link {
+          margin: 16px 0 0;
         }
       }
     }

@@ -1,29 +1,28 @@
 <template>
-  <div class="incumbent">
+  <div class="incumbent" v-loading="loading">
     <div class="gallery">
-      <div class="gallery-item" v-for="(img, index) in imgList" :key="img.id">
+      <div class="gallery-item" v-for="img in imgList" :key="img.id">
         <el-image class="image" :src="img.content" :preview-src-list="srcList">
           <div slot="error" class="image-slot">
             <i class="el-icon-picture-outline"></i>
           </div>
         </el-image>
-        <div class="image-title" @click="dialogVisible[index] = true">
+        <div class="image-title"
+          @click="show({title:img.title, introduction:img.introduction, achievement:img.achievement})">
           {{ img.title }}
         </div>
-        <template slot-scope="{img}">
-          <el-dialog :title="img.title" :visible.sync="dialogVisible[index]" width="80%">
-            <h2>简介</h2>
-            <div v-html="img.introduction"></div>
-            <h2>成就</h2>
-            <div v-html="img.achievement"></div>
-            <span slot="footer" class="dialog-footer">
-              <el-button @click="dialogVisible[index] = false">取 消</el-button>
-              <el-button type="primary" @click="dialogVisible[index] = false">确 定</el-button>
-            </span>
-          </el-dialog>
-        </template>
       </div>
     </div>
+    <el-dialog v-if="temp" :title="temp.title" :visible.sync="showDialog" width="80%" center>
+      <h2 style="text-align:center;font-size: 1.5rem;margin: 10px 0;">简介</h2>
+      <div class="introduction" v-html="temp.introduction"></div>
+      <h2 style="text-align:center;font-size: 1.5rem;margin: 10px 0;">成就</h2>
+      <div class="achievement" v-html="temp.achievement"></div>
+      <span slot="footer" class="dialog-footer">
+        <el-button @click="showDialog = false">取 消</el-button>
+        <el-button type="primary" @click="showDialog = false">确 定</el-button>
+      </span>
+    </el-dialog>
   </div>
 </template>
 
@@ -36,8 +35,9 @@ export default {
   data() {
     return {
       imgList: null,
-      dialogVisible: null,
-      loading: false
+      loading: false,
+      showDialog: false,
+      temp: null
     }
   },
   created() {
@@ -45,7 +45,9 @@ export default {
     this.loading = true
     fetchIncumbent().then(({ data }) => {
       this.imgList = data
-      this.dialogVisible = data.map(() => false)
+      this.imgList.forEach(v => {
+        this.$set(v, 'showDialog', false)
+      })
       // 数据请求完场，关闭加载动画
       this.loading = false
     })
@@ -53,6 +55,12 @@ export default {
   computed: {
     srcList() {
       return this.imgList.map(v => v.content)
+    }
+  },
+  methods: {
+    show(content) {
+      this.temp = content
+      this.showDialog = true
     }
   }
 }
@@ -103,8 +111,19 @@ export default {
         text-align: center;
         background-color: #fff;
         flex: 1;
+        cursor: pointer;
+        &:hover {
+          color: #27ae60;
+        }
       }
     }
+  }
+  .introduction,
+  .achievement {
+    text-indent: 2em;
+    line-height: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
   }
 }
 </style>

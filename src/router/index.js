@@ -100,10 +100,23 @@ const routes = [
     path: '/news',
     component: () => import(/* webpackChunkName: "News" */ 'views/News.vue')
   },
+  // 更多新闻
+  {
+    path: '/news/more/:title',
+    name: 'MoreNews',
+    component: () => import(/* webpackChunkName: "MoreNews" */ 'components/News/MoreNews.vue')
+  },
   // 新闻展示
   {
     path: '/show/:type/:title',
+    name: 'ShowNews',
     component: () => import(/* webpackChunkName: "ShowNews" */ 'components/content/news/ShowNews.vue')
+  },
+  // 查看更多专题
+  {
+    path: '/special/more/:title',
+    name: 'MoreSpecial',
+    component: () => import(/* webpackChunkName: "MoreSpecial" */ 'components/Home/Special/MoreSpecial.vue')
   }
 ]
 

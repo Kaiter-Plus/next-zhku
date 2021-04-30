@@ -14,9 +14,7 @@ import {
   Pagination,
   Backtop,
   Dialog,
-  Loading,
-  MessageBox,
-  Message
+  Loading
 } from 'element-ui'
 
 // 基础布局
@@ -41,5 +39,3 @@ Vue.use(Backtop)
 Vue.use(Dialog)
 // 加载动画
 Vue.use(Loading)
-// 消息提示
-Vue.use(MessageBox).use(Message)

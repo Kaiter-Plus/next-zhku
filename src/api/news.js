@@ -18,11 +18,11 @@ export function getAllNewsCategoies() {
 }
 
 // 根据类型获取首页展示的新闻标题、时间（前十则）
-export function getNews(category, page, showCover) {
+export function getNews(category, page, showCover, limit) {
   return request({
     url: '/public/news',
     method: 'get',
-    params: { category, page, showCover }
+    params: { category, page, limit, showCover }
   })
 }
 

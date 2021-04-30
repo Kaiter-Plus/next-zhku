@@ -19,7 +19,7 @@ export default {
   components: { LinkContainer },
   data() {
     return {
-      links: null,
+      links: [],
       loading: false
     }
   },

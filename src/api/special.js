@@ -17,12 +17,12 @@ export function getAllSpecialCategoies() {
   })
 }
 
-// 根据类型获取首页展示的专题标题、时间（前四则）
-export function getHomeSpecial(category) {
+// 根据类型获取首页展示的专题标题、时间
+export function getSpecial(category, page) {
   return request({
-    url: '/public/special/home',
+    url: '/public/special',
     method: 'get',
-    params: { category }
+    params: { category, ...page }
   })
 }
 

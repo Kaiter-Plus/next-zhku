@@ -1,19 +1,9 @@
 <template>
   <div class="news-card-list">
-    <header v-if="category" class="news-type-title">
+    <header v-if="title" class="news-type-title">
       <div class="title">
         <div class="news-icon"></div>
-        <a href="javascript:void(0)" @click.prevent="showMore(category)">{{ category.description }}</a>
-      </div>
-      <div class="exchange-btn">
-        <div class="btn btn-change" @click="changeNews()">
-          <i class="icon el-icon-refresh"></i>
-          <span>换一批</span>
-        </div>
-        <a class="btn more" href="javascript:void(0)" @click.prevent="showMore(category)">
-          <span>更多</span>
-          <i class="icon el-icon-arrow-right"></i>
-        </a>
+        <span>{{ title }}</span>
       </div>
     </header>
     <div class="news-card-wrap" v-loading="loading">
@@ -32,6 +22,8 @@
         </el-col>
       </el-row>
     </div>
+    <pagination style="background: transparent;text-align:center" v-if="total>0" :total="total" :page.sync="page"
+      :limit.sync="limit" @pagination="getData" />
   </div>
 </template>
 
@@ -39,28 +31,39 @@
 // 请求
 import { getNews } from 'api/news'
 
+// 分页组件
+import Pagination from 'components/common/Pagination/index.vue'
+
 export default {
   name: 'NewsCardList',
+  components: { Pagination },
   data() {
     return {
+      title: null,
+      categoryId: null,
       newsList: null,
       // 加载状态
       loading: false,
       page: 1,
       total: 0,
-      showCover: true
+      showCover: true,
+      limit: 30
     }
   },
-  props: {
-    category: Object
-  },
   created() {
+    this.title = this.$route.params.title
+    this.categoryId = this.$route.query.id
     this.getData()
   },
   methods: {
-    changeNews() {
-      this.page = this.getRandomNum(Math.ceil(this.total / 10))
-      this.getData()
+    getData() {
+      // 加载动画
+      this.loading = true
+      getNews(this.categoryId, this.page, this.showCover, this.limit).then(({ data }) => {
+        this.newsList = data.list
+        this.total = data.total
+        this.loading = false
+      })
     },
     // 随机生成十六进制颜色
     randomRgbaColor() { // 随机生成RGBA颜色
@@ -70,28 +73,19 @@ export default {
       var alpha = Math.random(); // 随机生成1以内a值
       return `rgba(${r},${g},${b},${alpha})`; // 返回rgba(r,g,b,a)格式颜色
     },
-    getData() {
-      // 加载动画
-      this.loading = true
-      getNews(this.category.id, this.page, this.showCover).then(({ data }) => {
-        this.newsList = data.list
-        this.total = data.total
-        this.loading = false
-      })
-    },
-    getRandomNum(max) {
-      return Math.floor(Math.random() * max) + 1
-    },
-    showMore(category) {
-      this.$router.push({ path: `/news/more/${category.description}`, query: { id: category.id } })
-    }
+  },
+  // 防止组件复用不更新数据
+  activated() {
+    this.title = this.$route.params.title
+    this.categoryId = this.$route.query.id
+    this.getData()
   }
 }
 </script>
 
 <style lang="less" scoped>
 .news-card-list {
-  margin-bottom: 2.5rem;
+  margin: 0 1rem 2.5rem;
   .news-type-title {
     display: flex;
     align-items: center;
@@ -109,54 +103,11 @@ export default {
         background: url(~assets/img/icon/xinwen.png) no-repeat;
         background-size: contain;
       }
-      a {
+      span {
         margin: 0 1.25rem 0 0;
         vertical-align: bottom;
         font-size: 1.25rem;
         line-height: 2.25rem;
-      }
-    }
-    .exchange-btn {
-      display: flex;
-      .btn {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        cursor: pointer;
-        height: 1.375rem;
-        text-align: center;
-        border: 1px solid silver;
-        border-radius: 2px;
-        font-size: 0.75rem;
-        color: #505050;
-        line-height: 1.5rem;
-        box-sizing: border-box;
-      }
-      .btn-change {
-        width: 4.5rem;
-        transition: all 0.3s;
-        .icon {
-          display: inline-block;
-          transition: all 0.3s;
-          transform-origin: center;
-          margin-right: 2px;
-        }
-        span {
-          display: inline-block;
-        }
-        &:hover {
-          color: #5cc989;
-          .icon {
-            transform: rotateZ(720deg);
-          }
-        }
-      }
-    }
-    .more {
-      width: 3.625rem;
-      margin-left: 0.75rem;
-      span {
-        display: inline-block;
       }
     }
   }

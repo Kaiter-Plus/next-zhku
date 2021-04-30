@@ -45,14 +45,7 @@ export default {
       this.$nextTick(() => {
         loading.close()
       })
-    }).catch(err => {
-      // 错误处理待写
-      console.error(err)
     })
-  },
-  components: {
-    ZkRow,
-    ZkCol
   }
 }
 </script>

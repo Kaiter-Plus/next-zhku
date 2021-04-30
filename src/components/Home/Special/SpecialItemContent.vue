@@ -13,7 +13,7 @@
 
 <script>
 // 导入请求
-import { getHomeSpecial } from 'api/special'
+import { getSpecial } from 'api/special'
 
 export default {
   name: 'SpecialItemContent',
@@ -34,8 +34,8 @@ export default {
   },
   created() {
     this.loading = true
-    getHomeSpecial(this.category).then(({ data }) => {
-      this.contentList = data
+    getSpecial(this.category).then(({ data }) => {
+      this.contentList = data.list
       // 如果已经渠道数据，关闭加载动画
       this.loading = false
     })
