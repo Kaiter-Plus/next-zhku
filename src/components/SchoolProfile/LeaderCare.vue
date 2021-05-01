@@ -43,3 +43,12 @@ export default {
   }
 }
 </style>
+
+<style lang="less">
+@media screen and (max-width: 768px) {
+  .paragraph > p > img {
+    width: 90%;
+    height: auto;
+  }
+}
+</style>

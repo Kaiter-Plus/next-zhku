@@ -15,16 +15,5 @@ module.exports = {
         transitions: '@/transitions'
       }
     }
-  },
-  devServer: {
-    proxy: {
-      '/api': {
-        target: 'https://www.zhku.edu.cn',
-        changeOrigin: true,
-        pathRewrite: {
-          '^/api': ''
-        }
-      }
-    }
   }
 }

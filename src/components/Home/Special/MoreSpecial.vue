@@ -21,7 +21,8 @@
       </el-row>
     </div>
     <pagination style="background: transparent;text-align:center" v-if="total>0" :total="total"
-      :page.sync="pageQuery.page" :limit.sync="pageQuery.limit" @pagination="getData" />
+      :page.sync="pageQuery.page" :limit.sync="pageQuery.limit" @pagination="getData" layout="prev, pager, next"
+      :pager-count="5" :small="true" />
   </div>
 </template>
 

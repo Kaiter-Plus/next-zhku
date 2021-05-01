@@ -52,10 +52,3 @@ table tr td {
   border: 1px solid #ddd;
   border-collapse: collapse;
 }
-
-/* 查看文章时的图片大小 */
-.news-content img {
-  width: 90%;
-  height: auto;
-  transform: translateX(-1em);
-}

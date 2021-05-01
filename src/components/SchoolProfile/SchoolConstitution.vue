@@ -2,7 +2,7 @@
   <div class="school-constitution" v-if="pdf" v-loading="loading">
     <vue-pdf :page="pageNum" :src="pdf.content" @progress="loadedRatio=$event" @num-pages="total=$event" />
     <pagination v-if="total>0" :total="total" :page.sync="page" @pagination="currentPage" layout="prev, pager, next"
-      :limit="1" />
+      :limit="1" :pager-count="5" :small="true" />
   </div>
 </template>
 

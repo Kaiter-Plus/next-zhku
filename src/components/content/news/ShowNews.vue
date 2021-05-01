@@ -186,3 +186,12 @@ export default {
   }
 }
 </style>
+
+<style lang="less">
+/* 查看文章时的图片大小 */
+.news-content img {
+  width: 90%;
+  height: auto;
+  transform: translateX(-1em);
+}
+</style>

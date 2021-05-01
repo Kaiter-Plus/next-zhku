@@ -16,7 +16,8 @@
       </div>
     </div>
     <pagination v-show="total>0" :total="total" :page.sync="pageQuery.page" :limit.sync="pageQuery.limit"
-      @pagination="getSchoolScenery" style="background: transparent;" />
+      @pagination="getSchoolScenery" style="background: transparent;" :pager-count="5" :small="true"
+      layout="total, prev, pager, next" />
   </div>
 </template>
 
@@ -110,6 +111,9 @@ export default {
         background-color: #fff;
       }
     }
+  }
+  ::v-deep .el-pagination {
+    text-align: center;
   }
 }
 </style>
